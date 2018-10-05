@@ -1,0 +1,18 @@
+
+> accountingbackend@1.0.0 test /Users/bellji/backend
+> ./node_modules/mocha/bin/mocha --exit
+
+
+
+listening on port 3000
+  testing connectivity
+    ✓ http://localhost:3000 should return 200
+    ✓ http://localhost:3000/javascript/accApp.js should return 200
+    ✓ http://localhost:3000/createAccount should return 200
+
+  testing inputs
+    ✓ testing create Account with {user:aaa,password:bbb}
+
+
+  4 passing (78ms)
+
