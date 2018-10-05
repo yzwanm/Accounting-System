@@ -4,6 +4,7 @@
   "description": "A backend for the accounting mobile web app",
   "main": "index.js",
   "scripts": {
+    "start": "node ./index.js",
     "test": "./node_modules/mocha/bin/mocha --exit"
   },
   "author": "",
