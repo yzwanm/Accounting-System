@@ -25,7 +25,7 @@ function delete_user_info (user_name) {
 }
 
 
-describe('testing inputs', function () {
+describe('testing inputs to createAccount backend functions', function () {
     var json_string = {user:'DBTESTUSER',
 		       password:'bbb',
 		       first_name:'aaa',
