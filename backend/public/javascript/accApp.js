@@ -11,8 +11,13 @@ function createAccount() {
     $("#submit.create_account").click(function() {
 	user=$("#username.create_account").val();
 	pass=$("#password.create_account").val();
-	//.post is an asychronous function
-	$.post("http://localhost:3000/createAccount",{user: user,password: pass}, function(data) {
+	fName=$("#firstname.create_account").val();
+	lName=$("#lastname.create_account").val();
+	dob=$("#dob.create_account").val();
+	age=$("#age.create_account").val();
+	sex=$("#sex.create_account").val();
+	income=$("#income.create_account").val();
+	$.post("http://localhost:3000/createAccount",{user: user,password: pass, first_name: fName, last_name: lName, dob: dob, age: age, sex:sex, income:income}, function(data) {
 
 	    
 	    //////////////////////////////

@@ -17,20 +17,20 @@ describe('testing connectivity', function () {
 	});
     });
     it('http://localhost:3000/createAccount should return 200', function (done) {
-	request.post('http://localhost:3000/createAccount', {json:{user:'aaa',password:'bbb'}}, function (err, res, body){
+	request.post('http://localhost:3000/createAccount', {json:{}}, function (err, res, body){
 	    assert(res.statusCode == 200);
 	    done();
 	});
     });
 });
 
-describe('testing inputs', function () {
-    it('testing create Account with {user:aaa,password:bbb}', function(done) {
-	request.post('http://localhost:3000/createAccount', {json:{user:'aaa',password:'bbb'}}, function (err, res, body){
-	    assert(body === "done");
-	    done();
-	});
-    });
-});
+//describe('testing inputs', function () {
+//    it('testing create Account with {user:aaa,password:bbb,name:aaa}', function(done) {
+//	request.post('http://localhost:3000/createAccount', {json:{user:'aab',password:'bbb',first_name:'aaa'}}, function (err, res, body){
+//	    assert(body === "success");
+//	    done();
+//	});
+//    });
+//});
 
 
