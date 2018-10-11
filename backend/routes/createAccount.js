@@ -138,6 +138,10 @@ router.post('/', (req,res) => {
     }
 });
 
+router.get('/', (req,res) => {
+    res.render('createAccount');
+});
+
 router.insert_user_info = insert_user_info;
 router.check_for_user = check_for_user;
 router.add_user = add_user;
