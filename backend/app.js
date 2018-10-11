@@ -5,6 +5,7 @@ var viewProfileRouter = require('./routes/viewProfile');
 var logger = require('morgan');
 var app = express();
 
+app.set('view engine', 'pug');
 app.use(body_parser.urlencoded({ extended: false}));
 app.use(body_parser.json());
 app.use('/',express.static('./public'));
