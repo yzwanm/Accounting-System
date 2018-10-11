@@ -16,16 +16,6 @@ function createAccount() {
 	age=$("#age.create_account").val();
 	sex=$("#sex.create_account").val();
 	income=$("#income.create_account").val();
-	$.post("http://localhost:3000/createAccount",{user: user,password: pass, first_name: fName, last_name: lName, dob: dob, age: age, sex:sex, income:income}, function(data) {;
-    $("#submit").click(function() {
-	var user=$("#username").val();
-	var pass=$("#password").val();
-	var fName=$("#firstname").val();
-	var lName=$("#lastname").val();
-	var dob=$("#dob").val();
-	var age=$("#age").val();
-	var sex=$("#sex").val();
-	var income=$("#income").val();
 	$.post("http://localhost:3000/createAccount",{user: user,password: pass, first_name: fName, last_name: lName, dob: dob, age: age, sex:sex, income:income}, function(data) {
 	    if (data === "SUCCESS") {
 		//if the account was created successfully go to the following address
