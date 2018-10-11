@@ -9,7 +9,7 @@ class="create_account" is required for buttons and fields to work properly.
 function createAccount() {
     var user,pass;
     $("#submit.create_account").click(function() {
-	user=$("#username.create_account").val();
+	user=profile.username;
 	pass=$("#password.create_account").val();
 	fName=$("#firstname.create_account").val();
 	lName=$("#lastname.create_account").val();
@@ -17,13 +17,7 @@ function createAccount() {
 	age=$("#age.create_account").val();
 	sex=$("#sex.create_account").val();
 	income=$("#income.create_account").val();
-	$.post("http://localhost:3000/createAccount",{user: user,password: pass, first_name: fName, last_name: lName, dob: dob, age: age, sex:sex, income:income}, function(data) {
-
-	    
-	    //////////////////////////////
-	    /*replace with desired code */
-	    //////////////////////////////
-	    alert(data);
+	$.post("http://localhost:3000/createAccount",{user: user,password: pass, first_name: fName, last_name: lName, dob: dob, age: age, sex:sex, income:income}, function(data) {;
 
 	    
 	}); 

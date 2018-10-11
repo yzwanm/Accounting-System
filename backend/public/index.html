@@ -1,17 +1,75 @@
-<!DOCTYPE html>
-<html >
-<head>
-<meta charset="UTF-8">
-<title>Accounting Master</title>
+<!--<!DOCTYPE html>-->
+<!--<html >-->
+<!--<head>-->
+<!--<meta charset="UTF-8">-->
+<!--<title>Accounting Master</title>-->
 
+<!--</head>-->
+<!--<body>-->
+
+<!--<table align="center">-->
+  <!--<td></td>-->
+  <!--<td><h1>This should be our login page. And a button link to sign up page </td>-->
+<!--</table>-->
+
+<!--</body>-->
+<!--</html>-->
+<!DOCTYPE html>
+
+<style type="text/css">
+  <!--
+  .STYLE1 {
+    font-family: "PingFang SC";
+    color: #98bce7;
+  }
+</style>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Accounting Master</title>
 </head>
 <body>
-
-<table align="center">
-  <td></td>
-  <td><h1>This should be our login page. And a button link to sign up page </td>
-</table>
-
+<form>
+  <table align="center">
+    <tr>
+      <div align="center"><img src="images/logo.png"
+                               srcset="images/logo@2x.png 2x,
+             images/logo@3x.png 3x"
+                               class="logo"></div>
+    </tr>
+    <!-- <tr height="35px"> -->
+    <tr>
+      <!-- <td width="150px" class="STYLE1">Username:</td> -->
+      <td class="STYLE1">Username:</td>
+      <td>
+        <input type="text" name="username">
+      </td>
+    </tr>
+    <tr>
+      <td class="STYLE1">Password:</td>
+      <td>
+        <input type="password" name ="password"> <br>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2" align="center">
+        <form action="http://localhost:3000/login" method="POST">
+          <input name="login" type="image" src="images/login.png"
+                 srcset="images/login@2x.png 2x,
+             images/login@3x.png 3x"value="">
+        </form>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2" align="center">
+        <form action="http://localhost:3000/createAccount" method="POST">
+          <input name="signup" type="image" src="images/signup.png"
+                 srcset="images/signup@2x.png 2x,
+             images/signup@3x.png 3x"value="">
+        </form>
+      </td>
+    </tr>
+  </table>
+</form>
 </body>
 </html>
-
