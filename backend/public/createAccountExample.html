@@ -5,15 +5,29 @@
     <script src="//localhost:3000/javascript/accApp.js"> </script>                 
   </head>
   <body>
-    <h1>Test Example !</h1>
-    <label for = "firstname">First Name:</label><input type="TEXT" id="firstname" size="40" value="Bob"><br>
-    <label for = "lastname">Last Name:</label><input type="TEXT" id="lastname" size="40" value="Smith"><br>
-    <label for = "dob">Birth Day:</label><input type="TEXT" id="dob" size="40" value="2015-03-04"><br>
-    <label for = "age">Age:</label><input type="TEXT" id="age" size="40" value="31"><br>
-    <label for = "sex">Sex:</label><input type="TEXT" id="sex" size="40" value="M"><br>
-    <label for = "income">Income:</label><input type="TEXT" id="income" size="40" value="32452.3"><br>    
-    <label for = "username">user:</label><input type="TEXT" id="username" size="40" value="BobSmith"><br>
-    <label for = "password">password:</label><input type="password" id="password" size="40" value="password1"><br>
-    <input type="button" id="submit" value="Submit">
+  <table align="center">
+    <tr align="center"><td><h2>Accounting Master</h2></td></tr>
+    <tr><td>First Name</td></tr>
+    <tr><td><input type="TEXT" id="firstname" size="40" placeholder="FIRST NAME"></td></tr>
+    <tr><td>Last Name</td></tr>
+    <tr><td><input type="TEXT" id="lastname" size="40" placeholder="LAST NAME"></td></tr>
+    <tr><td>User Name</td></tr>
+    <tr><td><input type="TEXT" id="username" size="40" placeholder="USER NAME"></td></tr>
+    <tr><td>Password</td></tr>
+    <tr><td><input type="password" id="password" size="40" placeholder="PASSWORD"></td></tr>
+    <tr><td>Confirm Password</td></tr>
+    <tr><td><input type="password" id="confirmpassword" size="40" placeholder="CONFIRM PASSWORD"></td></tr>
+    <tr><td>Gender:  <radio id="sex" checked="checked" name="1" />MALE<radio id="sex"  name="1"/>FEMALE</td></tr>
+    <!--<tr><td>Income:  <select id="income">-->
+      <!--<option value="NA">NA</option>-->
+      <!--<option value ="1500">1000~2000</option>-->
+      <!--<option value ="3000~">2000~4000</option>-->
+      <!--<option value="5000">4000~6000</option>-->
+      <!--<option value="8000">6000~10000</option>-->
+      <!--<option value="10000">10000+</option>-->
+    <!--</select></td></tr>-->
+    <!--<tr><td>BirthDay:  <select></select></td></tr>-->
+    <tr><td><input type="button" id="submit" value="Sign up"></td></tr>
+  </table>
   </body>
 </html>

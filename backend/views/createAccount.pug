@@ -1,12 +1,71 @@
-doctype html
 html
     head
-        title Create Account
-        link(rel='stylesheet', href='/stylesheets/style.css')
-        script(src='//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js')
-        script(src='//localhost:3000/javascript/accApp.js')
+        title Simple login
+        |
+        script(src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js")
+        |
+        script(src="//localhost:3000/javascript/accApp.js")
+    |
     body
-        h1(align='center', style='color: #ffffff')
-        input#username.form-control(type="text", placeholder="Username")
-        input#password.form-control(type="password", placeholder="Password")
-        input#confirmpassword.form-control(type="password", placeholder="Confirm Password")
+        table(align="center")
+            tr(align="center")
+                td
+                    h2 Accounting Master
+            |
+            tr
+                td First Name
+            |
+            tr
+                td
+                    input#firstname(type="TEXT", size="40", placeholder="FIRST NAME")
+            |
+            tr
+                td Last Name
+            |
+            tr
+                td
+                    input#lastname(type="TEXT", size="40", placeholder="LAST NAME")
+            |
+            tr
+                td User Name
+            |
+            tr
+                td
+                    input#username(type="TEXT", size="40", placeholder="USER NAME")
+            |
+            tr
+                td Password
+            |
+            tr
+                td
+                    input#password(type="password", size="40", placeholder="PASSWORD")
+            |
+            tr
+                td Confirm Password
+            |
+            tr
+                td
+                    input#confirmpassword(type="password", size="40", placeholder="CONFIRM PASSWORD")
+            |
+            tr
+                td
+                    | Gender:
+                    input#man(type="radio", checked="checked", name="1")
+                    | MALE
+                    input#woman(type="radio", name="1")
+                    | FEMALE
+            |
+            tr
+                td Income:
+            tr
+                td
+                    input#income(type="text", size="40", placeholder="INCOME")
+            tr
+                td
+                    | BirthDay:
+                    select
+            |
+            tr
+                td(align="center")
+                    input#submit(type="button", value="Sign up")
+

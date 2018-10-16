@@ -11,6 +11,6 @@ app.use(body_parser.json());
 app.use('/',express.static('./public'));
 app.use('/javascript',express.static('./public/javascript'));
 app.use('/createAccount',createAccountRouter);
-app.use('/viewProfile', viewProfileRouter);
+app.use('/userProfile', viewProfileRouter);
 
 module.exports = app;
