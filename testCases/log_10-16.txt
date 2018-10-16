@@ -1,0 +1,43 @@
+
+> accountingbackend@1.0.0 test /Users/bellji/github_test/Accounting-System/backend
+> ./node_modules/mocha/bin/mocha --exit
+
+
+
+listening on port 3000
+  testing connectivity
+Connected!
+    ✓ http://localhost:3000 should return 200
+    ✓ http://localhost:3000/javascript/accApp.js should return 200
+    ✓ http://localhost:3000/createAccount should return 200
+    ✓ http://localhost:3000/login should return 200
+
+  testing inputs to createAccount backend functions
+    ✓ testing if insert_user_info() adds user information to the database (166ms)
+    ✓ testing that check_for_user() can check if a user is found in the database (108ms)
+    ✓ testing that check_for_user() can check if a user is NOT found in the database
+    ✓ testing that add_user() will add a user to the database (112ms)
+    ✓ testing that add_user() will return ERR_USER_EXISTS if a that user_name is already in the database (139ms)
+    ✓ testing loading data to profile table through /createAccount Route (146ms)
+    ✓ testing bcrypt is being used to hash passwords (98ms)
+    ✓ testing /createAccount returns ERR_NO_USER if user_name is null
+    ✓ testing /createAccount returns ERR_NO_USER if user_name is empty
+    ✓ testing /createAccount returns ERR_NO_PASS if password is null
+    ✓ testing /createAccount returns ERR_NO_PASS if password is empty
+    ✓ testing /createAccount returns ERR_NO_FNAME if password is null
+    ✓ testing /createAccount returns ERR_NO_FNAME if password is empty
+    ✓ testing /createAccount returns SUCCESS with user_name,password, and first_name (126ms)
+    ✓ testing check_mime_type().
+    ✓ testing add_photo() to check that photo is added
+    ✓ testing loading image through /createAccount Route (142ms)
+
+  testing login backend functions
+    ✓ testing that check_for_user() can check if a user is found in the database (153ms)
+    ✓ testing that check_for_user() can check if a user is NOT found in the database
+    ✓ testing check_password() returns SUCCESS when password is correct (209ms)
+    ✓ testing check_password() returns FAILED when password is incorrect (213ms)
+    ✓ testing check_password() returns FAILED when username does not exist (38ms)
+
+
+  26 passing (2s)
+
