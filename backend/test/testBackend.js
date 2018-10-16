@@ -22,15 +22,11 @@ describe('testing connectivity', function () {
 	    done();
 	});
     });
+    it('http://localhost:3000/login should return 200', function (done) {
+	request.post('http://localhost:3000/login', {json:{}}, function (err, res, body){
+	    assert(res.statusCode == 200);
+	    done();
+	});
+    });
 });
-
-//describe('testing inputs', function () {
-//    it('testing create Account with {user:aaa,password:bbb,name:aaa}', function(done) {
-//	request.post('http://localhost:3000/createAccount', {json:{user:'aab',password:'bbb',first_name:'aaa'}}, function (err, res, body){
-//	    assert(body === "success");
-//	    done();
-//	});
-//    });
-//});
-
 
