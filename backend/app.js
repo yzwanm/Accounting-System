@@ -5,6 +5,9 @@ var loginRouter = require('./routes/login');
 var viewProfileRouter = require('./routes/viewProfile');
 var logger = require('morgan');
 var app = express();
+var cors = require('cors')
+
+app.use(cors())
 
 app.set('view engine', 'pug');
 app.use(body_parser.urlencoded({ extended: false}));
