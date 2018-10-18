@@ -1,12 +1,14 @@
-html
+extends layout
+block content
+
+    input(id='viewProfile', type='button', value='UserProfile')
+
     head
         title View Profile
         |
         script(src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js")
         |
-        script(src="//localhost:3000/viewProfilefroentend.js")
-    |
+
     body
         h2 Accounting Master
-
-
+        script(src="//localhost/javascript/viewProfile.js")

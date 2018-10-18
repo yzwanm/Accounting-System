@@ -79,7 +79,6 @@ describe('testing inputs to createAccount backend functions', function () {
 	delete_user_info(json.user);
 	var salt = bcrypt.genSaltSync(10);
 	var hash = bcrypt.hashSync(json.password,salt);
-	var res = new PassThrough();
 	createAccount.insert_user_info(json.first_name,json.last_name,json.dob,json.age,json.sex,json.income,json.user,hash,salt, function (result) {
 	    assert(result == "SUCCESS");
 	    createAccount.check_for_user(json.user,(result) => {

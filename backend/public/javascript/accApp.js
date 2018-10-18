@@ -7,34 +7,6 @@ account may be added to the database.
 */
 function createAccount() {
     var user,pass;
-    $("#submit").click(function() {
-	user=$("#username").val();
-	pass=$("#password").val();
-	fName=$("#firstname").val();
-	lName=$("#lastname").val();
-	dob=$("#dob").val();
-	age=$("#age").val();
-	sex=$("#sex").val();
-	income=$("#income").val();
-	$.post("http://localhost:3000/createAccount",{user: user,password: pass, first_name: fName, last_name: lName, dob: dob, age: age, sex:sex, income:income}, function(data) {
-	    if (data === "SUCCESS") {
-		//if the account was created successfully go to the following address
-		var url = "http://localhost:3000/login.html";
-		document.location.href = url;
-	    } else if (data === "ERR_USER_EXISTS")  {
-		//the user is already in the database
-		alert(user + " already exists");
-	    } else if (data === "ERR_NO_USER") {
-		//user is null or empty
-		alert("User field is required");
-	    } else if (data === "ERR_NO_PASS") {
-		//pass is null or empty
-		alert("password field is required");
-	    } else if (data === "ERR_NO_FNAME") {
-		//fName is null or empty
-		alert("First Name field is required");
-	    } else {
-		alert("an error has prevented you from signing up. (" + data + ")");
     $("#submit").click(function(e) {
 	e.preventDefault();
 	var user=$("#username").val();
