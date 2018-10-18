@@ -2,14 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0364e141-23db-4cb2-909f-17cee58f225d" name="Default Changelist" comment="add viewProfile">
-      <change afterPath="$PROJECT_DIR$/backend/public/javascript/viewProfile.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testCases/Screen Shot 2018-10-16 at 1.29.19 AM.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testCases/log_10-16.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/javascript/accApp.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/javascript/accApp.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/javascript/viewProfilefroentend.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/routes/viewProfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/viewProfile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/views/viewProfile.pug" beforeDir="false" afterPath="$PROJECT_DIR$/backend/views/viewProfile.pug" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -38,7 +36,7 @@
           <entry key="css" value="3" />
           <entry key="html" value="26" />
           <entry key="jade" value="8" />
-          <entry key="js" value="36" />
+          <entry key="js" value="39" />
           <entry key="json" value="2" />
           <entry key="pug" value="12" />
         </counts>
@@ -49,14 +47,14 @@
           <entry key="HTML" value="26" />
           <entry key="JSON" value="2" />
           <entry key="Jade" value="20" />
-          <entry key="JavaScript" value="36" />
+          <entry key="JavaScript" value="39" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="html" value="1743" />
           <entry key="jade" value="4" />
-          <entry key="js" value="3108" />
+          <entry key="js" value="3110" />
           <entry key="pug" value="804" />
           <entry key="txt" value="15" />
         </counts>
@@ -65,7 +63,7 @@
         <counts>
           <entry key="HTML" value="1743" />
           <entry key="Jade" value="808" />
-          <entry key="JavaScript" value="3108" />
+          <entry key="JavaScript" value="3110" />
           <entry key="PLAIN_TEXT" value="15" />
         </counts>
       </usages-collector>
@@ -73,11 +71,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/backend/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="48" selection-start-line="48" selection-end-line="48" />
+            <state relative-caret-position="105">
+              <caret line="34" column="30" selection-start-line="34" selection-start-column="30" selection-end-line="34" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -109,12 +107,29 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/backend/routes/viewProfile.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="625">
               <caret line="54" column="13" selection-start-line="54" selection-start-column="13" selection-end-line="54" selection-end-column="13" />
             </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backend/routes/users.js">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backend/routes/index.js">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backend/routes/login.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-215" />
           </provider>
         </entry>
       </file>
@@ -154,11 +169,11 @@
         <option value="$PROJECT_DIR$/backend/views/index.pug" />
         <option value="$PROJECT_DIR$/backend/views/layout.pug" />
         <option value="$PROJECT_DIR$/backend/views/error.pug" />
-        <option value="$PROJECT_DIR$/backend/app.js" />
         <option value="$PROJECT_DIR$/backend/views/error.jade" />
         <option value="$PROJECT_DIR$/backend/public/javascript/viewProfile.js" />
         <option value="$PROJECT_DIR$/backend/routes/viewProfile.js" />
         <option value="$PROJECT_DIR$/backend/views/viewProfile.pug" />
+        <option value="$PROJECT_DIR$/backend/app.js" />
       </list>
     </option>
   </component>
@@ -284,7 +299,7 @@
       <workItem from="1539237992616" duration="10192000" />
       <workItem from="1539288526323" duration="4675000" />
       <workItem from="1539304716077" duration="29877000" />
-      <workItem from="1539747974148" duration="6263000" />
+      <workItem from="1539747974148" duration="6744000" />
     </task>
     <task id="LOCAL-00001" summary="add viewProfile">
       <created>1539205210047</created>
@@ -297,7 +312,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="68716000" />
+    <option name="totallyTimeSpent" value="69197000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -310,6 +325,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.28893587" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -494,13 +510,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="48" selection-start-line="48" selection-end-line="48" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/backend/views/viewProfile.pug">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
@@ -519,6 +528,24 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="625">
           <caret line="54" column="13" selection-start-line="54" selection-start-column="13" selection-end-line="54" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/routes/users.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/routes/index.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/routes/login.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-215" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="34" column="30" selection-start-line="34" selection-start-column="30" selection-end-line="34" selection-end-column="30" />
         </state>
       </provider>
     </entry>
