@@ -41,19 +41,18 @@ var sql2 = "select USER_NAME, PASSWORD from users where USER_NAME= ?";
 var str= "xxx ";
 
 router.get('/', function (req, res) {
-    res.render('viewProfile');
     dbconnection.query(sql1, [user_name], function (err, result) {
-        if(err){
-            throw err;
-        }else {
-            var first_name = result[0].FIRST_NAME;
-            var last_name = result[0].LAST_NAME;
-            var birth_day = result[0].BIRTH_DAY;
-            var sex = result[0].SEX;
-            var income = result[0].INCOME
-            str = JSON.stringify(result);
-            res.end(str);
+        if(err) {
+            console.log("error:", err.message);
         }
+        var first_name = result[0].FIRST_NAME;
+        var last_name = result[0].LAST_NAME;
+        var birth_day = result[0].BIRTH_DAY;
+        var sex = result[0].SEX;
+        var income = result[0].INCOME
+        str = JSON.stringify(result);
+        res.render('viewProfile', {title:'viewProfile', profile:str});
+        res.send(str);
     });
 });
 // router.get('/', function (req, res) {
