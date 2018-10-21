@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+     My Profile
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-list-header>
+    <ion-item>
+      <div align="center">
+        <img src="https://b-ssl.duitang.com/uploads/item/201708/26/20170826051009_dFuQc.jpeg"  width="150" height="150">
+      </div>
+    </ion-item>
+    </ion-list-header>
+    <ion-list *ngFor="let profiel of profilelist">
+
+      <ion-item>
+        <div align="center" class="item item-avatar">
+          <label class="item item-input">
+            <span class="input-label">Username：</span>
+            <input disabled = true type="text" value="{{profiel.username}}" readonly>
+          </label>
+        </div>
+      </ion-item>
+      <ion-item>
+        <div align="center" class="item item-avatar">
+          <label class="item item-input">
+            <span class="input-label">Password：</span>
+            <input disabled = true type="text" value="{{profiel.password}}" readonly>
+          </label>
+        </div>
+      </ion-item>
+    </ion-list>
+    <button ion-button block color="default" outline (click)="logout()">Logout </button>
+
+
+  </ion-list>
+</ion-content>
+
+
