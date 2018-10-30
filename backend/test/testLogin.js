@@ -96,4 +96,4 @@ describe('testing login backend functions', function () {
     });
 
 
-})
+});

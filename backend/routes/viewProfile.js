@@ -63,6 +63,7 @@ router.get('/', function (req, res) {
 //     res.send(str);
 // });
 router.post('/',function(req,res){
+    console.log('updating user');
     var first_name = req.body.first_name;
     var last_name = req.body.last_name;
     var age = req.body.age;
