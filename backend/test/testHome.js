@@ -47,19 +47,6 @@ describe('checking recent entry', function () {
         done();
     });
 
-    // it('testing home page with no transactions', function (done) {
-    //     sq = "DELETE FROM expenses";
-    //     dbconnection.query(sq, [], function (err, result) {
-    //         if (err) throw err;
-    //     });
-      
-    //     var json1 = {user:'Bob',elements:4};
-    //     request.get('http://localhost:3000/home', {json:json1}, function (err, res, body){
-    //         assert(res.body==[]);
-    //     });
-
-    //     done();
-    // });
 
 
 });

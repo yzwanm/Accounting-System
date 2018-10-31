@@ -8,15 +8,20 @@ async function get_recent_transactions(user_name,elements,callback) {
     console.log(user_name);
     console.log(elements);
     var sql1 = "select USER_NAME,EXPENSES,CATEGORY from expenses where USER_NAME= ?";
-    dbconnection.query(sql1, [user_name], function (error, results) {
-        if (error) {
-          console.log("error ocurred", error);
-        } 
-        jsond = JSON.stringify(results);
-                    //   res.render('Home', {title:'Home', home:jsond});
-        callback(jsond); 
-      });
+    let promises = [];
+    promises[0] = new Promise(function (resolve,reject) {
+        dbconnection.query(sql1, [user_name], function (error, results) {
+            if (error) {
+              console.log("error ocurred", error);
+            } 
+            jsond = JSON.stringify(results);
+                        //   res.render('Home', {title:'Home', home:jsond});
+            resolve(jsond); 
+          });
 
+    });
+    var res = await promises[0];
+    callback(res)
 }
 
 
