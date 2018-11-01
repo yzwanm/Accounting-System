@@ -1,0 +1,91 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+     My Profile
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-list-header>
+    <ion-item>
+      <div align="center">
+        <img src="https://b-ssl.duitang.com/uploads/item/201708/26/20170826051009_dFuQc.jpeg"  width="150" height="150">
+      </div>
+    </ion-item>
+    </ion-list-header>
+    <ion-list *ngFor="let profile of profilelist">
+      <ion-item>
+        <div align="right" class="item-avatar">
+
+        </div>
+      </ion-item>
+      <!--username-->
+      <ion-item>
+        <div align="center" class="item item-avatar">
+          <label class="item item-input">
+            <span class="input-label">Username：</span>
+            <input type="text" id="username" value="{{profile.username}}" readonly>
+          </label>
+          <!--<a class="button button-ios-primary" color="default" outline (click)="username_edit()">Edit</a>-->
+          <button ion-button color="light" outline round (click)="username_edit()">View</button>
+        </div>
+      </ion-item>
+      <!--password-->
+      <ion-item>
+        <div align="center" class="item item-avatar">
+          <label class="item item-input">
+            <span class="input-label">Password：</span>
+            <input disabled = true type="password" id="password" value="{{profile.password}}" readonly>
+          </label>
+          <button ion-button color="light" outline round (click)="password_edit()">Edit</button>
+        </div>
+      </ion-item>
+      <!--firstname-->
+      <ion-item>
+        <div align="center" class="item item-avatar">
+          <label class="item item-input">
+            <span class="input-label">First name：</span>
+            <input disabled = true type="text" id="fname" value="{{firstname}}" readonly>
+          </label>
+          <button ion-button color="light" outline round (click)="fname_edit()">Edit</button>
+        </div>
+      </ion-item>
+      <!--lastname-->
+      <ion-item>
+        <div align="center" class="item item-avatar">
+          <label class="item item-input">
+            <span class="input-label">Last name：</span>
+            <input disabled = true type="text" id="lname" value="{{lastname}}" readonly>
+          </label>
+          <button ion-button color="light" outline round (click)="lname_edit()">Edit</button>
+        </div>
+      </ion-item>
+      <!--gender-->
+      <ion-item>
+        <div align="center" class="item item-avatar">
+          <label class="item item-input">
+            <span class="input-label">Gender：</span>
+            <input disabled = true type="text" id="gender" value="{{genderlist}}" readonly>
+          </label>
+          <button ion-button color="light" outline round (click)="gender_edit()">Edit</button>
+        </div>
+      </ion-item>
+      <!--dob-->
+      <ion-item>
+        <div align="center" class="item item-avatar">
+          <label class="item item-input">
+            <span class="input-label">Date of birth：</span>
+            <input disabled = true type="text" id="dob" value="{{profile.dob}}" readonly>
+          </label>
+          <button ion-button color="light" outline round (click)="dob_edit()">Edit</button>
+        </div>
+      </ion-item>
+    </ion-list>
+    <button ion-button block color="default" outline (click)="logout()">Logout </button>
+  </ion-list>
+
+</ion-content>
+
+
