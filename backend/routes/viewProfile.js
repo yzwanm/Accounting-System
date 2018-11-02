@@ -74,8 +74,11 @@ router.post('/',function(req,res){
     var user_name = req.body.user;
     key_list = [first_name,last_name,age,sex,income,dob];
     if(key_list.contains(key)==false)
+    {
         console.log('error');
         res.end("ERROR");
+    }
+      
 
     if (key == dob)
     {
@@ -95,14 +98,14 @@ router.post('/',function(req,res){
 
 function update_user (key,value,username,callback)
 {
-    dbconnection.query('SELECT * FROM profile WHERE USER_NAME = "nablec"', function (error, results, fields) {
+    dbconnection.query('SELECT * FROM profile WHERE USER_NAME = ?', [username],function (error, results, fields) {
         if (error) {
             console.log("error ocurred", error);
         } else {
             if (results.length > 0) {
-                sql = 'UPDATE profile SET ' +key +' = ? WHERE USER_NAME = "nablec"';
+                sql = 'UPDATE profile SET ' +key +' = ? WHERE USER_NAME = ?';
                 console.log(sql);
-                dbconnection.query(sql, [value], function (error, results, fields) {
+                dbconnection.query(sql, [value,username], function (error, results, fields) {
                     if (error) {
                         console.log("error", error);
                     }
