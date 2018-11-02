@@ -3,7 +3,6 @@ import {AlertController, NavController, ToastController} from 'ionic-angular';
 import {LoginPage} from "../login/login";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 
-
 @Component({
   selector: 'page-contact',
   templateUrl: 'contact.html'
@@ -24,23 +23,24 @@ export class ContactPage {
     return toast;
   }
 
-
-  profilelist = [];
+  username="Bob";
+  password= '102345';
+  dob="2000-05-21";
   firstname: string;
   lastname: string;
-  passwordlist: string;
   genderlist: string;
-  ionViewDidLoad() {
-    this.profilelist = this.getProfile();
-  }
-  private getProfile() {
-    return [
-        {
-          username: "Bob",
-          password: '102345',
-          fname:'Smith'
-        }];
-  }
+  income=60000;
+  // ionViewDidLoad() {
+  //   this.profilelist = this.getProfile();
+  // }
+  // private getProfile() {
+  //   return [
+  //       {
+  //         username: "Bob",
+  //         password: '102345',
+  //         fname:'Smith'
+  //       }];
+  // }
 
 
   username_edit(){
@@ -82,7 +82,7 @@ export class ContactPage {
                       // let htmldata = eval('('+jsondata+')');
                       this.firstname = jsondata['first_name'];
                       let myheaders = new HttpHeaders({ });
-                      this.http.post("http://localhost:3000/viewprofile", jsondata,{headers: myheaders, responseType:'text'})
+                      this.http.post("http://localhost:3000/viewprofile", {key: 'FIRST_NAME',value:this.firstname},{headers: myheaders, responseType:'text'})
                           .subscribe((data)=>{
                             if (data == "SAVED") {
                               this.editCtrl.create({
@@ -122,7 +122,7 @@ export class ContactPage {
                       let jsondata = JSON.parse(JSON.stringify(data));
                       this.lastname = jsondata['last_name'];
                       let myheaders = new HttpHeaders({ });
-                      this.http.post("http://localhost:3000/viewprofile", jsondata,{headers: myheaders, responseType:'text'})
+                      this.http.post("http://localhost:3000/viewprofile", {key: 'LAST_NAME',value:this.lastname},{headers: myheaders, responseType:'text'})
                           .subscribe((data)=>{
                               if (data == "SAVED") {
                                   this.editCtrl.create({
@@ -179,30 +179,47 @@ export class ContactPage {
       edit.addButton({
           text: 'Save',
           handler: gender => {
-              console.log('Radio data:', gender);
               this.genderlist = gender;
+              let myheaders = new HttpHeaders({ });
+              this.http.post("http://localhost:3000/viewprofile", {key: 'SEX',value:this.genderlist},{headers: myheaders, responseType:'text'})
+                  .subscribe((data)=>{
+                      if (data == "SAVED") {
+                          this.editCtrl.create({
+                              message:"Last name has been changed!"
+                          });
+                      }
+                      else{
+                          this.editCtrl.create({
+                              message:"Change failed!"
+                          });
+                      }
+                  })
+              console.log('Saved clicked');
+
           }
       });
       edit.present();
   }
-  dob_edit(){
-      let edit = this.editCtrl.create({
-          title: 'Date of birth',
-          message: 'Chooser your birthday',
 
-          buttons: [
-              {
-                  text: 'Cancel',
-              },
-              {
-                  text: 'Save',
-                  handler: dob => {
-                      console.log('Saved clicked');
-                  }
+  dob_edit(){
+      let myheaders =new HttpHeaders({});
+      this.http.post("http://localhost:3000/viewprofile",{key:'BIRTH_DAY',value:this.dob},{headers: myheaders, responseType:'text'})
+          .subscribe((data)=>{
+              if (data == "SAVED") {
+                  this.editCtrl.create({
+                      message:"Birthday has been changed!"
+                  });
               }
-          ]
-      });
-      edit.present();
+              else{
+                  this.editCtrl.create({
+                      message:"Change failed!"
+                  });
+              }
+          })
+      console.log('Saved clicked');
+  }
+  income_edit() {
+
   }
   password_edit() {
       // document.getElementById("password").removeAttribute("readonly");

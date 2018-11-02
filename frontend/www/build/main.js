@@ -175,7 +175,7 @@ var SignupPage = /** @class */ (function () {
     };
     SignupPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-signup',template:/*ion-inline-start:"/Users/nablec/WebstormProjects/AccountingAPP/frontend/src/pages/signup/signup.html"*/'<!--\n  Generated template for the SignupPage page.\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar color="whatsapp">\n    <ion-title>signup</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n  <ion-list>\n    <ion-item>\n      <div align="center">\n        <img src="./assets/imgs/logo 2.png" srcset="./assets/imgs/logo@2x.png 2x, ./assets/imgs/logo@3x.png 3x" class="logo">\n      </div>\n    </ion-item>\n    <ion-item>\n      <ion-label floating>Username</ion-label>\n      <ion-input [(ngModel)]="username" type="text" placeholder="Username" class=""></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label floating>Password</ion-label>\n      <ion-input [(ngModel)]="password" type="password" placeholder="Password"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label floating>Confirm Password</ion-label>\n      <ion-input [(ngModel)]="cnfrpwd" type="password" placeholder="Confirm Password"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label floating>First Name</ion-label>\n      <ion-input [(ngModel)]="firstname" type="text" placeholder="First Name"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label floating>Last Name</ion-label>\n      <ion-input [(ngModel)]="lastname" type="text" placeholder="Last Name"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label floating>Birth Date</ion-label>\n<ion-datetime [(ngModel)]="birthdate" required name="birthdate" displayFormat="DD MMM YYYY" pickerFormat="YYYY-MM-DD" [ngModelOptions]="{standalone:true}"></ion-datetime>\n    </ion-item>\n    <ion-item>\n      <ion-label floating>Gender</ion-label>\n      <ion-select [(ngModel)]="gender">\n        <ion-option value="female">Female</ion-option>\n        <ion-option value="male">Male</ion-option>\n	<ion-option value="nonbinary">Non-Binary</ion-option>\n	<ion-option value="agender">Agender</ion-option>\n	<ion-option value="bigender">Bigender</ion-option>\n	<ion-option value="other">Other</ion-option>\n      </ion-select>\n    </ion-item>  \n    <ion-item>\n      <ion-label floating>Income</ion-label>\n      <ion-input [(ngModel)]="income" type="text" placeholder="Income"></ion-input>\n    </ion-item>\n\n    \n    <button ion-button block color="default" outline (click)="signUp()">Signup</button>\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"/Users/nablec/WebstormProjects/AccountingAPP/frontend/src/pages/signup/signup.html"*/,
+            selector: 'page-signup',template:/*ion-inline-start:"/Users/nablec/WebstormProjects/AccountingAPP/frontend/src/pages/signup/signup.html"*/'<!--\n  Generated template for the SignupPage page.\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar color="whatsapp">\n    <ion-title>signup</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n  <ion-list>\n    <ion-item>\n      <div align="center">\n        <img src="./assets/imgs/logo 2.png" srcset="./assets/imgs/logo@2x.png 2x, ./assets/imgs/logo@3x.png 3x" class="logo">\n      </div>\n    </ion-item>\n    <ion-item>\n      <ion-label floating>Username</ion-label>\n      <ion-input [(ngModel)]="username" type="text" placeholder="Username" class=""></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label floating>Password</ion-label>\n      <ion-input [(ngModel)]="password" type="password" placeholder="Password"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label floating>Confirm Password</ion-label>\n      <ion-input [(ngModel)]="cnfrpwd" type="password" placeholder="Confirm Password"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label floating>First Name</ion-label>\n      <ion-input [(ngModel)]="firstname" type="text" placeholder="First Name"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label floating>Last Name</ion-label>\n      <ion-input [(ngModel)]="lastname" type="text" placeholder="Last Name"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label floating>Birth Date</ion-label>\n<ion-datetime [(ngModel)]="birthdate" required name="birthdate" displayFormat="DD MM YYYY" pickerFormat="YYYY-MM-DD" [ngModelOptions]="{standalone:true}"></ion-datetime>\n    </ion-item>\n    <ion-item>\n      <ion-label floating>Gender</ion-label>\n      <ion-select [(ngModel)]="gender">\n        <ion-option value="female">Female</ion-option>\n        <ion-option value="male">Male</ion-option>\n	<ion-option value="nonbinary">Non-Binary</ion-option>\n	<ion-option value="agender">Agender</ion-option>\n	<ion-option value="bigender">Bigender</ion-option>\n	<ion-option value="other">Other</ion-option>\n      </ion-select>\n    </ion-item>\n    <ion-item>\n      <ion-label floating>Income</ion-label>\n      <ion-input [(ngModel)]="income" type="text" placeholder="Income"></ion-input>\n    </ion-item>\n\n\n    <button ion-button block color="default" outline (click)="signUp()">Signup</button>\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"/Users/nablec/WebstormProjects/AccountingAPP/frontend/src/pages/signup/signup.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ToastController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */]])
     ], SignupPage);
@@ -335,7 +335,10 @@ var ContactPage = /** @class */ (function () {
         this.editCtrl = editCtrl;
         this.toastCtrl = toastCtrl;
         this.http = http;
-        this.profilelist = [];
+        this.username = "Bob";
+        this.password = '102345';
+        this.dob = "2000-05-21";
+        this.income = 60000;
     }
     ContactPage.prototype.presentToast = function (message) {
         var toast = this.toastCtrl.create({
@@ -346,18 +349,17 @@ var ContactPage = /** @class */ (function () {
         toast.present();
         return toast;
     };
-    ContactPage.prototype.ionViewDidLoad = function () {
-        this.profilelist = this.getProfile();
-    };
-    ContactPage.prototype.getProfile = function () {
-        return [
-            {
-                username: "Bob",
-                password: '102345',
-                fname: 'Smith'
-            }
-        ];
-    };
+    // ionViewDidLoad() {
+    //   this.profilelist = this.getProfile();
+    // }
+    // private getProfile() {
+    //   return [
+    //       {
+    //         username: "Bob",
+    //         password: '102345',
+    //         fname:'Smith'
+    //       }];
+    // }
     ContactPage.prototype.username_edit = function () {
         var view = this.editCtrl.create({
             title: 'Username',
@@ -397,7 +399,7 @@ var ContactPage = /** @class */ (function () {
                         // let htmldata = eval('('+jsondata+')');
                         _this.firstname = jsondata['first_name'];
                         var myheaders = new __WEBPACK_IMPORTED_MODULE_3__angular_common_http__["c" /* HttpHeaders */]({});
-                        _this.http.post("http://localhost:3000/viewprofile", jsondata, { headers: myheaders, responseType: 'text' })
+                        _this.http.post("http://localhost:3000/viewprofile", { key: 'FIRST_NAME', value: _this.firstname }, { headers: myheaders, responseType: 'text' })
                             .subscribe(function (data) {
                             if (data == "SAVED") {
                                 _this.editCtrl.create({
@@ -438,7 +440,7 @@ var ContactPage = /** @class */ (function () {
                         var jsondata = JSON.parse(JSON.stringify(data));
                         _this.lastname = jsondata['last_name'];
                         var myheaders = new __WEBPACK_IMPORTED_MODULE_3__angular_common_http__["c" /* HttpHeaders */]({});
-                        _this.http.post("http://localhost:3000/viewprofile", jsondata, { headers: myheaders, responseType: 'text' })
+                        _this.http.post("http://localhost:3000/viewprofile", { key: 'LAST_NAME', value: _this.lastname }, { headers: myheaders, responseType: 'text' })
                             .subscribe(function (data) {
                             if (data == "SAVED") {
                                 _this.editCtrl.create({
@@ -496,29 +498,45 @@ var ContactPage = /** @class */ (function () {
         edit.addButton({
             text: 'Save',
             handler: function (gender) {
-                console.log('Radio data:', gender);
                 _this.genderlist = gender;
+                var myheaders = new __WEBPACK_IMPORTED_MODULE_3__angular_common_http__["c" /* HttpHeaders */]({});
+                _this.http.post("http://localhost:3000/viewprofile", { key: 'SEX', value: _this.genderlist }, { headers: myheaders, responseType: 'text' })
+                    .subscribe(function (data) {
+                    if (data == "SAVED") {
+                        _this.editCtrl.create({
+                            message: "Last name has been changed!"
+                        });
+                    }
+                    else {
+                        _this.editCtrl.create({
+                            message: "Change failed!"
+                        });
+                    }
+                });
+                console.log('Saved clicked');
             }
         });
         edit.present();
     };
     ContactPage.prototype.dob_edit = function () {
-        var edit = this.editCtrl.create({
-            title: 'Date of birth',
-            message: 'Chooser your birthday',
-            buttons: [
-                {
-                    text: 'Cancel',
-                },
-                {
-                    text: 'Save',
-                    handler: function (dob) {
-                        console.log('Saved clicked');
-                    }
-                }
-            ]
+        var _this = this;
+        var myheaders = new __WEBPACK_IMPORTED_MODULE_3__angular_common_http__["c" /* HttpHeaders */]({});
+        this.http.post("http://localhost:3000/viewprofile", { key: 'BIRTH_DAY', value: this.dob }, { headers: myheaders, responseType: 'text' })
+            .subscribe(function (data) {
+            if (data == "SAVED") {
+                _this.editCtrl.create({
+                    message: "Birthday has been changed!"
+                });
+            }
+            else {
+                _this.editCtrl.create({
+                    message: "Change failed!"
+                });
+            }
         });
-        edit.present();
+        console.log('Saved clicked');
+    };
+    ContactPage.prototype.income_edit = function () {
     };
     ContactPage.prototype.password_edit = function () {
         // document.getElementById("password").removeAttribute("readonly");
@@ -561,12 +579,11 @@ var ContactPage = /** @class */ (function () {
     };
     ContactPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-contact',template:/*ion-inline-start:"/Users/nablec/WebstormProjects/AccountingAPP/frontend/src/pages/contact/contact.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n     My Profile\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-list>\n    <ion-list-header>\n    <ion-item>\n      <div align="center">\n        <img src="https://b-ssl.duitang.com/uploads/item/201708/26/20170826051009_dFuQc.jpeg"  width="150" height="150">\n      </div>\n    </ion-item>\n    </ion-list-header>\n    <ion-list *ngFor="let profile of profilelist">\n      <ion-item>\n        <div align="right" class="item-avatar">\n\n        </div>\n      </ion-item>\n      <!--username-->\n      <ion-item>\n        <div align="center" class="item item-avatar">\n          <label class="item item-input">\n            <span class="input-label">Username：</span>\n            <input type="text" id="username" value="{{profile.username}}" readonly>\n          </label>\n          <!--<a class="button button-ios-primary" color="default" outline (click)="username_edit()">Edit</a>-->\n          <button ion-button color="light" outline round (click)="username_edit()">View</button>\n        </div>\n      </ion-item>\n      <!--password-->\n      <ion-item>\n        <div align="center" class="item item-avatar">\n          <label class="item item-input">\n            <span class="input-label">Password：</span>\n            <input disabled = true type="password" id="password" value="{{profile.password}}" readonly>\n          </label>\n          <button ion-button color="light" outline round (click)="password_edit()">Edit</button>\n        </div>\n      </ion-item>\n      <!--firstname-->\n      <ion-item>\n        <div align="center" class="item item-avatar">\n          <label class="item item-input">\n            <span class="input-label">First name：</span>\n            <input disabled = true type="text" id="fname" value="{{firstname}}" readonly>\n          </label>\n          <button ion-button color="light" outline round (click)="fname_edit()">Edit</button>\n        </div>\n      </ion-item>\n      <!--lastname-->\n      <ion-item>\n        <div align="center" class="item item-avatar">\n          <label class="item item-input">\n            <span class="input-label">Last name：</span>\n            <input disabled = true type="text" id="lname" value="{{lastname}}" readonly>\n          </label>\n          <button ion-button color="light" outline round (click)="lname_edit()">Edit</button>\n        </div>\n      </ion-item>\n      <!--gender-->\n      <ion-item>\n        <div align="center" class="item item-avatar">\n          <label class="item item-input">\n            <span class="input-label">Gender：</span>\n            <input disabled = true type="text" id="gender" value="{{genderlist}}" readonly>\n          </label>\n          <button ion-button color="light" outline round (click)="gender_edit()">Edit</button>\n        </div>\n      </ion-item>\n      <!--dob-->\n      <ion-item>\n        <div align="center" class="item item-avatar">\n          <label class="item item-input">\n            <span class="input-label">Date of birth：</span>\n            <input disabled = true type="text" id="dob" value="{{profile.dob}}" readonly>\n          </label>\n          <button ion-button color="light" outline round (click)="dob_edit()">Edit</button>\n        </div>\n      </ion-item>\n    </ion-list>\n    <button ion-button block color="default" outline (click)="logout()">Logout </button>\n  </ion-list>\n\n</ion-content>\n\n\n'/*ion-inline-end:"/Users/nablec/WebstormProjects/AccountingAPP/frontend/src/pages/contact/contact.html"*/
+            selector: 'page-contact',template:/*ion-inline-start:"/Users/nablec/WebstormProjects/AccountingAPP/frontend/src/pages/contact/contact.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>My Profile</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-list>\n    <ion-list-header>\n    <ion-item>\n      <div align="center">\n        <img src="https://b-ssl.duitang.com/uploads/item/201708/26/20170826051009_dFuQc.jpeg"  width="150" height="150">\n      </div>\n    </ion-item>\n    </ion-list-header>\n    <ion-list>\n\n      <!--username-->\n      <ion-item>\n        <ion-label>Username: </ion-label>\n        <ion-input type="text" id="username" value="{{username}}" readonly></ion-input>\n        <button ion-button small color="dark" clear round (click)="username_edit()" item-end>\n          <ion-icon name="ios-arrow-forward"> </ion-icon>\n        </button>\n      </ion-item>\n      <!--password-->\n      <ion-item>\n        <ion-label>Password: </ion-label>\n        <ion-input type="password" id="password" value="{{password}}" readonly></ion-input>\n        <button ion-button small color="dark" clear round (click)="password_edit()" item-end>\n          <ion-icon name="ios-arrow-forward"> </ion-icon>\n        </button>\n      </ion-item>\n      <!--firstname-->\n      <ion-item>\n        <ion-label>First name: </ion-label>\n        <ion-input type="text" id="fname" value="{{firstname}}" readonly></ion-input>\n        <button ion-button small color="dark" clear round (click)="fname_edit()" item-end>\n          <ion-icon name="ios-arrow-forward"> </ion-icon>\n        </button>\n      </ion-item>\n      <!--lastname-->\n      <ion-item>\n        <ion-label>Last name: </ion-label>\n        <ion-input type="text" id="lname" value="{{lastname}}" readonly></ion-input>\n        <button ion-button small color="dark" clear round (click)="lname_edit()" item-end>\n          <ion-icon name="ios-arrow-forward"> </ion-icon>\n        </button>\n      </ion-item>\n      <!--gender-->\n      <ion-item>\n        <ion-label>Gender: </ion-label>\n        <ion-input type="text" id="gender" value="{{genderlist}}" readonly></ion-input>\n        <button ion-button small color="dark" clear round (click)="gender_edit()" item-end>\n          <ion-icon name="ios-arrow-forward"> </ion-icon>\n        </button>\n      </ion-item>\n      <!--Income-->\n      <ion-item>\n        <ion-label>Income: </ion-label>\n        <ion-input type="text" id="income" value="{{income}}" readonly></ion-input>\n        <button ion-button small color="dark" clear round (click)="income_edit()" item-end>\n          <ion-icon name="ios-arrow-forward"> </ion-icon>\n        </button>\n      </ion-item>\n      <!--dob-->\n      <ion-item>\n        <ion-label>Birthday: </ion-label>\n        <ion-input type="text" id="dob" value="{{dob}}" readonly></ion-input>\n        <button ion-button small color="dark" clear round item-end>\n          <ion-datetime [(ngModel)]="dob" required name="birthdate" displayFormat="none" pickerFormat="YYYY-MM-DD" (ngModelChange)="dob_edit()"[ngModelOptions]="{standalone:true}">\n          </ion-datetime>\n          <ion-icon name="md-calendar"> </ion-icon>\n        </button>\n      </ion-item>\n    </ion-list>\n    <button ion-button block color="danger" round (click)="logout()">Logout </button>\n  </ion-list>\n</ion-content>\n\n\n'/*ion-inline-end:"/Users/nablec/WebstormProjects/AccountingAPP/frontend/src/pages/contact/contact.html"*/
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ToastController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ToastController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__angular_common_http__["a" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_common_http__["a" /* HttpClient */]) === "function" && _d || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ToastController */], __WEBPACK_IMPORTED_MODULE_3__angular_common_http__["a" /* HttpClient */]])
     ], ContactPage);
     return ContactPage;
-    var _a, _b, _c, _d;
 }());
 
 //# sourceMappingURL=contact.js.map
@@ -597,7 +614,7 @@ var HomePage = /** @class */ (function () {
     }
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"/Users/nablec/WebstormProjects/AccountingAPP/frontend/src/pages/home/home.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>Home</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <h2>Welcome to Ionic!</h2>\n  <p>\n    This starter project comes with simple tabs-based layout for apps\n    that are going to primarily use a Tabbed UI.\n  </p>\n  <p>\n    Take a look at the <code>src/pages/</code> directory to add or change tabs,\n    update any existing page or create new pages.\n  </p>\n</ion-content>\n'/*ion-inline-end:"/Users/nablec/WebstormProjects/AccountingAPP/frontend/src/pages/home/home.html"*/
+            selector: 'page-home',template:/*ion-inline-start:"/Users/nablec/WebstormProjects/AccountingAPP/frontend/src/pages/home/home.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>Home</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <h2>Welcome to Ionic!</h2>\n  <p>\n    This starter project comes with simple tabs-based layout for apps\n    that are going to primarily use a Tabbed UI.\n  </p>\n  <p>\n    Take a look at the <code>src/pages/</code> directory to add or change tabs,\n    update any existing page or create new pages.\n  </p>\n</ion-content>\n\n'/*ion-inline-end:"/Users/nablec/WebstormProjects/AccountingAPP/frontend/src/pages/home/home.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]])
     ], HomePage);

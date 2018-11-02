@@ -40,7 +40,7 @@
     </ion-item>
     <ion-item>
       <ion-label floating>Birth Date</ion-label>
-<ion-datetime [(ngModel)]="birthdate" required name="birthdate" displayFormat="DD MMM YYYY" pickerFormat="YYYY-MM-DD" [ngModelOptions]="{standalone:true}"></ion-datetime>
+<ion-datetime [(ngModel)]="birthdate" required name="birthdate" displayFormat="DD MM YYYY" pickerFormat="YYYY-MM-DD" [ngModelOptions]="{standalone:true}"></ion-datetime>
     </ion-item>
     <ion-item>
       <ion-label floating>Gender</ion-label>
@@ -52,13 +52,13 @@
 	<ion-option value="bigender">Bigender</ion-option>
 	<ion-option value="other">Other</ion-option>
       </ion-select>
-    </ion-item>  
+    </ion-item>
     <ion-item>
       <ion-label floating>Income</ion-label>
       <ion-input [(ngModel)]="income" type="text" placeholder="Income"></ion-input>
     </ion-item>
 
-    
+
     <button ion-button block color="default" outline (click)="signUp()">Signup</button>
   </ion-list>
 </ion-content>
