@@ -1,0 +1,92 @@
+
+> accountingbackend@1.0.0 test /Users/bellji/github_test/Accounting-System/backend
+> ./node_modules/mocha/bin/mocha --exit
+
+
+
+listening on port 3000
+  testing connectivity
+Connected!
+[0mGET / [32m200 [0m5.312 ms - 1917[0m
+    ✓ http://localhost:3000 should return 200
+[0mGET / [32m200 [0m0.866 ms - 1917[0m
+    ✓ http://localhost:3000/javascript/accApp.js should return 200
+[0mPOST /createAccount [32m200 [0m12.816 ms - -[0m
+    ✓ http://localhost:3000/createAccount should return 200
+[0mPOST /login [32m200 [0m4.643 ms - -[0m
+    ✓ http://localhost:3000/login should return 200
+
+  testing inputs to createAccount backend functions
+    ✓ testing if insert_user_info() adds user information to the database (194ms)
+    ✓ testing that check_for_user() can check if a user is found in the database (142ms)
+    ✓ testing that check_for_user() can check if a user is NOT found in the database
+    ✓ testing that add_user() will add a user to the database (125ms)
+    ✓ testing that add_user() will return ERR_USER_EXISTS if a that user_name is already in the database (141ms)
+[0mPOST /createAccount [32m200 [0m103.564 ms - -[0m
+    ✓ testing loading data to profile table through /createAccount Route (113ms)
+    ✓ testing bcrypt is being used to hash passwords (95ms)
+[0mPOST /createAccount [32m200 [0m0.374 ms - -[0m
+    ✓ testing /createAccount returns ERR_NO_USER if user_name is null
+[0mPOST /createAccount [32m200 [0m0.443 ms - -[0m
+    ✓ testing /createAccount returns ERR_NO_USER if user_name is empty
+[0mPOST /createAccount [32m200 [0m0.353 ms - -[0m
+    ✓ testing /createAccount returns ERR_NO_PASS if password is null
+[0mPOST /createAccount [32m200 [0m0.327 ms - -[0m
+    ✓ testing /createAccount returns ERR_NO_PASS if password is empty
+[0mPOST /createAccount [32m200 [0m0.334 ms - -[0m
+    ✓ testing /createAccount returns ERR_NO_FNAME if password is null
+[0mPOST /createAccount [32m200 [0m0.325 ms - -[0m
+    ✓ testing /createAccount returns ERR_NO_FNAME if password is empty
+[0mPOST /createAccount [32m200 [0m130.054 ms - -[0m
+    ✓ testing /createAccount returns SUCCESS with user_name,password, and first_name (136ms)
+    ✓ testing check_mime_type().
+    ✓ testing add_photo() to check that photo is added
+[0mPOST /createAccount [32m200 [0m122.886 ms - -[0m
+    ✓ testing loading image through /createAccount Route (139ms)
+
+  checking recent entry
+    ✓ testing home page recent transactions
+
+  testing login backend functions
+request received
+Bob
+4
+[0mGET /home [32m200 [0m27.745 ms - 851[0m
+    ✓ testing that check_for_user() can check if a user is found in the database (133ms)
+    ✓ testing that check_for_user() can check if a user is NOT found in the database
+    ✓ testing check_password() returns SUCCESS when password is correct (234ms)
+    ✓ testing check_password() returns FAILED when password is incorrect (218ms)
+    ✓ testing check_password() returns FAILED when username does not exist
+[0mPOST /login [32m200 [0m96.189 ms - -[0m
+    ✓ testing /login route signs in user (228ms)
+
+  testing logout backend functions
+[0mPOST /login [32m200 [0m100.490 ms - -[0m
+[0mGET /logout [32m200 [0m0.714 ms - -[0m
+    ✓ testing /logout route signs out user and returns SUCCESS_LOGOUT (220ms)
+[0mGET /logout [32m200 [0m0.398 ms - -[0m
+    ✓ testing /logout route returns SUCCESS_NO_SESSION when user is not logged in
+
+  testing edit profile details
+UPDATE profile SET LAST_NAME = ? WHERE USER_NAME = ?
+[0mPOST /viewProfile [32m200 [0m5.866 ms - -[0m
+    ✓ testing last name change
+UPDATE profile SET FIRST_NAME = ? WHERE USER_NAME = ?
+[0mPOST /viewProfile [32m200 [0m3.869 ms - -[0m
+    ✓ testing first name change
+UPDATE profile SET BIRTH_DAY = ? WHERE USER_NAME = ?
+[0mPOST /viewProfile [32m200 [0m8.378 ms - -[0m
+    ✓ testing date of birth change
+UPDATE profile SET AGE = ? WHERE USER_NAME = ?
+[0mPOST /viewProfile [32m200 [0m4.337 ms - -[0m
+    ✓ testing age change
+UPDATE profile SET SEX = ? WHERE USER_NAME = ?
+[0mPOST /viewProfile [32m200 [0m3.853 ms - -[0m
+    ✓ testing sex change
+UPDATE profile SET INCOME = ? WHERE USER_NAME = ?
+[0mPOST /viewProfile [32m200 [0m2.920 ms - -[0m
+    ✓ testing income change
+
+
+  36 passing (2s)
+
