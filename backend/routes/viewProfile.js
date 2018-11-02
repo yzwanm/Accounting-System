@@ -63,7 +63,6 @@ router.get('/', function (req, res) {
 //     res.send(str);
 // });
 router.post('/',function(req,res){
-    console.log('updating user');
     var key = req.body.key;
     var value = req.body.value;
 
@@ -86,9 +85,9 @@ router.post('/',function(req,res){
             value = new Date(value);
         }        
     }
-    console.log('updating');
+
     update_user(key,value,user_name,function (result){
-        res.end("result")
+        res.end(result)
     });
     
 
