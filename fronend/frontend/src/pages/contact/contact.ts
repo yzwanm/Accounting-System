@@ -219,7 +219,45 @@ export class ContactPage {
       console.log('Saved clicked');
   }
   income_edit() {
-
+      let edit = this.editCtrl.create({
+          title: 'Income',
+          message: 'Enter your new Income',
+          inputs:[
+              {
+                  id:'income',
+                  name:'income',
+                  placeholder:'Income'
+              }
+          ],
+          buttons: [
+              {
+                  text: 'Cancel',
+              },
+              {
+                  text: 'Save',
+                  handler: data => {
+                      let jsondata = JSON.parse(JSON.stringify(data));
+                      this.income = jsondata['income'];
+                      let myheaders = new HttpHeaders({ });
+                      this.http.post("http://localhost:3000/viewprofile", {key: 'INCOME',value:this.lastname},{headers: myheaders, responseType:'text'})
+                          .subscribe((data)=>{
+                              if (data == "SAVED") {
+                                  this.editCtrl.create({
+                                      message:"Income has been changed!"
+                                  });
+                              }
+                              else{
+                                  this.editCtrl.create({
+                                      message:"Change failed!"
+                                  });
+                              }
+                          })
+                      console.log('Saved clicked');
+                  }
+              }
+          ]
+      });
+      edit.present();
   }
   password_edit() {
       // document.getElementById("password").removeAttribute("readonly");

@@ -23,13 +23,13 @@ export class LoginPage {
 
   presentToast(message: string) {
      let toast = this.toastCtrl.create({
-     	 message: message,
-	 duration: 3000,
-	 position: 'bottom'
+         message: message,
+         duration: 3000,
+         position: 'bottom'
      });
 
      toast.present();
-     
+
      return toast;
   }
 

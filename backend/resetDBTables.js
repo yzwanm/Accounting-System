@@ -5,7 +5,7 @@ var sql1 = "CREATE TABLE profile (USER_NAME VARCHAR(20) NOT NULL UNIQUE, FIRST_N
 var table_name2 = "user";
 var sql2 = "CREATE TABLE user (USER_NAME VARCHAR(20) NOT NULL UNIQUE, PASSWORD CHAR(60), SALT CHAR(29))";
 var table_name3 = "expenses";
-var sql3 = "CREATE TABLE expenses (USER_NAME VARCHAR(20) NOT NULL, EXPENSES FLOAT, CATEGORY VARCHAR(20))";
+var sql3 = "CREATE TABLE expenses (USER_NAME VARCHAR(20) NOT NULL, EXPENSES FLOAT, CATEGORY VARCHAR(20), DATE DATETIME)";
 
 function replace_table(table_name,sql) {
     return new Promise(function(resolve,reject) {
@@ -26,7 +26,7 @@ function replace_table(table_name,sql) {
 			if (err) throw err;
 			console.log("added " + table_name);
 			resolve();
-		    });	    
+		    });
 		});
 	    } else {
 		//adding table to database
@@ -41,7 +41,7 @@ function replace_table(table_name,sql) {
 }
 
 async function replace_all_tables() {
-    let promises = []; 
+    let promises = [];
     promises[0] = replace_table(table_name1,sql1);
 	promises[1] = replace_table(table_name2,sql2);
 	promises[3] = replace_table(table_name3,sql3);

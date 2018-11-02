@@ -6,7 +6,7 @@ async function get_recent_transactions(user_name,elements,callback) {
     console.log('request received');
     console.log(user_name);
     console.log(elements);
-    var sql1 = "select USER_NAME,EXPENSES,CATEGORY from expenses where USER_NAME= ?";
+    var sql1 = "select * from expenses where USER_NAME= nablec";
     let promises = [];
     promises[0] = new Promise(function (resolve,reject) {
         dbconnection.query(sql1, [user_name], function (error, results) {
@@ -16,6 +16,7 @@ async function get_recent_transactions(user_name,elements,callback) {
             jsond = JSON.stringify(results);
                         //   res.render('Home', {title:'Home', home:jsond});
             resolve(jsond);
+            console.log(jsond);
           });
 
     });
