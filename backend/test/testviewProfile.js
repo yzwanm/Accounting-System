@@ -64,6 +64,7 @@ describe('testing edit profile details', function () {
 					 if (err) throw err;
 					 assert(result[0].USER_NAME === json1.user);
 					 assert(result[0].LAST_NAME === json1.value);
+					 assert(res.body=='SAVED')
 					 done();
 				 	});
 			 
@@ -100,6 +101,7 @@ describe('testing edit profile details', function () {
 					 if (err) throw err;
 					 assert(result[0].USER_NAME === json1.user);
 					 assert(result[0].FIRST_NAME === json1.value);
+					 assert(res.body=='SAVED')
 					 done();
 				 	});
 			 
@@ -136,6 +138,7 @@ describe('testing edit profile details', function () {
 					 if (err) throw err;
 					 assert(result[0].USER_NAME === json1.user);
 					 assert(result[0].BIRTH_DAY.toString() === json1.value.toString());
+					 assert(res.body=='SAVED')
 					 done();
 				 	});
 			 
@@ -172,6 +175,7 @@ describe('testing edit profile details', function () {
 					 if (err) throw err;
 					 assert(result[0].USER_NAME === json1.user);
 					 assert(result[0].AGE == json1.value);
+					 assert(res.body=='SAVED')
 					 done();
 				 	});
 			 
@@ -208,6 +212,7 @@ describe('testing edit profile details', function () {
 					 if (err) throw err;
 					 assert(result[0].USER_NAME === json1.user);
 					 assert(result[0].SEX === json1.value);
+					 assert(res.body=='SAVED')
 					 done();
 				 	});
 			 
@@ -244,6 +249,7 @@ describe('testing edit profile details', function () {
 					 if (err) throw err;
 					 assert(result[0].USER_NAME === json1.user);
 					 assert(result[0].INCOME == json1.value);
+					 assert(res.body=='SAVED')
 					 done();
 				 	});
 			 
