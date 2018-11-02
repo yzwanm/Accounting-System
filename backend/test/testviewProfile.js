@@ -48,31 +48,22 @@ describe('testing edit profile details', function () {
 			//callback("ERR_DB_PROFILE_INSERT");
 		 } else {
 			var json1 = {user:'DBTESTUSER',
-			password:'bbb',
-			first_name:'aaa',
-			last_name:'abctt',
-			dob: new Date('2015-03-04T08:00:00.000Z'),
-			age:'70',
-			sex:'F',
-			income:322.23};
+			key:'LAST_NAME',
+			value:'shsh',
+			};
 			
 			 request.post('http://localhost:3000/viewProfile', {json:json1}, function (err, res, body){
-				 //testing if the a new user has been added to profile in the database.
+	
 				 var sql = "SELECT count(*) AS user_exists FROM profile WHERE (USER_NAME = ?)";
 				 dbconnection.query(sql, [json1.user], function (err, result) {
 				 if (err) throw err;
 				 assert(result[0].user_exists == 1);
-				 //testing that profile was loaded properly into database
+		
 				 var sql2 = "SELECT * FROM profile WHERE (USER_NAME = ?)";
 				 dbconnection.query(sql2, [json1.user], function (err, result) {
 					 if (err) throw err;
 					 assert(result[0].USER_NAME === json1.user);
-					 assert(result[0].FIRST_NAME === json1.first_name);
-					 assert(result[0].LAST_NAME === json1.last_name);
-					 assert(result[0].BIRTH_DAY.toString() === json1.dob.toString());
-					 assert(result[0].AGE == json1.age);
-					 assert(result[0].SEX === json1.sex);
-					 assert(result[0].INCOME == json1.income);
+					 assert(result[0].LAST_NAME === json1.value);
 					 done();
 				 	});
 			 
@@ -93,13 +84,9 @@ describe('testing edit profile details', function () {
 			//callback("ERR_DB_PROFILE_INSERT");
 		 } else {
 			var json1 = {user:'DBTESTUSER',
-				password:'bbb',
-				first_name:'aaa',
-				last_name:'abc',
-				dob: new Date('2015-03-04T08:00:00.000Z'),
-				age:'60',
-				sex:'F',
-				income:322.23};
+			key:'FIRST_NAME',
+			value:'shsh',
+			};
 			
 			 request.post('http://localhost:3000/viewProfile', {json:json1}, function (err, res, body){
 				 //testing if the a new user has been added to profile in the database.
@@ -112,12 +99,7 @@ describe('testing edit profile details', function () {
 				 dbconnection.query(sql2, [json1.user], function (err, result) {
 					 if (err) throw err;
 					 assert(result[0].USER_NAME === json1.user);
-					 assert(result[0].FIRST_NAME === json1.first_name);
-					 assert(result[0].LAST_NAME === json1.last_name);
-					 assert(result[0].BIRTH_DAY.toString() === json1.dob.toString());
-					 assert(result[0].AGE == json1.age);
-					 assert(result[0].SEX === json1.sex);
-					 assert(result[0].INCOME == json1.income);
+					 assert(result[0].FIRST_NAME === json1.value);
 					 done();
 				 	});
 			 
@@ -138,13 +120,9 @@ describe('testing edit profile details', function () {
 			//callback("ERR_DB_PROFILE_INSERT");
 		 } else {
 			var json1 = {user:'DBTESTUSER',
-				password:'bbb',
-				first_name:'aaa',
-				last_name:'abc',
-				dob: new Date('2000-03-04T08:00:00.000Z'),
-				age:'60',
-				sex:'F',
-				income:322.23};
+				key:'BIRTH_DAY',
+				value: new Date('2000-03-04T08:00:00.000Z'),
+				};
 			
 			 request.post('http://localhost:3000/viewProfile', {json:json1}, function (err, res, body){
 				 //testing if the a new user has been added to profile in the database.
@@ -157,12 +135,7 @@ describe('testing edit profile details', function () {
 				 dbconnection.query(sql2, [json1.user], function (err, result) {
 					 if (err) throw err;
 					 assert(result[0].USER_NAME === json1.user);
-					 assert(result[0].FIRST_NAME === json1.first_name);
-					 assert(result[0].LAST_NAME === json1.last_name);
-					 assert(result[0].BIRTH_DAY.toString() === json1.dob.toString());
-					 assert(result[0].AGE == json1.age);
-					 assert(result[0].SEX === json1.sex);
-					 assert(result[0].INCOME == json1.income);
+					 assert(result[0].BIRTH_DAY.toString() === json1.value.toString());
 					 done();
 				 	});
 			 
@@ -183,13 +156,9 @@ describe('testing edit profile details', function () {
 			//callback("ERR_DB_PROFILE_INSERT");
 		 } else {
 			var json1 = {user:'DBTESTUSER',
-				password:'bbb',
-				first_name:'aaa',
-				last_name:'abc',
-				dob: new Date('2015-03-04T08:00:00.000Z'),
-				age:'50',
-				sex:'F',
-				income:322.23};
+				key:'AGE',
+				value: 33
+				};
 			
 			 request.post('http://localhost:3000/viewProfile', {json:json1}, function (err, res, body){
 				 //testing if the a new user has been added to profile in the database.
@@ -202,12 +171,7 @@ describe('testing edit profile details', function () {
 				 dbconnection.query(sql2, [json1.user], function (err, result) {
 					 if (err) throw err;
 					 assert(result[0].USER_NAME === json1.user);
-					 assert(result[0].FIRST_NAME === json1.first_name);
-					 assert(result[0].LAST_NAME === json1.last_name);
-					 assert(result[0].BIRTH_DAY.toString() === json1.dob.toString());
-					 assert(result[0].AGE == json1.age);
-					 assert(result[0].SEX === json1.sex);
-					 assert(result[0].INCOME == json1.income);
+					 assert(result[0].AGE == json1.value);
 					 done();
 				 	});
 			 
@@ -228,13 +192,9 @@ describe('testing edit profile details', function () {
 			//callback("ERR_DB_PROFILE_INSERT");
 		 } else {
 			var json1 = {user:'DBTESTUSER',
-				password:'bbb',
-				first_name:'aaa',
-				last_name:'abc',
-				dob: new Date('2015-03-04T08:00:00.000Z'),
-				age:'60',
-				sex:'M',
-				income:322.23};
+				key:'SEX',
+				value:'M'
+			};
 			
 			 request.post('http://localhost:3000/viewProfile', {json:json1}, function (err, res, body){
 				 //testing if the a new user has been added to profile in the database.
@@ -247,12 +207,7 @@ describe('testing edit profile details', function () {
 				 dbconnection.query(sql2, [json1.user], function (err, result) {
 					 if (err) throw err;
 					 assert(result[0].USER_NAME === json1.user);
-					 assert(result[0].FIRST_NAME === json1.first_name);
-					 assert(result[0].LAST_NAME === json1.last_name);
-					 assert(result[0].BIRTH_DAY.toString() === json1.dob.toString());
-					 assert(result[0].AGE == json1.age);
-					 assert(result[0].SEX === json1.sex);
-					 assert(result[0].INCOME == json1.income);
+					 assert(result[0].SEX === json1.value);
 					 done();
 				 	});
 			 
@@ -273,13 +228,9 @@ describe('testing edit profile details', function () {
 			//callback("ERR_DB_PROFILE_INSERT");
 		 } else {
 			var json1 = {user:'DBTESTUSER',
-				password:'bbb',
-				first_name:'aaa',
-				last_name:'abc',
-				dob: new Date('2015-03-04T08:00:00.000Z'),
-				age:'60',
-				sex:'F',
-				income:50.23};
+				key:'INCOME',
+				value:3334
+			};
 			
 			 request.post('http://localhost:3000/viewProfile', {json:json1}, function (err, res, body){
 				 //testing if the a new user has been added to profile in the database.
@@ -292,12 +243,7 @@ describe('testing edit profile details', function () {
 				 dbconnection.query(sql2, [json1.user], function (err, result) {
 					 if (err) throw err;
 					 assert(result[0].USER_NAME === json1.user);
-					 assert(result[0].FIRST_NAME === json1.first_name);
-					 assert(result[0].LAST_NAME === json1.last_name);
-					 assert(result[0].BIRTH_DAY.toString() === json1.dob.toString());
-					 assert(result[0].AGE == json1.age);
-					 assert(result[0].SEX === json1.sex);
-					 assert(result[0].INCOME == json1.income);
+					 assert(result[0].INCOME == json1.value);
 					 done();
 				 	});
 			 

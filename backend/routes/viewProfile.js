@@ -38,7 +38,7 @@ var dbconnection = require('../dbConnection');
 var user_name = "BobSmith";
 var sql1 = "select USER_NAME,FIRST_NAME,LAST_NAME,BIRTH_DAY, AGE, SEX, INCOME from profile where USER_NAME= ?";
 var sql2 = "select USER_NAME, PASSWORD from users where USER_NAME= ?";
-var str= "xxx";
+var str= "xxx ";
 
 router.get('/', function (req, res) {
     dbconnection.query(sql1, [user_name], function (err, result) {
@@ -54,7 +54,6 @@ router.get('/', function (req, res) {
         res.render('viewProfile', {title:'viewProfile', profile:str});
         res.send(str);
     });
-
 });
 // router.get('/', function (req, res) {
 //     res.render('viewProfile');
@@ -64,44 +63,48 @@ router.get('/', function (req, res) {
 //     res.send(str);
 // });
 router.post('/',function(req,res){
-    var first_name = req.body.first_name;
-    // var last_name = req.body.last_name;
-    // var age = req.body.age;
-    // var sex = req.body.sex;
-    // var income = req.body.income;
-    // var dob;
-    // if (req.body.dob === '' || req.body.dob == null) {
-	// dob = null
-    // } else {
-	// dob = new Date(req.body.dob);
-    // }
-    // var user_name = req.body.user;
-    // var password = req.body.password;
-    // if (user_name === "" || user_name == null) {
-	// res.end("ERR_NO_USER");
-    // } else if (password === "" || password == null) {
-	// res.end("ERR_NO_PASS");
-    // } else if (first_name === "" || first_name == null) {
-	// res.end("ERR_NO_FNAME");
-    // } else {
-	//
-    //     update_user(first_name,last_name,dob,age,sex,income,user_name, function (result) {
-	//     res.end(result);
-	// });
-    // }
-    update_user(first_name,function (result) {
-        res.end(result);
+    console.log('updating user');
+    var key = req.body.key;
+    var value = req.body.value;
+    var first_name = 'FIRST_NAME';
+    var last_name = 'LAST_NAME';
+    var age = 'AGE';
+    var sex = 'SEX';
+    var income = 'INCOME';
+    var dob = 'BIRTH_DAY'
+    var user_name = req.body.user;
+    key_list = [first_name,last_name,age,sex,income,dob];
+    if(key_list.contains(key)==false)
+        console.log('error');
+        res.end("ERROR");
+
+    if (key == dob)
+    {
+        if (value === '' || value == null) {
+            value = null
+        } else {
+            value = new Date(value);
+        }
+    }
+    console.log('updating');
+    console.log(key);
+    update_user(key,value,user_name,function (result){
+        res.end("result")
     });
+
+
 })
 
-function update_user(first_name,callback)
+function update_user (key,value,username,callback)
 {
-    dbconnection.query('SELECT * FROM profile WHERE (USER_NAME = "nablec")', function (error, results, fields) {
+    dbconnection.query('SELECT * FROM profile WHERE USER_NAME = "nablec"', function (error, results, fields) {
         if (error) {
             console.log("error ocurred", error);
         } else {
             if (results.length > 0) {
-                dbconnection.query('UPDATE profile SET FIRST_NAME = ? WHERE (USER_NAME = "nablec")', [first_name], function (error, results, fields) {
+                sql = 'UPDATE profile SET ' +key +' = ? WHERE USER_NAME = "nablec"';
+                console.log(sql);
+                dbconnection.query(sql, [value], function (error, results, fields) {
                     if (error) {
                         console.log("error", error);
                     }
@@ -114,24 +117,12 @@ function update_user(first_name,callback)
         }
     });
 }
-// function update_user (first_name,last_name,dob,age,sex,income,username,callback)
-// {
-//     dbconnection.query('SELECT * FROM profile WHERE USER_NAME = ?', [username], function (error, results, fields) {
-//         if (error) {
-//           console.log("error ocurred", error);
-//         } else {
-//           if (results.length > 0) {
-//             dbconnection.query('UPDATE profile SET FIRST_NAME = ?,LAST_NAME = ?,BIRTH_DAY = ?,AGE = ?, SEX = ?, INCOME = ? WHERE USER_NAME = ?', [first_name,last_name,dob,age,sex,income, username], function (error, results, fields) {
-//               if (error) {
-//                 console.log("error", error);
-//               }
-//               else
-//               {
-//                 callback("SAVED");
-//               }
-//             });
-//           }
-//         }
-//       });
-// }
+
+Array.prototype.contains = function ( needle ) {
+    for (i in this) {
+        if (this[i] == needle) return true;
+    }
+    return false;
+}
+
 module.exports = router;
