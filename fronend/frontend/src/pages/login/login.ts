@@ -51,7 +51,7 @@ export class LoginPage {
        this.presentToast("Please enter User Name and Password");
     } else {
       let myheaders = new HttpHeaders({ });
-      this.http.post("http://localhost:3000/login", jsonData, {headers: myheaders, responseType:'text'})
+      this.http.post("http://localhost:3000/login", jsonData, {headers: myheaders, withCredentials: true , responseType:'text'})
       .subscribe((data) => {
     	  if (data == "SUCCESS") {
 	     this.navCtrl.push(TabsPage);

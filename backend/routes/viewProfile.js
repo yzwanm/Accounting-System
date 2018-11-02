@@ -65,7 +65,6 @@ router.get('/', function (req, res) {
 router.post('/',function(req,res){
     var key = req.body.key;
     var value = req.body.value;
-
     var first_name = 'FIRST_NAME';
     var last_name = 'LAST_NAME';
     var age = 'AGE';
@@ -75,6 +74,7 @@ router.post('/',function(req,res){
     var user_name = req.body.user;
     key_list = [first_name,last_name,age,sex,income,dob];
     if(key_list.contains(key)==false)
+        console.log('error');
         res.end("ERROR");
 
     if (key == dob)
@@ -83,43 +83,44 @@ router.post('/',function(req,res){
             value = null
         } else {
             value = new Date(value);
-        }        
+        }
     }
 
     update_user(key,value,user_name,function (result){
         res.end(result)
     });
-    
+
 
 })
 
 function update_user (key,value,username,callback)
 {
-    dbconnection.query('SELECT * FROM profile WHERE USER_NAME = ?', [username], function (error, results, fields) {
+    dbconnection.query('SELECT * FROM profile WHERE USER_NAME = "nablec"', function (error, results, fields) {
         if (error) {
             console.log("error ocurred", error);
         } else {
-          if (results.length > 0) {
-                sql = 'UPDATE profile SET ' +key +' = ? WHERE USER_NAME = ?';
-                dbconnection.query(sql, [value, username], function (error, results, fields) {
-                if (error) {
-                    console.log("error", error);
-                }
-                else
-                {
-                   callback("SAVED");
-                }
-            });
-          }
+            if (results.length > 0) {
+                sql = 'UPDATE profile SET ' +key +' = ? WHERE USER_NAME = "nablec"';
+                console.log(sql);
+                dbconnection.query(sql, [value], function (error, results, fields) {
+                    if (error) {
+                        console.log("error", error);
+                    }
+                    else
+                    {
+                        callback("SAVED");
+                    }
+                });
+            }
         }
-      });
+    });
 }
 
 Array.prototype.contains = function ( needle ) {
     for (i in this) {
-       if (this[i] == needle) return true;
+        if (this[i] == needle) return true;
     }
     return false;
- }
- 
+}
+
 module.exports = router;

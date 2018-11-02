@@ -1,8 +1,6 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>
-     My Profile
-    </ion-title>
+    <ion-title>My Profile</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -15,28 +13,68 @@
       </div>
     </ion-item>
     </ion-list-header>
-    <ion-list *ngFor="let profiel of profilelist">
+    <ion-list>
 
+      <!--username-->
       <ion-item>
-        <div align="center" class="item item-avatar">
-          <label class="item item-input">
-            <span class="input-label">Username：</span>
-            <input disabled = true type="text" value="{{profiel.username}}" readonly>
-          </label>
-        </div>
+        <ion-label>Username: </ion-label>
+        <ion-input type="text" id="username" value="{{username}}" readonly></ion-input>
+        <button ion-button small color="dark" clear round (click)="username_edit()" item-end>
+          <ion-icon name="ios-arrow-forward"> </ion-icon>
+        </button>
       </ion-item>
+      <!--password-->
       <ion-item>
-        <div align="center" class="item item-avatar">
-          <label class="item item-input">
-            <span class="input-label">Password：</span>
-            <input disabled = true type="text" value="{{profiel.password}}" readonly>
-          </label>
-        </div>
+        <ion-label>Password: </ion-label>
+        <ion-input type="password" id="password" value="{{password}}" readonly></ion-input>
+        <button ion-button small color="dark" clear round (click)="password_edit()" item-end>
+          <ion-icon name="ios-arrow-forward"> </ion-icon>
+        </button>
+      </ion-item>
+      <!--firstname-->
+      <ion-item>
+        <ion-label>First name: </ion-label>
+        <ion-input type="text" id="fname" value="{{firstname}}" readonly></ion-input>
+        <button ion-button small color="dark" clear round (click)="fname_edit()" item-end>
+          <ion-icon name="ios-arrow-forward"> </ion-icon>
+        </button>
+      </ion-item>
+      <!--lastname-->
+      <ion-item>
+        <ion-label>Last name: </ion-label>
+        <ion-input type="text" id="lname" value="{{lastname}}" readonly></ion-input>
+        <button ion-button small color="dark" clear round (click)="lname_edit()" item-end>
+          <ion-icon name="ios-arrow-forward"> </ion-icon>
+        </button>
+      </ion-item>
+      <!--gender-->
+      <ion-item>
+        <ion-label>Gender: </ion-label>
+        <ion-input type="text" id="gender" value="{{genderlist}}" readonly></ion-input>
+        <button ion-button small color="dark" clear round (click)="gender_edit()" item-end>
+          <ion-icon name="ios-arrow-forward"> </ion-icon>
+        </button>
+      </ion-item>
+      <!--Income-->
+      <ion-item>
+        <ion-label>Income: </ion-label>
+        <ion-input type="text" id="income" value="{{income}}" readonly></ion-input>
+        <button ion-button small color="dark" clear round (click)="income_edit()" item-end>
+          <ion-icon name="ios-arrow-forward"> </ion-icon>
+        </button>
+      </ion-item>
+      <!--dob-->
+      <ion-item>
+        <ion-label>Birthday: </ion-label>
+        <ion-input type="text" id="dob" value="{{dob}}" readonly></ion-input>
+        <button ion-button small color="dark" clear round item-end>
+          <ion-datetime [(ngModel)]="dob" required name="birthdate" displayFormat="none" pickerFormat="YYYY-MM-DD" (ngModelChange)="dob_edit()"[ngModelOptions]="{standalone:true}">
+          </ion-datetime>
+          <ion-icon name="md-calendar"> </ion-icon>
+        </button>
       </ion-item>
     </ion-list>
-    <button ion-button block color="default" outline (click)="logout()">Logout </button>
-
-
+    <button ion-button block color="danger" round (click)="logout()">Logout </button>
   </ion-list>
 </ion-content>
 

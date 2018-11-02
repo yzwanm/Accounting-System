@@ -79,13 +79,9 @@ router.post('/', function (req,res) {
     var user_name = req.body.username;
     var password = req.body.password;
 
-    //console.log(user_name);
     check_password(user_name,password, function (result) {
-
-	/* In the interest of completing some of the other user stories,
-	   proper aquthentication will be completed at a later date */
-	
 	if (result == "SUCCESS") {
+	    req.session.user = user_name;
 	    res.end(result);
 	} else {
 	    res.end("FAILED");
