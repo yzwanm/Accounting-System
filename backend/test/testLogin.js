@@ -94,6 +94,30 @@ describe('testing login backend functions', function () {
 	    done();
 	});
     });
-
-
-});
+    it('testing /login route signs in user', function (done) {
+	var app = require('../app');
+	var chai = require('chai');
+	var supertest = require('supertest-session');
+	
+	delete_user_info(json.user);
+	var salt = bcrypt.genSaltSync(10);
+	var hash = bcrypt.hashSync(json.password,salt);
+	// inserting the user info before testing
+	createAccount.insert_user_info(json.first_name,json.last_name,json.dob,json.age,json.sex,json.income,json.user,hash,salt, function (result) {
+	    assert(result == "SUCCESS");
+	    loginInfo = {
+		username : json.user,
+		password : json.password
+	    };
+	    session = supertest(app);
+	    // testing login
+	    session
+	        .post('/login')
+		.send(loginInfo)
+	        .end(function(err, res) {
+		    assert(res.text == "SUCCESS");
+		    done();
+		});
+	});	
+    });
+})
