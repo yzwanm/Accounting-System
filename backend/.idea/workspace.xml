@@ -3,21 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="470bc695-6683-40b3-853b-04ac6ed0364c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/home.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/viewProfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/viewProfile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/testviewProfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/testviewProfile.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../fronend/frontend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../fronend/frontend/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../fronend/frontend/.sourcemaps/main.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../fronend/frontend/.sourcemaps/main.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fronend/frontend/src/pages/contact/contact.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../fronend/frontend/src/pages/contact/contact.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../fronend/frontend/src/pages/home/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/../fronend/frontend/src/pages/home/home.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../fronend/frontend/src/pages/home/home.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../fronend/frontend/src/pages/home/home.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fronend/frontend/src/pages/tabs/tabs.html" beforeDir="false" afterPath="$PROJECT_DIR$/../fronend/frontend/src/pages/tabs/tabs.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fronend/frontend/www/build/1.js" beforeDir="false" afterPath="$PROJECT_DIR$/../fronend/frontend/www/build/1.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fronend/frontend/src/pages/login/login.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../fronend/frontend/src/pages/login/login.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../fronend/frontend/www/build/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/../fronend/frontend/www/build/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../fronend/frontend/www/build/main.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../fronend/frontend/www/build/main.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fronend/frontend/www/build/vendor.js" beforeDir="false" afterPath="$PROJECT_DIR$/../fronend/frontend/www/build/vendor.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../fronend/frontend/www/build/vendor.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../fronend/frontend/www/build/vendor.js.map" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -79,7 +71,7 @@
         <entry file="file://$PROJECT_DIR$/routes/viewProfile.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="314">
-              <caret line="111" column="24" lean-forward="true" selection-start-line="111" selection-start-column="24" selection-end-line="111" selection-end-column="24" />
+              <caret line="112" column="24" lean-forward="true" selection-start-line="112" selection-start-column="24" selection-end-line="112" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -327,7 +319,7 @@
     <entry file="file://$PROJECT_DIR$/routes/viewProfile.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="314">
-          <caret line="111" column="24" lean-forward="true" selection-start-line="111" selection-start-column="24" selection-end-line="111" selection-end-column="24" />
+          <caret line="112" column="24" lean-forward="true" selection-start-line="112" selection-start-column="24" selection-end-line="112" selection-end-column="24" />
         </state>
       </provider>
     </entry>

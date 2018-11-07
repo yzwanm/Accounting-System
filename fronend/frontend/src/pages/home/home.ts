@@ -4,11 +4,11 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'page-home',
-  templateUrl: 'home.html'
+  templateUrl: 'home.html',
 })
 export class HomePage {
 
-    expenses="1222223";
+    expenses:string;
 
     constructor(public navCtrl: NavController,public http:HttpClient,public toastCtrl:ToastController,public alertCtrl:AlertController) {
   }
@@ -36,9 +36,10 @@ export class HomePage {
             ]
         });
         alert.present();
-
+        return this.expenses;
   }
 
-
 }
+
+
 
