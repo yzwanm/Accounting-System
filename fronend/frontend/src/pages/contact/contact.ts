@@ -30,6 +30,7 @@ export class ContactPage {
   lastname: string;
   genderlist: string;
   income=60000;
+
   // ionViewDidLoad() {
   //   this.profilelist = this.getProfile();
   // }

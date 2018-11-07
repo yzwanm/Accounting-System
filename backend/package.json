@@ -29,6 +29,7 @@
     "pug": "^2.0.3",
     "really-need": "^1.9.2",
     "request": "^2.88.0",
+    "sessions": "0.0.2-7",
     "sharp": "^0.21.0",
     "should": "^13.2.3",
     "supertest": "^3.3.0",

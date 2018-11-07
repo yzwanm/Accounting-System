@@ -53,6 +53,7 @@ router.get('/', function (req, res) {
         str = JSON.stringify(result);
         res.render('viewProfile', {title:'viewProfile', profile:str});
         res.send(str);
+        console.log(str);
     });
 });
 // router.get('/', function (req, res) {

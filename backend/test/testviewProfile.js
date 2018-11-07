@@ -18,15 +18,48 @@ function delete_user_info (user_name) {
     dbconnection.query(sql, [user_name], function (err, result) {
 	if (err) {
 	    throw err;
-	} 
+	}
     });
     var sql = "DELETE FROM user WHERE USER_NAME = ?";
     dbconnection.query(sql, [user_name], function (err, result) {
 	if (err) {
 	    throw err;
-	} 
+	}
     });
 }
+
+describe('Testing view profile details', function(){
+	var json={
+		user:'nablec',
+	}
+	it('Testing view profile',function (done) {
+		delete_user_info();
+		var sql="SELECT * from profile where USER_NAME= ?";
+		dbconnection.query(sql,[json.user],function (err,result) {
+            if (err) {
+                console.log(err);
+                callback("ERR_USER_NAME");
+            } else {
+                var jsond = JSON.parse(JSON.stringify(result));
+                request.post('http://localhost:3000/viewProfile', jsond, function (err, res, body) {
+                    var sql = "SELECT count(*) AS user_exists FROM profile WHERE (USER_NAME = ?)";
+                    dbconnection.query(sql, [jsond.user], function (err, result) {
+                        if (err) throw err;
+                        assert(result[0].user_exists == 0);
+                        //testing that user is not added to user table
+                        var sql2 = "SELECT count(*) AS user_exists FROM user WHERE (USER_NAME = ?)";
+                        dbconnection.query(sql2, [jsond.user], function (err, result) {
+                            if (err) throw err;
+                            assert(result[0].user_exists == 0);
+                            delete_user_info(json.user);
+                            done();
+                        });
+                    });
+                });
+            }
+        });
+	});
+});
 describe('testing edit profile details', function () {
 	var json = {user:'DBTESTUSER',
 		password:'bbb',
@@ -37,7 +70,7 @@ describe('testing edit profile details', function () {
 		sex:'F',
 		income:322.23};
 
-	it('testing last name change', function (done) {	
+	it('testing last name change', function (done) {
 		delete_user_info (json.user)
 		var sql = "INSERT INTO profile(USER_NAME,FIRST_NAME,LAST_NAME,BIRTH_DAY, AGE, SEX, INCOME) VALUES (?,?,?,?,?,?,?)";
 		dbconnection.query(sql, [json.user,json.first_name,json.last_name,json.dob,json.age,json.sex,json.income], function (err, result) {
@@ -51,14 +84,14 @@ describe('testing edit profile details', function () {
 			key:'LAST_NAME',
 			value:'shsh',
 			};
-			
+
 			 request.post('http://localhost:3000/viewProfile', {json:json1}, function (err, res, body){
-	
+
 				 var sql = "SELECT count(*) AS user_exists FROM profile WHERE (USER_NAME = ?)";
 				 dbconnection.query(sql, [json1.user], function (err, result) {
 				 if (err) throw err;
 				 assert(result[0].user_exists == 1);
-		
+
 				 var sql2 = "SELECT * FROM profile WHERE (USER_NAME = ?)";
 				 dbconnection.query(sql2, [json1.user], function (err, result) {
 					 if (err) throw err;
@@ -66,14 +99,14 @@ describe('testing edit profile details', function () {
 					 assert(result[0].LAST_NAME === json1.value);
 					 done();
 				 	});
-			 
+
 			 	});
 			 });
 			}
 		});
 	});
 
-	it('testing first name change', function (done) {	
+	it('testing first name change', function (done) {
 		delete_user_info (json.user)
 		var sql = "INSERT INTO profile(USER_NAME,FIRST_NAME,LAST_NAME,BIRTH_DAY, AGE, SEX, INCOME) VALUES (?,?,?,?,?,?,?)";
 		dbconnection.query(sql, [json.user,json.first_name,json.last_name,json.dob,json.age,json.sex,json.income], function (err, result) {
@@ -87,7 +120,7 @@ describe('testing edit profile details', function () {
 			key:'FIRST_NAME',
 			value:'shsh',
 			};
-			
+
 			 request.post('http://localhost:3000/viewProfile', {json:json1}, function (err, res, body){
 				 //testing if the a new user has been added to profile in the database.
 				 var sql = "SELECT count(*) AS user_exists FROM profile WHERE (USER_NAME = ?)";
@@ -102,14 +135,14 @@ describe('testing edit profile details', function () {
 					 assert(result[0].FIRST_NAME === json1.value);
 					 done();
 				 	});
-			 
+
 			 	});
 			 });
 			}
 		});
 	});
 
-	it('testing date of birth change', function (done) {	
+	it('testing date of birth change', function (done) {
 		delete_user_info (json.user)
 		var sql = "INSERT INTO profile(USER_NAME,FIRST_NAME,LAST_NAME,BIRTH_DAY, AGE, SEX, INCOME) VALUES (?,?,?,?,?,?,?)";
 		dbconnection.query(sql, [json.user,json.first_name,json.last_name,json.dob,json.age,json.sex,json.income], function (err, result) {
@@ -123,7 +156,7 @@ describe('testing edit profile details', function () {
 				key:'BIRTH_DAY',
 				value: new Date('2000-03-04T08:00:00.000Z'),
 				};
-			
+
 			 request.post('http://localhost:3000/viewProfile', {json:json1}, function (err, res, body){
 				 //testing if the a new user has been added to profile in the database.
 				 var sql = "SELECT count(*) AS user_exists FROM profile WHERE (USER_NAME = ?)";
@@ -138,14 +171,14 @@ describe('testing edit profile details', function () {
 					 assert(result[0].BIRTH_DAY.toString() === json1.value.toString());
 					 done();
 				 	});
-			 
+
 			 	});
 			 });
 			}
 		});
 	});
 
-	it('testing age change', function (done) {	
+	it('testing age change', function (done) {
 		delete_user_info (json.user)
 		var sql = "INSERT INTO profile(USER_NAME,FIRST_NAME,LAST_NAME,BIRTH_DAY, AGE, SEX, INCOME) VALUES (?,?,?,?,?,?,?)";
 		dbconnection.query(sql, [json.user,json.first_name,json.last_name,json.dob,json.age,json.sex,json.income], function (err, result) {
@@ -159,7 +192,7 @@ describe('testing edit profile details', function () {
 				key:'AGE',
 				value: 33
 				};
-			
+
 			 request.post('http://localhost:3000/viewProfile', {json:json1}, function (err, res, body){
 				 //testing if the a new user has been added to profile in the database.
 				 var sql = "SELECT count(*) AS user_exists FROM profile WHERE (USER_NAME = ?)";
@@ -174,14 +207,14 @@ describe('testing edit profile details', function () {
 					 assert(result[0].AGE == json1.value);
 					 done();
 				 	});
-			 
+
 			 	});
 			 });
 			}
 		});
 	});
 
-	it('testing sex change', function (done) {	
+	it('testing sex change', function (done) {
 		delete_user_info (json.user)
 		var sql = "INSERT INTO profile(USER_NAME,FIRST_NAME,LAST_NAME,BIRTH_DAY, AGE, SEX, INCOME) VALUES (?,?,?,?,?,?,?)";
 		dbconnection.query(sql, [json.user,json.first_name,json.last_name,json.dob,json.age,json.sex,json.income], function (err, result) {
@@ -195,7 +228,7 @@ describe('testing edit profile details', function () {
 				key:'SEX',
 				value:'M'
 			};
-			
+
 			 request.post('http://localhost:3000/viewProfile', {json:json1}, function (err, res, body){
 				 //testing if the a new user has been added to profile in the database.
 				 var sql = "SELECT count(*) AS user_exists FROM profile WHERE (USER_NAME = ?)";
@@ -210,14 +243,14 @@ describe('testing edit profile details', function () {
 					 assert(result[0].SEX === json1.value);
 					 done();
 				 	});
-			 
+
 			 	});
 			 });
 			}
 		});
 	});
 
-	it('testing income change', function (done) {	
+	it('testing income change', function (done) {
 		delete_user_info (json.user)
 		var sql = "INSERT INTO profile(USER_NAME,FIRST_NAME,LAST_NAME,BIRTH_DAY, AGE, SEX, INCOME) VALUES (?,?,?,?,?,?,?)";
 		dbconnection.query(sql, [json.user,json.first_name,json.last_name,json.dob,json.age,json.sex,json.income], function (err, result) {
@@ -231,7 +264,7 @@ describe('testing edit profile details', function () {
 				key:'INCOME',
 				value:3334
 			};
-			
+
 			 request.post('http://localhost:3000/viewProfile', {json:json1}, function (err, res, body){
 				 //testing if the a new user has been added to profile in the database.
 				 var sql = "SELECT count(*) AS user_exists FROM profile WHERE (USER_NAME = ?)";
@@ -246,7 +279,7 @@ describe('testing edit profile details', function () {
 					 assert(result[0].INCOME == json1.value);
 					 done();
 				 	});
-			 
+
 			 	});
 			 });
 			}
@@ -254,10 +287,10 @@ describe('testing edit profile details', function () {
 	});
 
 });
-   
-			   
-			
-		
+
+
+
+
 
 
 

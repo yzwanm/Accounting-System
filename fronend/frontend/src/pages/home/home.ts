@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {NavController, ToastController} from 'ionic-angular';
+import {AlertController, Events, List, NavController, ToastController} from 'ionic-angular';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
@@ -8,10 +8,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class HomePage {
 
-  expenditure: string;
+    expenses="1222223";
 
-  constructor(public navCtrl: NavController,public http:HttpClient,public toastCtrl:ToastController) {
-
+    constructor(public navCtrl: NavController,public http:HttpClient,public toastCtrl:ToastController,public alertCtrl:AlertController) {
   }
   presentToast(message: string) {
     let toast = this.toastCtrl.create({
@@ -23,12 +22,23 @@ export class HomePage {
     return toast;
   }
   getdata() {
-    let myheaders = new HttpHeaders({});
-    this.http.get("http://localhost:3000/home", {headers: myheaders, responseType: 'text'}).
-    subscribe((data)=>{
-      this.expenditure = data['EXPENDITURE'];
-    })
+        return this.http.get("http://localhost:3000/home");
   }
-  get = new this.getdata();
+  showdata(){
+        this.getdata().subscribe((data=>this.expenses=JSON.stringify(data)));
+        let alert = this.alertCtrl.create({
+            title:'Username',
+            message:this.expenses,
+            buttons:[
+                {
+                    text:'Ok',
+                }
+            ]
+        });
+        alert.present();
+
+  }
+
+
 }
 
