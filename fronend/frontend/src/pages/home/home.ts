@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {AlertController, Events, List, NavController, ToastController} from 'ionic-angular';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
@@ -6,11 +6,15 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   selector: 'page-home',
   templateUrl: 'home.html',
 })
-export class HomePage {
+export class HomePage implements OnInit{
 
+    date:string;
+    note:string;
     expenses:string;
+    category:string;
 
-    constructor(public navCtrl: NavController,public http:HttpClient,public toastCtrl:ToastController,public alertCtrl:AlertController) {
+    constructor(public navCtrl: NavController,public http:HttpClient,public toastCtrl:ToastController) {
+
   }
   presentToast(message: string) {
     let toast = this.toastCtrl.create({
@@ -22,23 +26,19 @@ export class HomePage {
     return toast;
   }
   getdata() {
-        return this.http.get("http://localhost:3000/home");
-  }
-  showdata(){
-        this.getdata().subscribe((data=>this.expenses=JSON.stringify(data)));
-        let alert = this.alertCtrl.create({
-            title:'Username',
-            message:this.expenses,
-            buttons:[
-                {
-                    text:'Ok',
-                }
-            ]
+        this.http.get("http://localhost:3000/home").subscribe(data=>{
+            let jsond = data[0];
+            this.expenses = JSON.stringify(jsond['EXPENSES']);
+            this.date = JSON.stringify(jsond['DATE']);
+            this.category = JSON.stringify(jsond['CATEGORY']);
+            // this.note = JSON.stringify(jsond['NOTE']);
         });
-        alert.present();
-        return this.expenses;
+
   }
 
+  ngOnInit(){
+        this.getdata();
+  }
 }
 
 

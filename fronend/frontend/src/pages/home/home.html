@@ -5,21 +5,20 @@
 </ion-header>
 
 <ion-content>
-  <!--<ion-toolbar no-border-top *ngIf="demo != 'Title'">-->
-    <!--<ion-segment [(ngModel)]="apps">-->
-      <!--<ion-segment-button value="date">-->
-        <!--Date-->
-        <!--<ion-datetime [(ngModel)]="date" required name="date" displayFormat="DD MMM YYYY" pickerFormat="YYYY-MM-DD" [ngModelOptions]="{standalone:true}"></ion-datetime>  -->
-      <!--</ion-segment-button>-->
-      <!--<ion-segment-button value="note">-->
-        <!--Note-->
-      <!--</ion-segment-button>-->
-      <!--<ion-segment-button value="details">-->
-        <!--Details-->
-      <!--</ion-segment-button>-->
-    <!--</ion-segment>-->
-  <!--</ion-toolbar>-->
-  <button (click)="showdata()">test</button>
+  <ion-toolbar no-border-top *ngIf="demo != 'Title'">
+    <ion-segment [(ngModel)]="apps">
+      <ion-segment-button value="date">
+        Date
+        <ion-datetime [(ngModel)]="date" required name="date" displayFormat="DD MMM YYYY" pickerFormat="YYYY-MM-DD" [ngModelOptions]="{standalone:true}"></ion-datetime>
+      </ion-segment-button>
+      <ion-segment-button value="note">
+        Note
+      </ion-segment-button>
+      <ion-segment-button value="details">
+        Details
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
   {{expenses}}
 </ion-content>
 

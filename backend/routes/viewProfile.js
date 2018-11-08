@@ -2,67 +2,33 @@ var express = require('express');
 var router = express.Router();
 var dbconnection = require('../dbConnection');
 
-// router.get('/',function (req,res) {
-//     var user_name = req.body.user;
-//     dbconnection.query("select USER_NAME,FIRST_NAME,LAST_NAME,BIRTH_DAY, AGE, SEX, INCOME from profile", function (err, rows) {
-//         if(err){
-//             res.render("profile",{title:" ",datas:[]});
-//         }else {
-//             res.render("profile",{title:" ",datas:rows});
-//         }
-//     });
-// // });
-// router.get('/', function (req, res, next) {
-//     res.render('viewProfile', {title:'viewProfile'});
-// });
-// router.post('/viewProfile', function (req, res, next) {
-//     var user_name = "BobSmith";
-//     var sql1 = "select USER_NAME,FIRST_NAME,LAST_NAME,BIRTH_DAY, AGE, SEX, INCOME from profile where USER_NAME= ?";
-//     var sql2 = "select USER_NAME, PASSWORD from users where USER_NAME= ?";
-//     var str= "xxx ";
-//     dbconnection.query(sql1, [user_name], function (err, result) {
-//         if(err){
-//             throw err;
-//         }else {
-//             var first_name = result[0].FIRST_NAME;
-//             var last_name = result[0].LAST_NAME;
-//             var birth_day = result[0].BIRTH_DAY;
-//             var sex = result[0].SEX;
-//             var income = result[0].INCOME
-//             str = JSON.stringify(result);
-//             res.send('viewProfile', {firstname: first_name});
-//         }
-//     });
-// })
 
-var user_name = "BobSmith";
-var sql1 = "select USER_NAME,FIRST_NAME,LAST_NAME,BIRTH_DAY, AGE, SEX, INCOME from profile where USER_NAME= ?";
-var sql2 = "select USER_NAME, PASSWORD from users where USER_NAME= ?";
-var str= "xxx ";
+async function get_user_profile(user_name,callback){
+    var user_name = "BobSmith";
+    var sql1 = "select profile.*, user.PASSWORD from profile,user where profile.USER_NAME= 'nablec'";
+
+    let promises = [];
+    promises[0] = new Promise(function (resolve,reject){
+        dbconnection.query(sql1,[user_name],function(error,result){
+            if (error){
+                console.log("error message:",error);
+            }
+            jsond = JSON.stringify(result);
+            resolve(jsond);
+        });
+
+    });
+    var res = await promises[0];
+    callback(res);
+}
 
 router.get('/', function (req, res) {
-    dbconnection.query(sql1, [user_name], function (err, result) {
-        if(err) {
-            console.log("error:", err.message);
-        }
-        var first_name = result[0].FIRST_NAME;
-        var last_name = result[0].LAST_NAME;
-        var birth_day = result[0].BIRTH_DAY;
-        var sex = result[0].SEX;
-        var income = result[0].INCOME
-        str = JSON.stringify(result);
-        res.render('viewProfile', {title:'viewProfile', profile:str});
-        res.send(str);
-        console.log(str);
+    var user_name = req.body.username;
+    get_user_profile(user_name,function (result) {
+        res.send(result);
     });
 });
-// router.get('/', function (req, res) {
-//     res.render('viewProfile');
-// });
-// router.post('/javascript/viewProfilefroentend', {firstname: first_name, lastname: last_name, birthday: birth_day, sex: sex, income: income});
-// router.get('/viewProfile', function (req, res) {
-//     res.send(str);
-// });
+
 router.post('/',function(req,res){
     var key = req.body.key;
     var value = req.body.value;
@@ -79,7 +45,7 @@ router.post('/',function(req,res){
         console.log('error');
         res.end("ERROR");
     }
-      
+
 
     if (key == dob)
     {

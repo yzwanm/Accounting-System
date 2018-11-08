@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
+import {Events, IonicPage, NavController, NavParams, ToastController} from 'ionic-angular';
 import { TabsPage } from '../../pages/tabs/tabs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {SignupPage} from '../../pages/signup/signup';
@@ -20,6 +20,7 @@ import {SignupPage} from '../../pages/signup/signup';
 export class LoginPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public toastCtrl: ToastController, public http: HttpClient) {
+
   }
 
   presentToast(message: string) {
@@ -44,7 +45,7 @@ export class LoginPage {
   login(){
     var jsonData = {
     	'username': this.username,
-	'password': this.password
+        'password': this.password
     };
     if (this.username == null || this.password == null) {
        this.presentToast("Please enter User Name and Password");
@@ -66,10 +67,12 @@ export class LoginPage {
 	  this.presentToast("Error connecting to backend server");
        });
     }
+
   }
   signup(){
     this.navCtrl.push(SignupPage);
   }
+
 }
 
 

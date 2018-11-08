@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {AlertController, NavController, ToastController} from 'ionic-angular';
 import {LoginPage} from "../login/login";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
@@ -7,7 +7,7 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
   selector: 'page-contact',
   templateUrl: 'contact.html'
 })
-export class ContactPage {
+export class ContactPage implements OnInit{
 
   constructor(public navCtrl: NavController, public editCtrl: AlertController, public toastCtrl: ToastController, public http: HttpClient) {
 
@@ -23,13 +23,14 @@ export class ContactPage {
     return toast;
   }
 
-  username="Bob";
-  password= '102345';
-  dob="2000-05-21";
+  username:string;
+  password:string;
+  dob:string;
   firstname: string;
   lastname: string;
   genderlist: string;
-  income=60000;
+  income:string;
+  age:string;
 
   // ionViewDidLoad() {
   //   this.profilelist = this.getProfile();
@@ -298,6 +299,22 @@ export class ContactPage {
   }
   logout(){
     this.navCtrl.parent.parent.push(LoginPage);
+  }
+  ngOnInit(){
+      this.http.get("http://localhost:3000/viewprofile").subscribe(data=>{
+          let jsond = data[0];
+          this.password=JSON.stringify(jsond['PASSWORD']);
+          this.firstname=JSON.stringify(jsond['FIRST_NAME']);
+          this.lastname=JSON.stringify(jsond['LAST_NAME']);
+          this.dob=JSON.stringify(jsond["BIRTH_DAY"]);
+          this.age=JSON.stringify(jsond["AGE"]);
+          this.genderlist=JSON.stringify(jsond["SEX"]);
+          this.income=JSON.stringify(jsond["INCOME"]);
+
+
+
+
+      });
   }
 }
 

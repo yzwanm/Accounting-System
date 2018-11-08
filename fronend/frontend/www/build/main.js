@@ -335,10 +335,6 @@ var ContactPage = /** @class */ (function () {
         this.editCtrl = editCtrl;
         this.toastCtrl = toastCtrl;
         this.http = http;
-        this.username = "Bob";
-        this.password = '102345';
-        this.dob = "2000-05-21";
-        this.income = 60000;
     }
     ContactPage.prototype.presentToast = function (message) {
         var toast = this.toastCtrl.create({
@@ -617,13 +613,27 @@ var ContactPage = /** @class */ (function () {
     ContactPage.prototype.logout = function () {
         this.navCtrl.parent.parent.push(__WEBPACK_IMPORTED_MODULE_2__login_login__["a" /* LoginPage */]);
     };
+    ContactPage.prototype.ngOnInit = function () {
+        var _this = this;
+        this.http.get("http://localhost:3000/viewprofile").subscribe(function (data) {
+            var jsond = data[0];
+            _this.password = JSON.stringify(jsond['PASSWORD']);
+            _this.firstname = JSON.stringify(jsond['FIRST_NAME']);
+            _this.lastname = JSON.stringify(jsond['LAST_NAME']);
+            _this.dob = JSON.stringify(jsond["BIRTH_DAY"]);
+            _this.age = JSON.stringify(jsond["AGE"]);
+            _this.genderlist = JSON.stringify(jsond["SEX"]);
+            _this.income = JSON.stringify(jsond["INCOME"]);
+        });
+    };
     ContactPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-contact',template:/*ion-inline-start:"/Users/nablec/WebstormProjects/AccountingAPP/fronend/frontend/src/pages/contact/contact.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>My Profile</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-list>\n    <ion-list-header>\n    <ion-item>\n      <div align="center">\n        <img src="https://b-ssl.duitang.com/uploads/item/201708/26/20170826051009_dFuQc.jpeg"  width="150" height="150">\n      </div>\n    </ion-item>\n    </ion-list-header>\n    <ion-list>\n\n      <!--username-->\n      <ion-item>\n        <ion-label>Username: </ion-label>\n        <ion-input type="text" id="username" value="{{username}}" readonly></ion-input>\n        <button ion-button small color="dark" clear round (click)="username_edit()" item-end>\n          <ion-icon name="ios-arrow-forward"> </ion-icon>\n        </button>\n      </ion-item>\n      <!--password-->\n      <ion-item>\n        <ion-label>Password: </ion-label>\n        <ion-input type="password" id="password" value="{{password}}" readonly></ion-input>\n        <button ion-button small color="dark" clear round (click)="password_edit()" item-end>\n          <ion-icon name="ios-arrow-forward"> </ion-icon>\n        </button>\n      </ion-item>\n      <!--firstname-->\n      <ion-item>\n        <ion-label>First name: </ion-label>\n        <ion-input type="text" id="fname" value="{{firstname}}" readonly></ion-input>\n        <button ion-button small color="dark" clear round (click)="fname_edit()" item-end>\n          <ion-icon name="ios-arrow-forward"> </ion-icon>\n        </button>\n      </ion-item>\n      <!--lastname-->\n      <ion-item>\n        <ion-label>Last name: </ion-label>\n        <ion-input type="text" id="lname" value="{{lastname}}" readonly></ion-input>\n        <button ion-button small color="dark" clear round (click)="lname_edit()" item-end>\n          <ion-icon name="ios-arrow-forward"> </ion-icon>\n        </button>\n      </ion-item>\n      <!--gender-->\n      <ion-item>\n        <ion-label>Gender: </ion-label>\n        <ion-input type="text" id="gender" value="{{genderlist}}" readonly></ion-input>\n        <button ion-button small color="dark" clear round (click)="gender_edit()" item-end>\n          <ion-icon name="ios-arrow-forward"> </ion-icon>\n        </button>\n      </ion-item>\n      <!--Income-->\n      <ion-item>\n        <ion-label>Income: </ion-label>\n        <ion-input type="text" id="income" value="{{income}}" readonly></ion-input>\n        <button ion-button small color="dark" clear round (click)="income_edit()" item-end>\n          <ion-icon name="ios-arrow-forward"> </ion-icon>\n        </button>\n      </ion-item>\n      <!--dob-->\n      <ion-item>\n        <ion-label>Birthday: </ion-label>\n        <ion-input type="text" id="dob" value="{{dob}}" readonly></ion-input>\n        <button ion-button small color="dark" clear round item-end>\n          <ion-datetime [(ngModel)]="dob" required name="birthdate" displayFormat="none" pickerFormat="YYYY-MM-DD" (ngModelChange)="dob_edit()"[ngModelOptions]="{standalone:true}">\n          </ion-datetime>\n          <ion-icon name="md-calendar"> </ion-icon>\n        </button>\n      </ion-item>\n    </ion-list>\n    <button ion-button block color="danger" round (click)="logout()">Logout </button>\n  </ion-list>\n</ion-content>\n\n\n'/*ion-inline-end:"/Users/nablec/WebstormProjects/AccountingAPP/fronend/frontend/src/pages/contact/contact.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ToastController */], __WEBPACK_IMPORTED_MODULE_3__angular_common_http__["a" /* HttpClient */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ToastController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ToastController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__angular_common_http__["a" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_common_http__["a" /* HttpClient */]) === "function" && _d || Object])
     ], ContactPage);
     return ContactPage;
+    var _a, _b, _c, _d;
 }());
 
 //# sourceMappingURL=contact.js.map
@@ -651,11 +661,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var HomePage = /** @class */ (function () {
-    function HomePage(navCtrl, http, toastCtrl, alertCtrl) {
+    function HomePage(navCtrl, http, toastCtrl) {
         this.navCtrl = navCtrl;
         this.http = http;
         this.toastCtrl = toastCtrl;
-        this.alertCtrl = alertCtrl;
     }
     HomePage.prototype.presentToast = function (message) {
         var toast = this.toastCtrl.create({
@@ -667,31 +676,26 @@ var HomePage = /** @class */ (function () {
         return toast;
     };
     HomePage.prototype.getdata = function () {
-        return this.http.get("http://localhost:3000/home");
-    };
-    HomePage.prototype.showdata = function () {
         var _this = this;
-        this.getdata().subscribe((function (data) { return _this.expenses = JSON.stringify(data); }));
-        var alert = this.alertCtrl.create({
-            title: 'Username',
-            message: this.expenses,
-            buttons: [
-                {
-                    text: 'Ok',
-                }
-            ]
+        this.http.get("http://localhost:3000/home").subscribe(function (data) {
+            var jsond = data[0];
+            _this.expenses = JSON.stringify(jsond['EXPENSES']);
+            _this.date = JSON.stringify(jsond['DATE']);
+            _this.category = JSON.stringify(jsond['CATEGORY']);
+            // this.note = JSON.stringify(jsond['NOTE']);
         });
-        alert.present();
-        return this.expenses;
+    };
+    HomePage.prototype.ngOnInit = function () {
+        this.getdata();
     };
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"/Users/nablec/WebstormProjects/AccountingAPP/fronend/frontend/src/pages/home/home.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>MUA</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <!--<ion-toolbar no-border-top *ngIf="demo != \'Title\'">-->\n    <!--<ion-segment [(ngModel)]="apps">-->\n      <!--<ion-segment-button value="date">-->\n        <!--Date-->\n        <!--<ion-datetime [(ngModel)]="date" required name="date" displayFormat="DD MMM YYYY" pickerFormat="YYYY-MM-DD" [ngModelOptions]="{standalone:true}"></ion-datetime>  -->\n      <!--</ion-segment-button>-->\n      <!--<ion-segment-button value="note">-->\n        <!--Note-->\n      <!--</ion-segment-button>-->\n      <!--<ion-segment-button value="details">-->\n        <!--Details-->\n      <!--</ion-segment-button>-->\n    <!--</ion-segment>-->\n  <!--</ion-toolbar>-->\n  <button (click)="showdata()">test</button>\n  {{expenses}}\n</ion-content>\n\n'/*ion-inline-end:"/Users/nablec/WebstormProjects/AccountingAPP/fronend/frontend/src/pages/home/home.html"*/,
+            selector: 'page-home',template:/*ion-inline-start:"/Users/nablec/WebstormProjects/AccountingAPP/fronend/frontend/src/pages/home/home.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>MUA</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-toolbar no-border-top *ngIf="demo != \'Title\'">\n    <ion-segment [(ngModel)]="apps">\n      <ion-segment-button value="date">\n        Date\n        <ion-datetime [(ngModel)]="date" required name="date" displayFormat="DD MMM YYYY" pickerFormat="YYYY-MM-DD" [ngModelOptions]="{standalone:true}"></ion-datetime>\n      </ion-segment-button>\n      <ion-segment-button value="note">\n        Note\n      </ion-segment-button>\n      <ion-segment-button value="details">\n        Details\n      </ion-segment-button>\n    </ion-segment>\n  </ion-toolbar>\n  {{expenses}}\n</ion-content>\n\n'/*ion-inline-end:"/Users/nablec/WebstormProjects/AccountingAPP/fronend/frontend/src/pages/home/home.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ToastController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ToastController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _d || Object])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ToastController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ToastController */]) === "function" && _c || Object])
     ], HomePage);
     return HomePage;
-    var _a, _b, _c, _d;
+    var _a, _b, _c;
 }());
 
 //# sourceMappingURL=home.js.map
