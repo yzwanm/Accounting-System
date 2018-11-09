@@ -21,7 +21,7 @@ async function check_for_user (user_name,callback) {
 	    }
 	});
     });
-    
+
     promises[1] = new Promise(function (resolve,reject) {
 	var sql = "SELECT count(*) AS user_exists FROM user WHERE (USER_NAME = ?)";
 	dbconnection.query(sql, [user_name], function (err, result) {
@@ -58,7 +58,7 @@ async function check_password(user_name,password,callback) {
 	});
     });
     await check_user_promise;
-    
+
     var sql = "SELECT * FROM user WHERE USER_NAME = ?";
     dbconnection.query(sql,[user_name], function (err, result) {
 	if (err) {
@@ -72,7 +72,7 @@ async function check_password(user_name,password,callback) {
 		callback("FAILED");
 	    }
 	}
-    });    
+    });
 }
 
 router.post('/', function (req,res) {

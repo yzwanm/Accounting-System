@@ -7,9 +7,9 @@ router.get('/', function (req,res) {
     var loggedIn = false;
     if (req.session && req.session.user) {
 	loggedIn = true;
-    } 
+    }
     req.session.destroy( function (err) {
-	if (err) { 
+	if (err) {
 	    console.log(err);
 	    res.end("FAILED");
 	}

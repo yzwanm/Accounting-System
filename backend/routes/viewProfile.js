@@ -2,10 +2,9 @@ var express = require('express');
 var router = express.Router();
 var dbconnection = require('../dbConnection');
 
-
+var user_name;
 async function get_user_profile(user_name,callback){
-    var user_name = "BobSmith";
-    var sql1 = "select profile.*, user.PASSWORD from profile,user where profile.USER_NAME= 'nablec'";
+    var sql1 = "select profile.*, user.PASSWORD from profile,user where profile.USER_NAME= ?";
 
     let promises = [];
     promises[0] = new Promise(function (resolve,reject){
@@ -23,13 +22,15 @@ async function get_user_profile(user_name,callback){
 }
 
 router.get('/', function (req, res) {
-    var user_name = req.body.username;
-    get_user_profile(user_name,function (result) {
+    this.user_name = req.session.user;
+    get_user_profile(this.user_name,function (result) {
         res.send(result);
     });
+
 });
 
 router.post('/',function(req,res){
+
     var key = req.body.key;
     var value = req.body.value;
     var first_name = 'FIRST_NAME';
@@ -38,7 +39,7 @@ router.post('/',function(req,res){
     var sex = 'SEX';
     var income = 'INCOME';
     var dob = 'BIRTH_DAY'
-    var user_name = req.body.user;
+
     key_list = [first_name,last_name,age,sex,income,dob];
     if(key_list.contains(key)==false)
     {
@@ -55,8 +56,8 @@ router.post('/',function(req,res){
             value = new Date(value);
         }
     }
-
-    update_user(key,value,user_name,function (result){
+    console.log(this.user_name);
+    update_user(key,value,this.user_name,function (result){
         res.end(result)
     });
 
@@ -71,7 +72,6 @@ function update_user (key,value,username,callback)
         } else {
             if (results.length > 0) {
                 sql = 'UPDATE profile SET ' +key +' = ? WHERE USER_NAME = ?';
-                console.log(sql);
                 dbconnection.query(sql, [value,username], function (error, results, fields) {
                     if (error) {
                         console.log("error", error);

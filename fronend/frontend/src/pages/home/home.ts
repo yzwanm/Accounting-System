@@ -28,9 +28,9 @@ export class HomePage implements OnInit{
   getdata() {
         this.http.get("http://localhost:3000/home").subscribe(data=>{
             let jsond = data[0];
-            this.expenses = JSON.stringify(jsond['EXPENSES']);
-            this.date = JSON.stringify(jsond['DATE']);
-            this.category = JSON.stringify(jsond['CATEGORY']);
+            this.expenses = jsond['EXPENSES'].toString();
+            this.date = jsond['DATE'].toString();
+            this.category = jsond['CATEGORY'].toString();
             // this.note = JSON.stringify(jsond['NOTE']);
         });
 

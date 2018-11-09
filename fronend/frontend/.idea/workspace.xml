@@ -3,13 +3,17 @@
   <component name="ChangeListManager">
     <list default="true" id="e1e2260a-783b-4d2c-8291-c08fe7dbab58" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../../backend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../backend/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../backend/routes/home.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../backend/routes/home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../backend/routes/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../backend/routes/login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../backend/routes/logout.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../backend/routes/logout.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../backend/routes/viewProfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../backend/routes/viewProfile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/frontend.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/frontend.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.sourcemaps/main.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/.sourcemaps/main.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/contact/contact.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/contact/contact.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/home/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/home/home.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/home/home.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/home/home.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/login/login.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/login/login.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/build/0.js" beforeDir="false" afterPath="$PROJECT_DIR$/www/build/0.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/build/1.js" beforeDir="false" afterPath="$PROJECT_DIR$/www/build/1.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/www/build/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/www/build/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/www/build/main.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/www/build/main.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/www/build/vendor.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/www/build/vendor.js.map" afterDir="false" />
@@ -28,37 +32,38 @@
       <usages-collector id="statistics.lifecycle.project">
         <counts>
           <entry key="project.open.time.0" value="1" />
-          <entry key="project.opened" value="1" />
+          <entry key="project.open.time.8" value="1" />
+          <entry key="project.opened" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="html" value="6" />
-          <entry key="ts" value="4" />
+          <entry key="html" value="7" />
+          <entry key="ts" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="HTML" value="6" />
-          <entry key="TypeScript" value="4" />
+          <entry key="HTML" value="7" />
+          <entry key="TypeScript" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts">
         <counts>
-          <entry key="TsLintLanguageService" value="1" />
-          <entry key="TypeScriptServerServiceImpl" value="1" />
+          <entry key="TsLintLanguageService" value="2" />
+          <entry key="TypeScriptServerServiceImpl" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="html" value="214" />
-          <entry key="ts" value="3035" />
+          <entry key="html" value="215" />
+          <entry key="ts" value="3669" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="214" />
-          <entry key="TypeScript" value="3035" />
+          <entry key="HTML" value="215" />
+          <entry key="TypeScript" value="3669" />
         </counts>
       </usages-collector>
     </session>
@@ -66,21 +71,35 @@
   <component name="FileEditorManager">
     <splitter split-orientation="horizontal" split-proportion="0.5">
       <split-first>
-        <leaf>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/pages/home/home.html">
+            <entry file="file://$PROJECT_DIR$/src/pages/home/home.ts">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="315">
-                  <caret line="21" column="14" selection-start-line="21" selection-start-column="2" selection-end-line="21" selection-end-column="14" />
+                <state relative-caret-position="343">
+                  <caret line="36" column="3" lean-forward="true" selection-start-line="36" selection-end-line="37" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/pages/contact/contact.ts">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="424">
+                  <caret line="317" column="50" selection-start-line="317" selection-start-column="50" selection-end-line="317" selection-end-column="50" />
+                  <folding>
+                    <element signature="e#0#48#0" expanded="true" />
+                    <element signature="n#!!block;n#username_edit#0;n#ContactPage#0" />
+                    <element signature="n#!!block;n#lname_edit#0;n#ContactPage#0" />
+                    <element signature="n#!!block;n#income_edit#0;n#ContactPage#0" />
+                  </folding>
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/pages/home/home.ts">
+            <entry file="file://$PROJECT_DIR$/src/pages/signup/signup.ts">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="212">
-                  <caret line="29" column="32" lean-forward="true" selection-start-line="29" selection-start-column="32" selection-end-line="29" selection-end-column="32" />
+                <state relative-caret-position="-772">
                   <folding>
                     <element signature="e#0#42#0" expanded="true" />
                   </folding>
@@ -88,31 +107,15 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/pages/login/login.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-341" />
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/pages/contact/contact.ts">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="15">
-                  <caret line="1" selection-start-line="1" selection-end-line="2" />
-                </state>
-              </provider>
-            </entry>
-          </file>
         </leaf>
       </split-first>
       <split-second>
-        <leaf>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/pages/login/login.ts">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-115">
-                  <caret line="22" selection-start-line="22" selection-end-line="22" />
+                <state relative-caret-position="618">
+                  <caret line="55" column="98" selection-start-line="55" selection-start-column="83" selection-end-line="55" selection-end-column="98" />
                   <folding>
                     <element signature="e#0#42#0" expanded="true" />
                   </folding>
@@ -131,9 +134,9 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/pages/tabs/tabs.html" />
-        <option value="$PROJECT_DIR$/src/pages/login/login.ts" />
-        <option value="$PROJECT_DIR$/src/pages/home/home.ts" />
         <option value="$PROJECT_DIR$/src/pages/home/home.html" />
+        <option value="$PROJECT_DIR$/src/pages/home/home.ts" />
+        <option value="$PROJECT_DIR$/src/pages/login/login.ts" />
         <option value="$PROJECT_DIR$/src/pages/contact/contact.ts" />
       </list>
     </option>
@@ -164,6 +167,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -208,17 +212,24 @@
               <item name="frontend" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="signup" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="frontend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="frontend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
               <item name="tabs" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="excluded.www.directory" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.tslint" value="project" />
@@ -250,26 +261,21 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1541124591193</updated>
-      <workItem from="1541124592452" duration="23867000" />
+      <workItem from="1541124592452" duration="24014000" />
+      <workItem from="1541641728227" duration="9496000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23867000" />
+    <option name="totallyTimeSpent" value="33510000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info id="npm" side_tool="true" />
-      <window_info id="Favorites" side_tool="true" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.08738548" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="TypeScript" />
-      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" visible="true" weight="0.32891566" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info id="npm" order="2" side_tool="true" />
+      <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -277,6 +283,11 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="TypeScript" order="9" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.32891566" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -317,48 +328,60 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/contact/contact.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="778">
-          <caret line="70" column="129" selection-start-line="70" selection-start-column="116" selection-end-line="70" selection-end-column="129" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/home/home.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
-          <caret line="21" column="14" selection-start-line="21" selection-start-column="2" selection-end-line="21" selection-end-column="14" />
+          <caret line="21" column="14" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/login/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-389" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/contact/contact.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-390">
+          <caret line="27" column="41" selection-start-line="27" selection-start-column="41" selection-end-line="27" selection-end-column="41" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/home/home.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="29" column="32" lean-forward="true" selection-start-line="29" selection-start-column="32" selection-end-line="29" selection-end-column="32" />
+        <state relative-caret-position="343">
+          <caret line="36" column="3" lean-forward="true" selection-start-line="36" selection-end-line="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/signup/signup.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-772">
           <folding>
             <element signature="e#0#42#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/login/login.html">
+    <entry file="file://$PROJECT_DIR$/src/pages/login/login.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-341" />
+        <state relative-caret-position="618">
+          <caret line="55" column="98" selection-start-line="55" selection-start-column="83" selection-end-line="55" selection-end-column="98" />
+          <folding>
+            <element signature="e#0#42#0" expanded="true" />
+          </folding>
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/contact/contact.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" selection-start-line="1" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/login/login.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-115">
-          <caret line="22" selection-start-line="22" selection-end-line="22" />
+        <state relative-caret-position="424">
+          <caret line="317" column="50" selection-start-line="317" selection-start-column="50" selection-end-line="317" selection-end-column="50" />
           <folding>
-            <element signature="e#0#42#0" expanded="true" />
+            <element signature="e#0#48#0" expanded="true" />
+            <element signature="n#!!block;n#username_edit#0;n#ContactPage#0" />
+            <element signature="n#!!block;n#lname_edit#0;n#ContactPage#0" />
+            <element signature="n#!!block;n#income_edit#0;n#ContactPage#0" />
           </folding>
         </state>
       </provider>

@@ -299,22 +299,42 @@ export class ContactPage implements OnInit{
   }
   logout(){
     this.navCtrl.parent.parent.push(LoginPage);
+
   }
   ngOnInit(){
-      this.http.get("http://localhost:3000/viewprofile").subscribe(data=>{
+      let myheader = new HttpHeaders();
+      this.http.get("http://localhost:3000/viewprofile",{headers: myheader, withCredentials:true}).subscribe(data=>{
           let jsond = data[0];
-          this.password=JSON.stringify(jsond['PASSWORD']);
-          this.firstname=JSON.stringify(jsond['FIRST_NAME']);
-          this.lastname=JSON.stringify(jsond['LAST_NAME']);
-          this.dob=JSON.stringify(jsond["BIRTH_DAY"]);
-          this.age=JSON.stringify(jsond["AGE"]);
-          this.genderlist=JSON.stringify(jsond["SEX"]);
-          this.income=JSON.stringify(jsond["INCOME"]);
-
-
-
-
+          this.username=jsond['USER_NAME'].toString();
+          this.password=jsond['PASSWORD'].toString();
+          this.firstname=jsond['FIRST_NAME'].toString();
+          if (jsond['LAST_NAME']){
+              this.lastname=jsond['LAST_NAME'].toString();
+          }
+          else {
+              this.lastname="-";
+          }
+          if (jsond["BIRTH_DAY"]){
+              this.dob=jsond["BIRTH_DAY"].toString();
+          }
+          else {
+              this.dob="-";
+          }
+          // this.age=jsond["AGE"].toString();
+          if (jsond["SEX"]){
+              this.genderlist=jsond["SEX"].toString();
+          }
+          else {
+              this.genderlist="-";
+          }
+          if (jsond['INCOME']){
+              this.income=jsond['INCOME'].toString();
+          }
+          else {
+              this.income="-";
+          }
       });
+
   }
 }
 

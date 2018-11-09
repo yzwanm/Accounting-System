@@ -208,11 +208,11 @@ webpackEmptyAsyncContext.id = 113;
 
 var map = {
 	"../pages/login/login.module": [
-		279,
+		280,
 		1
 	],
 	"../pages/signup/signup.module": [
-		280,
+		279,
 		0
 	]
 };
@@ -615,15 +615,37 @@ var ContactPage = /** @class */ (function () {
     };
     ContactPage.prototype.ngOnInit = function () {
         var _this = this;
-        this.http.get("http://localhost:3000/viewprofile").subscribe(function (data) {
+        var myheader = new __WEBPACK_IMPORTED_MODULE_3__angular_common_http__["c" /* HttpHeaders */]();
+        this.http.get("http://localhost:3000/viewprofile", { headers: myheader, withCredentials: true }).subscribe(function (data) {
             var jsond = data[0];
-            _this.password = JSON.stringify(jsond['PASSWORD']);
-            _this.firstname = JSON.stringify(jsond['FIRST_NAME']);
-            _this.lastname = JSON.stringify(jsond['LAST_NAME']);
-            _this.dob = JSON.stringify(jsond["BIRTH_DAY"]);
-            _this.age = JSON.stringify(jsond["AGE"]);
-            _this.genderlist = JSON.stringify(jsond["SEX"]);
-            _this.income = JSON.stringify(jsond["INCOME"]);
+            _this.username = jsond['USER_NAME'].toString();
+            _this.password = jsond['PASSWORD'].toString();
+            _this.firstname = jsond['FIRST_NAME'].toString();
+            if (jsond['LAST_NAME']) {
+                _this.lastname = jsond['LAST_NAME'].toString();
+            }
+            else {
+                _this.lastname = "-";
+            }
+            if (jsond["BIRTH_DAY"]) {
+                _this.dob = jsond["BIRTH_DAY"].toString();
+            }
+            else {
+                _this.dob = "-";
+            }
+            // this.age=jsond["AGE"].toString();
+            if (jsond["SEX"]) {
+                _this.genderlist = jsond["SEX"].toString();
+            }
+            else {
+                _this.genderlist = "-";
+            }
+            if (jsond['INCOME']) {
+                _this.income = jsond['INCOME'].toString();
+            }
+            else {
+                _this.income = "-";
+            }
         });
     };
     ContactPage = __decorate([
@@ -679,9 +701,9 @@ var HomePage = /** @class */ (function () {
         var _this = this;
         this.http.get("http://localhost:3000/home").subscribe(function (data) {
             var jsond = data[0];
-            _this.expenses = JSON.stringify(jsond['EXPENSES']);
-            _this.date = JSON.stringify(jsond['DATE']);
-            _this.category = JSON.stringify(jsond['CATEGORY']);
+            _this.expenses = jsond['EXPENSES'].toString();
+            _this.date = jsond['DATE'].toString();
+            _this.category = jsond['CATEGORY'].toString();
             // this.note = JSON.stringify(jsond['NOTE']);
         });
     };
@@ -772,8 +794,8 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["b" /* HttpClientModule */],
                 __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["d" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* MyApp */], {}, {
                     links: [
-                        { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/signup/signup.module#SignupPageModule', name: 'SignupPage', segment: 'signup', priority: 'low', defaultHistory: [] }
+                        { loadChildren: '../pages/signup/signup.module#SignupPageModule', name: 'SignupPage', segment: 'signup', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] }
                     ]
                 })
             ],

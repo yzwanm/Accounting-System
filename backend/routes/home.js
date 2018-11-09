@@ -16,7 +16,6 @@ async function get_recent_transactions(user_name,elements,callback) {
             jsond = JSON.stringify(results);
                         //   res.render('Home', {title:'Home', home:jsond});
             resolve(jsond);
-            console.log(jsond);
           });
 
     });
@@ -28,7 +27,10 @@ async function get_recent_transactions(user_name,elements,callback) {
 
 /* GET recent transactions listing. */
 router.get('/', function(req, res) {
-    var user_name = req.body.user;
+    if(req.session.user){
+        var user_name = req.session.user;
+        console.log(user_name);
+    }
     var elements = req.body.elements;
     get_recent_transactions(user_name,elements,function(result){
         res.send(result);
