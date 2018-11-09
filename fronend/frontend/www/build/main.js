@@ -177,7 +177,7 @@ var SignupPage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-signup',template:/*ion-inline-start:"/Users/nablec/WebstormProjects/AccountingAPP/fronend/frontend/src/pages/signup/signup.html"*/'<!--\n  Generated template for the SignupPage page.\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar color="whatsapp">\n    <ion-title>signup</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n  <ion-list>\n    <ion-item>\n      <div align="center">\n        <img src="./assets/imgs/logo 2.png" srcset="./assets/imgs/logo@2x.png 2x, ./assets/imgs/logo@3x.png 3x" class="logo">\n      </div>\n    </ion-item>\n    <ion-item>\n      <ion-label floating>Username</ion-label>\n      <ion-input [(ngModel)]="username" type="text" placeholder="Username" class=""></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label floating>Password</ion-label>\n      <ion-input [(ngModel)]="password" type="password" placeholder="Password"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label floating>Confirm Password</ion-label>\n      <ion-input [(ngModel)]="cnfrpwd" type="password" placeholder="Confirm Password"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label floating>First Name</ion-label>\n      <ion-input [(ngModel)]="firstname" type="text" placeholder="First Name"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label floating>Last Name</ion-label>\n      <ion-input [(ngModel)]="lastname" type="text" placeholder="Last Name"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label floating>Birth Date</ion-label>\n      <ion-datetime [(ngModel)]="birthdate" required name="birthdate" displayFormat="DD MMM YYYY" pickerFormat="DD MMM YYYY" [ngModelOptions]="{standalone:true}"></ion-datetime>\n    </ion-item>\n    <ion-item>\n      <ion-label floating>Gender</ion-label>\n      <ion-select [(ngModel)]="gender">\n        <ion-option value="female">Female</ion-option>\n        <ion-option value="male">Male</ion-option>\n      </ion-select>\n    </ion-item>  \n    \n    <button ion-button block color="default" outline (click)="signUp()">Signup</button>\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"/Users/nablec/WebstormProjects/AccountingAPP/fronend/frontend/src/pages/signup/signup.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ToastController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* ToastController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */]])
     ], SignupPage);
     return SignupPage;
 }());
@@ -298,7 +298,7 @@ var AboutPage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-about',template:/*ion-inline-start:"/Users/nablec/WebstormProjects/AccountingAPP/fronend/frontend/src/pages/about/about.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      Chart\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n\n</ion-content>\n'/*ion-inline-end:"/Users/nablec/WebstormProjects/AccountingAPP/fronend/frontend/src/pages/about/about.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */]])
     ], AboutPage);
     return AboutPage;
 }());
@@ -646,7 +646,7 @@ var ContactPage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-contact',template:/*ion-inline-start:"/Users/nablec/WebstormProjects/AccountingAPP/fronend/frontend/src/pages/contact/contact.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>My Profile</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-list>\n    <ion-list-header>\n    <ion-item>\n      <div align="center">\n        <img src="https://b-ssl.duitang.com/uploads/item/201708/26/20170826051009_dFuQc.jpeg"  width="150" height="150">\n      </div>\n    </ion-item>\n    </ion-list-header>\n    <ion-list>\n\n      <!--username-->\n      <ion-item>\n        <ion-label>Username: </ion-label>\n        <ion-input type="text" id="username" value="{{username}}" readonly></ion-input>\n        <button ion-button small color="dark" clear round (click)="username_edit()" item-end>\n          <ion-icon name="ios-arrow-forward"> </ion-icon>\n        </button>\n      </ion-item>\n      <!--password-->\n      <ion-item>\n        <ion-label>Password: </ion-label>\n        <ion-input type="password" id="password" value="{{password}}" readonly></ion-input>\n        <button ion-button small color="dark" clear round (click)="password_edit()" item-end>\n          <ion-icon name="ios-arrow-forward"> </ion-icon>\n        </button>\n      </ion-item>\n      <!--firstname-->\n      <ion-item>\n        <ion-label>First name: </ion-label>\n        <ion-input type="text" id="fname" value="{{firstname}}" readonly></ion-input>\n        <button ion-button small color="dark" clear round (click)="fname_edit()" item-end>\n          <ion-icon name="ios-arrow-forward"> </ion-icon>\n        </button>\n      </ion-item>\n      <!--lastname-->\n      <ion-item>\n        <ion-label>Last name: </ion-label>\n        <ion-input type="text" id="lname" value="{{lastname}}" readonly></ion-input>\n        <button ion-button small color="dark" clear round (click)="lname_edit()" item-end>\n          <ion-icon name="ios-arrow-forward"> </ion-icon>\n        </button>\n      </ion-item>\n      <!--gender-->\n      <ion-item>\n        <ion-label>Gender: </ion-label>\n        <ion-input type="text" id="gender" value="{{genderlist}}" readonly></ion-input>\n        <button ion-button small color="dark" clear round (click)="gender_edit()" item-end>\n          <ion-icon name="ios-arrow-forward"> </ion-icon>\n        </button>\n      </ion-item>\n      <!--Income-->\n      <ion-item>\n        <ion-label>Income: </ion-label>\n        <ion-input type="text" id="income" value="{{income}}" readonly></ion-input>\n        <button ion-button small color="dark" clear round (click)="income_edit()" item-end>\n          <ion-icon name="ios-arrow-forward"> </ion-icon>\n        </button>\n      </ion-item>\n      <!--dob-->\n      <ion-item>\n        <ion-label>Birthday: </ion-label>\n        <ion-input type="text" id="dob" value="{{dob}}" readonly></ion-input>\n        <button ion-button small color="dark" clear round item-end>\n          <ion-datetime [(ngModel)]="dob" required name="birthdate" displayFormat="none" pickerFormat="YYYY-MM-DD" (ngModelChange)="dob_edit()"[ngModelOptions]="{standalone:true}">\n          </ion-datetime>\n          <ion-icon name="md-calendar"> </ion-icon>\n        </button>\n      </ion-item>\n    </ion-list>\n    <button ion-button block color="danger" round (click)="logout()">Logout </button>\n  </ion-list>\n</ion-content>\n\n\n'/*ion-inline-end:"/Users/nablec/WebstormProjects/AccountingAPP/fronend/frontend/src/pages/contact/contact.html"*/
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ToastController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ToastController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__angular_common_http__["a" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_common_http__["a" /* HttpClient */]) === "function" && _d || Object])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* ToastController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* ToastController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__angular_common_http__["a" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_common_http__["a" /* HttpClient */]) === "function" && _d || Object])
     ], ContactPage);
     return ContactPage;
     var _a, _b, _c, _d;
@@ -676,12 +676,51 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var HomePage = /** @class */ (function () {
-    function HomePage(navCtrl, http, toastCtrl) {
+    function HomePage(navCtrl, http, toastCtrl, modalCtrl) {
         this.navCtrl = navCtrl;
         this.http = http;
         this.toastCtrl = toastCtrl;
+        this.modalCtrl = modalCtrl;
     }
+    /* choose date -> Sprint 3
+
+    dateRange: {
+      from: Date;
+      to: Date
+    } = {
+      from: new Date(),
+      to: new Date(Date.now() + 24 * 60 * 60 * 1000 * 5)
+    };
+
+    openCalendar() {
+      const options: CalendarModalOptions = {
+      pickMode: 'range',
+      title: 'Calendar',
+      defaultDateRange: this.dateRange,
+      canBackwardsSelected: true,
+
+      };
+
+      let myCalendar = this.modalCtrl.create(CalendarModal, {
+      options: options
+      });
+
+    myCalendar.present();
+
+    myCalendar.onDidDismiss((date, type) => {
+      if (type === 'done') {
+        this.dateRange = Object.assign({}, {
+          from: date.from.dateObj,
+          to: date.to.dateObj,
+        })
+      }
+      console.log(date);
+      console.log('type', type);
+    });
+  }
+  */
     HomePage.prototype.presentToast = function (message) {
         var toast = this.toastCtrl.create({
             message: message,
@@ -692,19 +731,33 @@ var HomePage = /** @class */ (function () {
         return toast;
     };
     HomePage.prototype.getdata = function () {
-        var _this = this;
         var myheader = new __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["c" /* HttpHeaders */]();
         this.http.get("http://localhost:3000/home", { headers: myheader, withCredentials: true }).subscribe(function (data) {
-            if (JSON.stringify(data) == "[]") {
-                _this.erro = "No data!";
+            var col = [];
+            col.push("DATE");
+            col.push("CATEGORY");
+            col.push("EXPENSES");
+            //1. create dynamic table
+            var table = document.createElement("table");
+            //2. create html table header row using the extracted headers above
+            var tr = table.insertRow(-1); //-> table row
+            for (var j = 0; j < col.length; j++) {
+                var th = document.createElement("th");
+                th.innerHTML = col[j];
+                tr.appendChild(th);
             }
-            else {
-                // let jsond = JSON.parse(JSON.stringify(data[0]));
-                _this.expenses = (data[0])['EXPENSES'];
-                _this.date = (data[0])['DATE'];
-                _this.category = (data[0])['CATEGORY'];
-                // this.note = (data[0])['NOTE'];
+            //3. add JSON data to the table as rows
+            for (var k = 0; k < data.length; k++) {
+                tr = table.insertRow(-1);
+                for (var h = 0; h < col.length; h++) {
+                    var tabCell = tr.insertCell(-1);
+                    tabCell.innerHTML = data[k][col[h]];
+                }
             }
+            //4. finally add the newly created table with json data to a container
+            var divContainer = document.getElementById("showData");
+            divContainer.innerHTML = "";
+            divContainer.appendChild(table);
         });
     };
     HomePage.prototype.ngOnInit = function () {
@@ -714,9 +767,10 @@ var HomePage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-home',template:/*ion-inline-start:"/Users/nablec/WebstormProjects/AccountingAPP/fronend/frontend/src/pages/home/home.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>MUA</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content padding>\n    \n  <p id="showData"></p>\n  \n\n  <!--\n<ion-toolbar no-border-top *ngIf="demo != \'Title\'">\n    <ion-segment [(ngModel)]="apps">\n      <ion-segment-button value="date" (click)="">\n        Date\n        <ion-datetime [(ngModel)]="date" required name="date" displayFormat="DD MMM YYYY" pickerFormat="YYYY-MM-DD" [ngModelOptions]="{standalone:true}"></ion-datetime>  \n      </ion-segment-button>\n      <ion-segment-button value="note"> \n        Note\n      </ion-segment-button>\n      <ion-segment-button value="details">\n        Details\n      </ion-segment-button>\n    </ion-segment>\n  </ion-toolbar>\n\n\n<ion-row>\n  <ion-col width-5 style="text-align: center">\n    <button ion-button small round outline (click)="openCalendar()">Date</button>\n  </ion-col>  \n</ion-row>\n-->\n\n \n</ion-content>\n  \n'/*ion-inline-end:"/Users/nablec/WebstormProjects/AccountingAPP/fronend/frontend/src/pages/home/home.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ToastController */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* ToastController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* ToastController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* ModalController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* ModalController */]) === "function" && _d || Object])
     ], HomePage);
     return HomePage;
+    var _a, _b, _c, _d;
 }());
 
 //# sourceMappingURL=home.js.map
@@ -859,7 +913,7 @@ var MyApp = /** @class */ (function () {
     MyApp = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/Users/nablec/WebstormProjects/AccountingAPP/fronend/frontend/src/app/app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n'/*ion-inline-end:"/Users/nablec/WebstormProjects/AccountingAPP/fronend/frontend/src/app/app.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]])
     ], MyApp);
     return MyApp;
 }());
@@ -955,7 +1009,7 @@ var LoginPage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-login',template:/*ion-inline-start:"/Users/nablec/WebstormProjects/AccountingAPP/fronend/frontend/src/pages/login/login.html"*/'<!--\n  Generated template for the LoginPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n\n<ion-header>\n\n  <ion-navbar>\n    <ion-navbar color="whatsapp">\n      <ion-title>login</ion-title>\n    </ion-navbar>  </ion-navbar>\n  <style type="text/css">\n    h1{\n      position: relative;\n      width: 100%;\n      height: 4rem;\n      margin: 5rem 0 2.2rem;\n      color: rgba(255, 255, 255, 0.8);\n      background: #98bce7;\n      font-size: 1.5rem;\n      border-radius: 3rem;\n      cursor: pointer;\n      overflow: hidden;\n      transition: width 0.3s 0.15s, font-size 0.1s 0.15s;\n    }\n  </style>\n</ion-header>\n\n<ion-content class="welcome" padding>\n\n  <ion-list>\n\n    <ion-item>\n      <div align="center">\n        <img src="./assets/imgs/logo 2.png" srcset="./assets/imgs/logo@2x.png 2x, ./assets/imgs/logo@3x.png 3x" class="logo">\n      </div>\n    </ion-item>\n\n    <ion-item>\n      <ion-label floating>Username</ion-label>\n      <ion-input [(ngModel)]="username" type="text" placeholder="Username"></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label floating>Password</ion-label>\n      <ion-input [(ngModel)]="password" type="password" placeholder="Password"></ion-input>\n    </ion-item>\n    <button ion-button block color="default" outline (click)="login()">Login </button>\n    <button ion-button block color="default"  outline (click)="signup()">Signup </button>\n  </ion-list>\n\n</ion-content>\n'/*ion-inline-end:"/Users/nablec/WebstormProjects/AccountingAPP/fronend/frontend/src/pages/login/login.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ToastController */], __WEBPACK_IMPORTED_MODULE_3__angular_common_http__["a" /* HttpClient */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* ToastController */], __WEBPACK_IMPORTED_MODULE_3__angular_common_http__["a" /* HttpClient */]])
     ], LoginPage);
     return LoginPage;
 }());

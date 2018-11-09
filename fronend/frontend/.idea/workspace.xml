@@ -3,21 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="e1e2260a-783b-4d2c-8291-c08fe7dbab58" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../../backend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../backend/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../backend/routes/home.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../backend/routes/home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../backend/routes/viewProfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../backend/routes/viewProfile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.sourcemaps/main.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/.sourcemaps/main.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/category/category.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/category/category.module.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/category/category.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/category/category.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/contact/contact.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/contact/contact.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/build/.ion-diagnostic-typescript.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/build/0.js" beforeDir="false" afterPath="$PROJECT_DIR$/www/build/0.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/build/1.js" beforeDir="false" afterPath="$PROJECT_DIR$/www/build/1.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/build/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/www/build/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/build/main.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/www/build/main.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/build/vendor.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/www/build/vendor.js.map" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -76,8 +61,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/pages/home/home.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="315">
-                  <caret line="21" column="12" selection-start-line="21" selection-start-column="12" selection-end-line="21" selection-end-column="12" />
+                <state relative-caret-position="405">
+                  <caret line="27" selection-start-line="27" selection-end-line="27" />
                 </state>
               </provider>
             </entry>
@@ -85,8 +70,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/pages/home/home.ts">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="540">
-                  <caret line="38" column="49" selection-start-line="38" selection-start-column="49" selection-end-line="38" selection-end-column="49" />
+                <state relative-caret-position="1245">
+                  <caret line="90" column="49" selection-start-line="90" selection-start-column="49" selection-end-line="90" selection-end-column="49" />
                 </state>
               </provider>
             </entry>
@@ -254,12 +239,12 @@
       <option name="presentableId" value="Default" />
       <updated>1541124591193</updated>
       <workItem from="1541124592452" duration="24014000" />
-      <workItem from="1541641728227" duration="15141000" />
+      <workItem from="1541641728227" duration="15336000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="39155000" />
+    <option name="totallyTimeSpent" value="39350000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -344,15 +329,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/home/home.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="12" selection-start-line="21" selection-start-column="12" selection-end-line="21" selection-end-column="12" />
+        <state relative-caret-position="405">
+          <caret line="27" selection-start-line="27" selection-end-line="27" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/home/home.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="38" column="49" selection-start-line="38" selection-start-column="49" selection-end-line="38" selection-end-column="49" />
+        <state relative-caret-position="1245">
+          <caret line="90" column="49" selection-start-line="90" selection-start-column="49" selection-end-line="90" selection-end-column="49" />
         </state>
       </provider>
     </entry>
