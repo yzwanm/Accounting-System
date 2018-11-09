@@ -12,7 +12,7 @@ export class HomePage implements OnInit{
     note:string;
     expenses:string;
     category:string;
-
+    erro:string;
     constructor(public navCtrl: NavController,public http:HttpClient,public toastCtrl:ToastController) {
 
   }
@@ -26,12 +26,18 @@ export class HomePage implements OnInit{
     return toast;
   }
   getdata() {
-        this.http.get("http://localhost:3000/home").subscribe(data=>{
-            let jsond = data[0];
-            this.expenses = jsond['EXPENSES'].toString();
-            this.date = jsond['DATE'].toString();
-            this.category = jsond['CATEGORY'].toString();
-            // this.note = JSON.stringify(jsond['NOTE']);
+        let myheader=new HttpHeaders();
+        this.http.get("http://localhost:3000/home",{headers:myheader,withCredentials:true}).subscribe(data=>{
+            if(JSON.stringify(data)== "[]"){
+                this.erro = "No data!";
+            }
+            else {
+                // let jsond = JSON.parse(JSON.stringify(data[0]));
+                this.expenses = (data[0])['EXPENSES'];
+                this.date = (data[0])['DATE'];
+                this.category = (data[0])['CATEGORY'];
+                // this.note = (data[0])['NOTE'];
+            }
         });
 
   }

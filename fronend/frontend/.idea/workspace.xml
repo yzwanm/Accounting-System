@@ -4,10 +4,8 @@
     <list default="true" id="e1e2260a-783b-4d2c-8291-c08fe7dbab58" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../../backend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../backend/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../backend/routes/home.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../backend/routes/home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../backend/routes/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../backend/routes/login.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../backend/routes/logout.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../backend/routes/logout.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../backend/routes/viewProfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../backend/routes/viewProfile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/frontend.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/frontend.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.sourcemaps/main.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/.sourcemaps/main.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/contact/contact.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/contact/contact.ts" afterDir="false" />
@@ -38,14 +36,14 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="html" value="7" />
-          <entry key="ts" value="5" />
+          <entry key="html" value="8" />
+          <entry key="ts" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="HTML" value="7" />
-          <entry key="TypeScript" value="5" />
+          <entry key="HTML" value="8" />
+          <entry key="TypeScript" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts">
@@ -56,14 +54,14 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="html" value="215" />
-          <entry key="ts" value="3669" />
+          <entry key="html" value="226" />
+          <entry key="ts" value="4159" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="215" />
-          <entry key="TypeScript" value="3669" />
+          <entry key="HTML" value="226" />
+          <entry key="TypeScript" value="4159" />
         </counts>
       </usages-collector>
     </session>
@@ -73,25 +71,19 @@
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/pages/home/home.ts">
+            <entry file="file://$PROJECT_DIR$/src/pages/home/home.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="343">
-                  <caret line="36" column="3" lean-forward="true" selection-start-line="36" selection-end-line="37" />
+                <state relative-caret-position="315">
+                  <caret line="21" column="12" selection-start-line="21" selection-start-column="12" selection-end-line="21" selection-end-column="12" />
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/pages/contact/contact.ts">
+            <entry file="file://$PROJECT_DIR$/src/pages/home/home.ts">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="424">
-                  <caret line="317" column="50" selection-start-line="317" selection-start-column="50" selection-end-line="317" selection-end-column="50" />
-                  <folding>
-                    <element signature="e#0#48#0" expanded="true" />
-                    <element signature="n#!!block;n#username_edit#0;n#ContactPage#0" />
-                    <element signature="n#!!block;n#lname_edit#0;n#ContactPage#0" />
-                    <element signature="n#!!block;n#income_edit#0;n#ContactPage#0" />
-                  </folding>
+                <state relative-caret-position="540">
+                  <caret line="38" column="49" lean-forward="true" selection-start-line="38" selection-start-column="49" selection-end-line="38" selection-end-column="49" />
                 </state>
               </provider>
             </entry>
@@ -111,13 +103,31 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/pages/login/login.ts">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="618">
+                <state relative-caret-position="348">
                   <caret line="55" column="98" selection-start-line="55" selection-start-column="83" selection-end-line="55" selection-end-column="98" />
                   <folding>
                     <element signature="e#0#42#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/pages/contact/contact.ts">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="125">
+                  <caret line="94" column="9" lean-forward="true" selection-start-line="94" selection-start-column="9" selection-end-line="94" selection-end-column="9" />
+                  <folding>
+                    <element signature="e#0#48#0" expanded="true" />
+                    <element signature="n#!!block;n#username_edit#0;n#ContactPage#0" />
+                    <element signature="n#!!block;n#lname_edit#0;n#ContactPage#0" />
+                    <element signature="n#!!block;n#gender_edit#0;n#ContactPage#0" />
+                    <element signature="n#!!block;n#dob_edit#0;n#ContactPage#0" />
+                    <element signature="n#!!block;n#income_edit#0;n#ContactPage#0" />
+                    <element signature="n#!!block;n#password_edit#0;n#ContactPage#0" />
                   </folding>
                 </state>
               </provider>
@@ -134,9 +144,9 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/pages/tabs/tabs.html" />
+        <option value="$PROJECT_DIR$/src/pages/login/login.ts" />
         <option value="$PROJECT_DIR$/src/pages/home/home.html" />
         <option value="$PROJECT_DIR$/src/pages/home/home.ts" />
-        <option value="$PROJECT_DIR$/src/pages/login/login.ts" />
         <option value="$PROJECT_DIR$/src/pages/contact/contact.ts" />
       </list>
     </option>
@@ -262,16 +272,37 @@
       <option name="presentableId" value="Default" />
       <updated>1541124591193</updated>
       <workItem from="1541124592452" duration="24014000" />
-      <workItem from="1541641728227" duration="9496000" />
+      <workItem from="1541641728227" duration="14145000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33510000" />
+    <option name="totallyTimeSpent" value="38159000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <layout>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.08738548" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="npm" order="2" side_tool="true" />
+      <window_info id="Favorites" order="3" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="TypeScript" order="9" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.32891566" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+    <layout-to-restore>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.08738548" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
@@ -291,27 +322,6 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-    </layout>
-    <layout-to-restore>
-      <window_info id="npm" order="0" side_tool="true" />
-      <window_info id="Favorites" order="1" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="2" visible="true" weight="0.08738548" />
-      <window_info id="Structure" order="3" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
-      <window_info anchor="bottom" id="TypeScript" order="1" />
-      <window_info anchor="bottom" id="Terminal" order="2" visible="true" weight="0.32891566" />
-      <window_info anchor="bottom" id="Event Log" order="3" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="4" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Message" order="5" />
-      <window_info anchor="bottom" id="Find" order="6" />
-      <window_info anchor="bottom" id="Run" order="7" />
-      <window_info anchor="bottom" id="Debug" order="8" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="11" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -328,13 +338,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/home/home.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="14" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/login/login.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-389" />
@@ -347,13 +350,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/home/home.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="343">
-          <caret line="36" column="3" lean-forward="true" selection-start-line="36" selection-end-line="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/signup/signup.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-772">
@@ -363,9 +359,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/home/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="12" selection-start-line="21" selection-start-column="12" selection-end-line="21" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/home/home.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="38" column="49" lean-forward="true" selection-start-line="38" selection-start-column="49" selection-end-line="38" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/login/login.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="618">
+        <state relative-caret-position="348">
           <caret line="55" column="98" selection-start-line="55" selection-start-column="83" selection-end-line="55" selection-end-column="98" />
           <folding>
             <element signature="e#0#42#0" expanded="true" />
@@ -375,13 +385,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/contact/contact.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="424">
-          <caret line="317" column="50" selection-start-line="317" selection-start-column="50" selection-end-line="317" selection-end-column="50" />
+        <state relative-caret-position="125">
+          <caret line="94" column="9" lean-forward="true" selection-start-line="94" selection-start-column="9" selection-end-line="94" selection-end-column="9" />
           <folding>
             <element signature="e#0#48#0" expanded="true" />
             <element signature="n#!!block;n#username_edit#0;n#ContactPage#0" />
             <element signature="n#!!block;n#lname_edit#0;n#ContactPage#0" />
+            <element signature="n#!!block;n#gender_edit#0;n#ContactPage#0" />
+            <element signature="n#!!block;n#dob_edit#0;n#ContactPage#0" />
             <element signature="n#!!block;n#income_edit#0;n#ContactPage#0" />
+            <element signature="n#!!block;n#password_edit#0;n#ContactPage#0" />
           </folding>
         </state>
       </provider>

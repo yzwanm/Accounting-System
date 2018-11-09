@@ -208,11 +208,11 @@ webpackEmptyAsyncContext.id = 113;
 
 var map = {
 	"../pages/login/login.module": [
-		280,
+		279,
 		1
 	],
 	"../pages/signup/signup.module": [
-		279,
+		280,
 		0
 	]
 };
@@ -347,14 +347,6 @@ var ContactPage = /** @class */ (function () {
     };
     // ionViewDidLoad() {
     //   this.profilelist = this.getProfile();
-    // }
-    // private getProfile() {
-    //   return [
-    //       {
-    //         username: "Bob",
-    //         password: '102345',
-    //         fname:'Smith'
-    //       }];
     // }
     ContactPage.prototype.username_edit = function () {
         var view = this.editCtrl.create({
@@ -612,6 +604,8 @@ var ContactPage = /** @class */ (function () {
     };
     ContactPage.prototype.logout = function () {
         this.navCtrl.parent.parent.push(__WEBPACK_IMPORTED_MODULE_2__login_login__["a" /* LoginPage */]);
+        var myheader = new __WEBPACK_IMPORTED_MODULE_3__angular_common_http__["c" /* HttpHeaders */]();
+        this.http.get("http://localhost:3000/logout", { headers: myheader, withCredentials: true });
     };
     ContactPage.prototype.ngOnInit = function () {
         var _this = this;
@@ -699,12 +693,18 @@ var HomePage = /** @class */ (function () {
     };
     HomePage.prototype.getdata = function () {
         var _this = this;
-        this.http.get("http://localhost:3000/home").subscribe(function (data) {
-            var jsond = data[0];
-            _this.expenses = jsond['EXPENSES'].toString();
-            _this.date = jsond['DATE'].toString();
-            _this.category = jsond['CATEGORY'].toString();
-            // this.note = JSON.stringify(jsond['NOTE']);
+        var myheader = new __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["c" /* HttpHeaders */]();
+        this.http.get("http://localhost:3000/home", { headers: myheader, withCredentials: true }).subscribe(function (data) {
+            if (JSON.stringify(data) == "[]") {
+                _this.erro = "No data!";
+            }
+            else {
+                // let jsond = JSON.parse(JSON.stringify(data[0]));
+                _this.expenses = (data[0])['EXPENSES'];
+                _this.date = (data[0])['DATE'];
+                _this.category = (data[0])['CATEGORY'];
+                // this.note = (data[0])['NOTE'];
+            }
         });
     };
     HomePage.prototype.ngOnInit = function () {
@@ -714,10 +714,9 @@ var HomePage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-home',template:/*ion-inline-start:"/Users/nablec/WebstormProjects/AccountingAPP/fronend/frontend/src/pages/home/home.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>MUA</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-toolbar no-border-top *ngIf="demo != \'Title\'">\n    <ion-segment [(ngModel)]="apps">\n      <ion-segment-button value="date">\n        Date\n        <ion-datetime [(ngModel)]="date" required name="date" displayFormat="DD MMM YYYY" pickerFormat="YYYY-MM-DD" [ngModelOptions]="{standalone:true}"></ion-datetime>\n      </ion-segment-button>\n      <ion-segment-button value="note">\n        Note\n      </ion-segment-button>\n      <ion-segment-button value="details">\n        Details\n      </ion-segment-button>\n    </ion-segment>\n  </ion-toolbar>\n  {{expenses}}\n</ion-content>\n\n'/*ion-inline-end:"/Users/nablec/WebstormProjects/AccountingAPP/fronend/frontend/src/pages/home/home.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ToastController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ToastController */]) === "function" && _c || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ToastController */]])
     ], HomePage);
     return HomePage;
-    var _a, _b, _c;
 }());
 
 //# sourceMappingURL=home.js.map
@@ -794,8 +793,8 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["b" /* HttpClientModule */],
                 __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["d" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* MyApp */], {}, {
                     links: [
-                        { loadChildren: '../pages/signup/signup.module#SignupPageModule', name: 'SignupPage', segment: 'signup', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] }
+                        { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/signup/signup.module#SignupPageModule', name: 'SignupPage', segment: 'signup', priority: 'low', defaultHistory: [] }
                     ]
                 })
             ],
@@ -956,10 +955,9 @@ var LoginPage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-login',template:/*ion-inline-start:"/Users/nablec/WebstormProjects/AccountingAPP/fronend/frontend/src/pages/login/login.html"*/'<!--\n  Generated template for the LoginPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n\n<ion-header>\n\n  <ion-navbar>\n    <ion-navbar color="whatsapp">\n      <ion-title>login</ion-title>\n    </ion-navbar>  </ion-navbar>\n  <style type="text/css">\n    h1{\n      position: relative;\n      width: 100%;\n      height: 4rem;\n      margin: 5rem 0 2.2rem;\n      color: rgba(255, 255, 255, 0.8);\n      background: #98bce7;\n      font-size: 1.5rem;\n      border-radius: 3rem;\n      cursor: pointer;\n      overflow: hidden;\n      transition: width 0.3s 0.15s, font-size 0.1s 0.15s;\n    }\n  </style>\n</ion-header>\n\n<ion-content class="welcome" padding>\n\n  <ion-list>\n\n    <ion-item>\n      <div align="center">\n        <img src="./assets/imgs/logo 2.png" srcset="./assets/imgs/logo@2x.png 2x, ./assets/imgs/logo@3x.png 3x" class="logo">\n      </div>\n    </ion-item>\n\n    <ion-item>\n      <ion-label floating>Username</ion-label>\n      <ion-input [(ngModel)]="username" type="text" placeholder="Username"></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label floating>Password</ion-label>\n      <ion-input [(ngModel)]="password" type="password" placeholder="Password"></ion-input>\n    </ion-item>\n    <button ion-button block color="default" outline (click)="login()">Login </button>\n    <button ion-button block color="default"  outline (click)="signup()">Signup </button>\n  </ion-list>\n\n</ion-content>\n'/*ion-inline-end:"/Users/nablec/WebstormProjects/AccountingAPP/fronend/frontend/src/pages/login/login.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ToastController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ToastController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__angular_common_http__["a" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_common_http__["a" /* HttpClient */]) === "function" && _d || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ToastController */], __WEBPACK_IMPORTED_MODULE_3__angular_common_http__["a" /* HttpClient */]])
     ], LoginPage);
     return LoginPage;
-    var _a, _b, _c, _d;
 }());
 
 //# sourceMappingURL=login.js.map

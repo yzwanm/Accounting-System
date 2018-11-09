@@ -22,7 +22,9 @@ async function get_user_profile(user_name,callback){
 }
 
 router.get('/', function (req, res) {
-    this.user_name = req.session.user;
+    if(req.session && req.session.user){
+        this.user_name = req.session.user;
+    }
     get_user_profile(this.user_name,function (result) {
         res.send(result);
     });
@@ -56,7 +58,6 @@ router.post('/',function(req,res){
             value = new Date(value);
         }
     }
-    console.log(this.user_name);
     update_user(key,value,this.user_name,function (result){
         res.end(result)
     });

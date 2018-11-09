@@ -35,14 +35,6 @@ export class ContactPage implements OnInit{
   // ionViewDidLoad() {
   //   this.profilelist = this.getProfile();
   // }
-  // private getProfile() {
-  //   return [
-  //       {
-  //         username: "Bob",
-  //         password: '102345',
-  //         fname:'Smith'
-  //       }];
-  // }
 
 
   username_edit(){
@@ -299,7 +291,8 @@ export class ContactPage implements OnInit{
   }
   logout(){
     this.navCtrl.parent.parent.push(LoginPage);
-
+    let myheader = new HttpHeaders();
+    this.http.get("http://localhost:3000/logout",{headers:myheader, withCredentials:true});
   }
   ngOnInit(){
       let myheader = new HttpHeaders();

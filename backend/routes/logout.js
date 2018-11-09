@@ -14,9 +14,11 @@ router.get('/', function (req,res) {
 	    res.end("FAILED");
 	}
 	if (loggedIn) {
-	    res.end("SUCCESS_LOGOUT");
+        console.log("log out");
+        res.end("SUCCESS_LOGOUT");
 	} else {
-	    res.end("SUCCESS_NO_SESSION");
+		console.log("no session");
+        res.end("SUCCESS_NO_SESSION");
 	}
 	res.end();
     });
