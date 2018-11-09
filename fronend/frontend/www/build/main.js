@@ -208,11 +208,11 @@ webpackEmptyAsyncContext.id = 113;
 
 var map = {
 	"../pages/login/login.module": [
-		279,
+		280,
 		1
 	],
 	"../pages/signup/signup.module": [
-		280,
+		279,
 		0
 	]
 };
@@ -622,7 +622,7 @@ var ContactPage = /** @class */ (function () {
                 _this.lastname = "-";
             }
             if (jsond["BIRTH_DAY"]) {
-                _this.dob = jsond["BIRTH_DAY"].toString();
+                _this.dob = jsond["BD"].toString();
             }
             else {
                 _this.dob = "-";
@@ -793,8 +793,8 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["b" /* HttpClientModule */],
                 __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["d" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* MyApp */], {}, {
                     links: [
-                        { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/signup/signup.module#SignupPageModule', name: 'SignupPage', segment: 'signup', priority: 'low', defaultHistory: [] }
+                        { loadChildren: '../pages/signup/signup.module#SignupPageModule', name: 'SignupPage', segment: 'signup', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] }
                     ]
                 })
             ],

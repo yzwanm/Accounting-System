@@ -4,7 +4,7 @@ var dbconnection = require('../dbConnection');
 
 var user_name;
 async function get_user_profile(user_name,callback){
-    var sql1 = "select profile.*, user.PASSWORD from profile,user where profile.USER_NAME= ?";
+    var sql1 = "select profile.*, user.PASSWORD, Date_format(profile.BIRTH_DAY, '%y-%m-%d') as BD from profile,user where profile.USER_NAME= ?";
 
     let promises = [];
     promises[0] = new Promise(function (resolve,reject){

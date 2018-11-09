@@ -308,7 +308,7 @@ export class ContactPage implements OnInit{
               this.lastname="-";
           }
           if (jsond["BIRTH_DAY"]){
-              this.dob=jsond["BIRTH_DAY"].toString();
+              this.dob=jsond["BD"].toString();
           }
           else {
               this.dob="-";
