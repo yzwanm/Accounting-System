@@ -21,6 +21,8 @@ export class HomePage implements OnInit{
     constructor(public navCtrl: NavController,public http:HttpClient,public toastCtrl:ToastController, public modalCtrl: ModalController) {
     }
 
+    /* choose data -> Sprint 3
+  
     dateRange: {
       from: Date;
       to: Date
@@ -55,6 +57,9 @@ export class HomePage implements OnInit{
       console.log('type', type);
     });
   }
+  */
+
+
     presentToast(message: string) {
       let toast = this.toastCtrl.create({
         message: message,
@@ -103,9 +108,8 @@ export class HomePage implements OnInit{
               var tabCell = tr.insertCell(-1);
               tabCell.innerHTML = data[k][col[h]];
             }
-            
           }
-          
+
           //4. finally add the newly created table with json data to a container
           var divContainer = document.getElementById("showData");
           divContainer.innerHTML = "";
