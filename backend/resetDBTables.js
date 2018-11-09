@@ -1,11 +1,20 @@
 var dbconnection = require('./dbConnection');
 
+var income_categories = ["salary","part-time","financial","other"];
+var cost_categories = ["food","drink","traffic","shopping","entertainment","home","electronics","medical","other"];
+
 var table_name1 = "profile";
 var sql1 = "CREATE TABLE profile (USER_NAME VARCHAR(20) NOT NULL UNIQUE, FIRST_NAME VARCHAR(20) NOT NULL, LAST_NAME VARCHAR(20),AGE INT, BIRTH_DAY DATE, SEX VARCHAR(20), INCOME FLOAT)";
 var table_name2 = "user";
 var sql2 = "CREATE TABLE user (USER_NAME VARCHAR(20) NOT NULL UNIQUE, PASSWORD CHAR(60), SALT CHAR(29))";
 var table_name3 = "expenses";
 var sql3 = "CREATE TABLE expenses (USER_NAME VARCHAR(20) NOT NULL, EXPENSES FLOAT, CATEGORY VARCHAR(20), DATE DATETIME)";
+var table_name4 = "category";
+var sql4 = "CREATE TABLE category (CATEGORY_ID INT NOT NULL UNIQUE PRIMARY KEY AUTO_INCREMENT, CATEGORY VARCHAR(20), PARENT_ID INT NOT NULL)";
+var table_name5 = "record";
+var sql5 = "CREATE TABLE record (RECORD_ID INT NOT NULL UNIQUE PRIMARY KEY AUTO_INCREMENT, USER_NAME VARCHAR(20) NOT NULL, CATEGORY_ID INT NOT NULL, CATEGORY VARCHAR(20) NOT NULL, PARENT_ID INT NOT NULL, COMMENT VARCHAR(200), MONEY FLOAT, DATE DATETIME NOT NULL)";
+
+//USER_NAME,CATEGORY_ID,CATEGORY,PARENT_ID,COMMENT,MONEY,DATE
 
 function replace_table(table_name,sql) {
     return new Promise(function(resolve,reject) {
@@ -40,12 +49,51 @@ function replace_table(table_name,sql) {
     });
 }
 
+function get_category_id(category, callback) {
+    var sql_test = "SELECT CATEGORY_ID FROM category WHERE CATEGORY = ?";
+    dbconnection.query(sql_test, [category], function (err, result) {
+	if (err) throw err;
+	callback(result[0].CATEGORY_ID);
+    });
+};
+
+function load_category(category,parent_uid) {
+    sql = "INSERT INTO category (CATEGORY, PARENT_ID) VALUES (?,?)";
+    dbconnection.query(sql, [category,parent_uid], function (err, result) {
+	if (err) throw err;
+	console.log("inserted " + category + " into category table with parentId=" +  parent_uid);
+    });
+}
+
+function load_all_categories() {
+    return new Promise(function(resolve,reject) {
+	load_category("income",0);
+	load_category("cost",0);
+	//adding income categories
+	get_category_id("income", function(parent_uid) {
+	    income_categories.forEach( element => {
+		load_category(element,parent_uid);
+	    });
+	    //adding cost categories
+	    get_category_id("cost", function(parent_uid) {
+		cost_categories.forEach( element => {
+		    load_category(element,parent_uid);
+		});
+		resolve();
+	    });
+	});
+    });
+}    
+
 async function replace_all_tables() {
-    let promises = [];
+    let promises = []; 
     promises[0] = replace_table(table_name1,sql1);
-	promises[1] = replace_table(table_name2,sql2);
-	promises[3] = replace_table(table_name3,sql3);
+    promises[1] = replace_table(table_name2,sql2);
+    promises[2] = replace_table(table_name3,sql3);
+    promises[3] = replace_table(table_name4,sql4);
+    promises[4] = replace_table(table_name5,sql5);
     await Promise.all(promises);
+    await load_all_categories();
     dbconnection.end();
 }
 
