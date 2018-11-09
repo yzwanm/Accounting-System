@@ -2,16 +2,22 @@
   <ion-navbar>
     <ion-title>MUA</ion-title>
   </ion-navbar>
+
 </ion-header>
 
-<ion-content>
-  <ion-toolbar no-border-top *ngIf="demo != 'Title'">
+<ion-content padding>
+    
+  <p id="showData"></p>
+  
+
+  <!--
+<ion-toolbar no-border-top *ngIf="demo != 'Title'">
     <ion-segment [(ngModel)]="apps">
-      <ion-segment-button value="date">
+      <ion-segment-button value="date" (click)="">
         Date
-        <ion-datetime [(ngModel)]="date" required name="date" displayFormat="DD MMM YYYY" pickerFormat="YYYY-MM-DD" [ngModelOptions]="{standalone:true}"></ion-datetime>
+        <ion-datetime [(ngModel)]="date" required name="date" displayFormat="DD MMM YYYY" pickerFormat="YYYY-MM-DD" [ngModelOptions]="{standalone:true}"></ion-datetime>  
       </ion-segment-button>
-      <ion-segment-button value="note">
+      <ion-segment-button value="note"> 
         Note
       </ion-segment-button>
       <ion-segment-button value="details">
@@ -19,6 +25,15 @@
       </ion-segment-button>
     </ion-segment>
   </ion-toolbar>
-  {{expenses}}
-</ion-content>
 
+
+<ion-row>
+  <ion-col width-5 style="text-align: center">
+    <button ion-button small round outline (click)="openCalendar()">Date</button>
+  </ion-col>  
+</ion-row>
+-->
+
+ 
+</ion-content>
+  
