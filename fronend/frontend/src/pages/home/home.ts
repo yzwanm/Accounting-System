@@ -21,7 +21,7 @@ export class HomePage implements OnInit{
     constructor(public navCtrl: NavController,public http:HttpClient,public toastCtrl:ToastController, public modalCtrl: ModalController) {
     }
 
-    /* choose data -> Sprint 3
+    /* choose date -> Sprint 3
   
     dateRange: {
       from: Date;
