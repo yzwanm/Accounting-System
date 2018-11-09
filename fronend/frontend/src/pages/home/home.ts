@@ -75,17 +75,14 @@ export class HomePage implements OnInit{
             
         this.http.get("http://localhost:3000/home").subscribe((data:any[])=>{
          
-          //extract value for html header
-          //('user_name', 'expenses', 'category', 'date')
+         
           var col = [];
           
-          for (var i=0; i<1; i ++){
-            for(var key in data[i]){
-              if (col.indexOf(key)== -1){
-                col.push(key);
-              }
-            }
-          }
+          col.push("DATE");
+          col.push("CATEGORY");
+          col.push("EXPENSES");
+
+
           
           //1. create dynamic table
           var table = document.createElement("table");
@@ -93,7 +90,7 @@ export class HomePage implements OnInit{
           //2. create html table header row using the extracted headers above
           var tr = table.insertRow(-1); //-> table row
 
-          for(var j=1;j<col.length; j++) //-> table header
+          for(var j=0;j<col.length; j++) //-> table header
           {
             var th = document.createElement("th");
             th.innerHTML = col[j];
@@ -104,7 +101,7 @@ export class HomePage implements OnInit{
           for(var k = 0; k < data.length; k++){
             tr = table.insertRow(-1);
 
-            for(var h = 1; h <col.length; h++){
+            for(var h = 0; h <col.length; h++){
               var tabCell = tr.insertCell(-1);
               tabCell.innerHTML = data[k][col[h]];
             }
