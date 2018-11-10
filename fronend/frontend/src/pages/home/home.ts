@@ -1,3 +1,6 @@
+// import { CalendarComponentOptions } from 'ion2-calendar';
+// -> install 'npm i ion2-calendar'
+
 import {Component, OnInit} from '@angular/core';
 import {AlertController, Events, List, NavController, ToastController} from 'ionic-angular';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
