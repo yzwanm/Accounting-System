@@ -1,11 +1,11 @@
 import {Component, OnInit} from '@angular/core';
 import {AlertController, Events, List, NavController, ToastController} from 'ionic-angular';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-// import { Certificate } from 'crypto';
+//import { Certificate } from 'crypto';
 import { CalendarComponentOptions } from 'ion2-calendar';
 import { ModalController } from 'ionic-angular';
 import { CalendarModal, CalendarModalOptions, DayConfig, CalendarResult } from "ion2-calendar";
-// import * as moment from 'moment';
+import * as moment from 'moment';
 
 @Component({
   selector: 'page-home',
@@ -18,12 +18,11 @@ export class HomePage implements OnInit{
     expenses:string;
     category:string;
 
-    erro:string;
     constructor(public navCtrl: NavController,public http:HttpClient,public toastCtrl:ToastController, public modalCtrl: ModalController) {
     }
 
     /* choose date -> Sprint 3
-
+  
     dateRange: {
       from: Date;
       to: Date
@@ -38,7 +37,7 @@ export class HomePage implements OnInit{
       title: 'Calendar',
       defaultDateRange: this.dateRange,
       canBackwardsSelected: true,
-
+    
       };
 
       let myCalendar = this.modalCtrl.create(CalendarModal, {
@@ -70,34 +69,47 @@ export class HomePage implements OnInit{
       toast.present();
       return toast;
     }
-
+ 
 
   getdata() {
-        let myheader=new HttpHeaders();
+            
+	let  myheaders = new HttpHeaders({});
 
-        this.http.get("http://localhost:3000/home",{headers:myheader,withCredentials:true}).subscribe((data:any[])=>{
-
-
+        this.http.get("http://localhost:3000/home", {headers: myheaders, withCredentials: true}).subscribe((data:any[])=>{
+         
+         
           var col = [];
-
+          
           col.push("FDATE");
           col.push("CATEGORY");
           col.push("EXPENSES");
 
 
-
+          
           //1. create dynamic table
           var table = document.createElement("table");
 
           //2. create html table header row using the extracted headers above
           var tr = table.insertRow(-1); //-> table row
 
-          for(var j=0;j<col.length; j++) //-> table header
-          {
+          //for(var j=0;j<col.length; j++) //-> table header
+          //{
             var th = document.createElement("th");
-            th.innerHTML = col[j];
+            th.innerHTML = "DATE";
+	          th.setAttribute("width", "100");
+	          th.setAttribute("align","left");
             tr.appendChild(th);
-          }
+	          var th1 = document.createElement("th");
+	          th1.setAttribute("width","100");
+	          th1.setAttribute("align","left");
+	          th1.innerHTML = "CATEGORY";
+	          tr.appendChild(th1);
+	          th1.setAttribute("width","100");
+	          th1.setAttribute("align","left");
+            var th2 = document.createElement("th");
+            th2.innerHTML = "EXPENSES";
+            tr.appendChild(th2);
+          //}
 
           //3. add JSON data to the table as rows
           for(var k = 0; k < data.length; k++){
@@ -121,4 +133,3 @@ export class HomePage implements OnInit{
         this.getdata();
   }
 }
-
