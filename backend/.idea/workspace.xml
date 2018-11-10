@@ -2,7 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="470bc695-6683-40b3-853b-04ac6ed0364c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../fronend/frontend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../fronend/frontend/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fronend/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../fronend/frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fronend/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../fronend/frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fronend/frontend/src/pages/home/home.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../fronend/frontend/src/pages/home/home.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fronend/frontend/www/build/0.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fronend/frontend/www/build/0.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fronend/frontend/www/build/1.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fronend/frontend/www/build/1.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fronend/frontend/www/build/main.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fronend/frontend/www/build/main.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fronend/frontend/www/build/main.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fronend/frontend/www/build/main.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fronend/frontend/www/build/vendor.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fronend/frontend/www/build/vendor.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fronend/frontend/www/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../fronend/frontend/www/index.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -191,18 +206,17 @@
       <workItem from="1539989171390" duration="2528000" />
       <workItem from="1540070248430" duration="172000" />
       <workItem from="1540793228902" duration="34690000" />
-      <workItem from="1541641727084" duration="16457000" />
+      <workItem from="1541641727084" duration="17166000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="53847000" />
+    <option name="totallyTimeSpent" value="54556000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24806201" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24806201" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -216,7 +230,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.32891566" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.32891566" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />

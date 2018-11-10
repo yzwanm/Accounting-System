@@ -25,6 +25,8 @@
     "@ionic-native/status-bar": "~4.15.0",
     "@ionic/pro": "2.0.3",
     "@ionic/storage": "2.2.0",
+    "crypto": "^1.0.1",
+    "ion2-calendar": "^2.2.0",
     "ionic-angular": "3.9.2",
     "ionicons": "3.0.0",
     "rxjs": "5.5.11",
