@@ -32,7 +32,7 @@ router.get('/', function (req, res) {
 });
 
 router.post('/',function(req,res){
-
+    this.user_name = req.session.user;
     var key = req.body.key;
     var value = req.body.value;
     var first_name = 'FIRST_NAME';
