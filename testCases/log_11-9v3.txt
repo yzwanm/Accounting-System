@@ -1,0 +1,158 @@
+
+> accountingbackend@1.0.0 test /Users/bellji/github_test/Accounting-System6/backend
+> ./node_modules/mocha/bin/mocha --exit
+
+
+
+listening on port 3000
+  testing addRecord (income and cost) backend functions
+Connected!
+    ✓ testing getCategoryId() returns id of the parent category income
+    ✓ testing getCategoryId() returns id of the parent category cost
+    ✓ testing getCategoryId() returns ERR_DB_BAD_CATEGORY_TYPE when presented with bad input
+    ✓ testing getCategoryInfo returns correct results for salary
+    ✓ testing getCategoryInfo returns correct results for food
+    ✓ testing getCategoryInfo returns correct results for other income
+    ✓ testing getCategoryInfo returns correct results for other cost
+    ✓ testing getCategoryInfo throws ERR_DB_BAD_CATEGORY for category=salary, parentCategory=cost
+    ✓ testing getCategoryInfo throws ERR_DB_BAD_CATEGORY for category=blablabla, parentCategory=cost
+    ✓ testing addRecord correctly adds a record into database (66ms)
+    ✓ testing addRecord throws ERR_DB_INSERT_RECORD when date is null
+    ✓ testing addExpenditure correctly adds a record into database
+    ✓ testing addExpenditure throws ERR_DB_INSERT_EXPENDITURE when user_name is null
+[0mPOST /login [32m200 [0m111.862 ms - -[0m
+[0mPOST /addRecord [32m200 [0m17.927 ms - 7[0m
+log out
+[0mGET /logout [32m200 [0m2.222 ms - -[0m
+    ✓ testing that a cost record can be added through /addRecord route (281ms)
+[0mPOST /login [32m200 [0m96.149 ms - -[0m
+[0mPOST /addRecord [32m200 [0m23.934 ms - -[0m
+log out
+[0mGET /logout [32m200 [0m0.681 ms - -[0m
+    ✓ testing that an income record can be added through /addRecord route (250ms)
+[0mPOST /addRecord [32m200 [0m0.829 ms - -[0m
+    ✓ testing that /addRecord route returns NOT_LOGGED_IN when user is not logged in
+[0mPOST /login [32m200 [0m96.171 ms - -[0m
+[0mPOST /addRecord [32m200 [0m0.282 ms - -[0m
+log out
+[0mGET /logout [32m200 [0m0.368 ms - -[0m
+    ✓ testing that /addRecord route returns NO_CATEGORY when a category is not entered (216ms)
+[0mPOST /login [32m200 [0m96.102 ms - -[0m
+[0mPOST /addRecord [32m200 [0m0.298 ms - -[0m
+log out
+[0mGET /logout [32m200 [0m0.374 ms - -[0m
+    ✓ testing that /addRecord route returns NO_TYPE when either income or cost is not entered (219ms)
+[0mPOST /login [32m200 [0m96.115 ms - -[0m
+[0mPOST /addRecord [32m200 [0m0.312 ms - -[0m
+log out
+[0mGET /logout [32m200 [0m0.357 ms - -[0m
+    ✓ testing that /addRecord route returns NO_DATE when date is not entered (219ms)
+
+  testing connectivity
+[0mGET / [32m200 [0m2.824 ms - 1917[0m
+    ✓ http://localhost:3000 should return 200
+[0mGET / [32m200 [0m0.734 ms - 1917[0m
+    ✓ http://localhost:3000/javascript/accApp.js should return 200
+[0mPOST /createAccount [32m200 [0m0.971 ms - -[0m
+    ✓ http://localhost:3000/createAccount should return 200
+[0mPOST /login [32m200 [0m1.304 ms - -[0m
+    ✓ http://localhost:3000/login should return 200
+
+  testing inputs to createAccount backend functions
+    ✓ testing if insert_user_info() adds user information to the database (123ms)
+    ✓ testing that check_for_user() can check if a user is found in the database (110ms)
+    ✓ testing that check_for_user() can check if a user is NOT found in the database
+    ✓ testing that add_user() will add a user to the database (122ms)
+    ✓ testing that add_user() will return ERR_USER_EXISTS if a that user_name is already in the database (124ms)
+[0mPOST /createAccount [32m200 [0m102.903 ms - -[0m
+    ✓ testing loading data to profile table through /createAccount Route (113ms)
+    ✓ testing bcrypt is being used to hash passwords (97ms)
+[0mPOST /createAccount [32m200 [0m0.428 ms - -[0m
+    ✓ testing /createAccount returns ERR_NO_USER if user_name is null
+[0mPOST /createAccount [32m200 [0m0.462 ms - -[0m
+    ✓ testing /createAccount returns ERR_NO_USER if user_name is empty
+[0mPOST /createAccount [32m200 [0m0.354 ms - -[0m
+    ✓ testing /createAccount returns ERR_NO_PASS if password is null
+[0mPOST /createAccount [32m200 [0m0.410 ms - -[0m
+    ✓ testing /createAccount returns ERR_NO_PASS if password is empty
+[0mPOST /createAccount [32m200 [0m0.309 ms - -[0m
+    ✓ testing /createAccount returns ERR_NO_FNAME if password is null
+[0mPOST /createAccount [32m200 [0m0.314 ms - -[0m
+    ✓ testing /createAccount returns ERR_NO_FNAME if password is empty
+[0mPOST /createAccount [32m200 [0m128.507 ms - -[0m
+    ✓ testing /createAccount returns SUCCESS with user_name,password, and first_name (135ms)
+    ✓ testing check_mime_type().
+    ✓ testing add_photo() to check that photo is added
+[0mPOST /createAccount [32m200 [0m110.282 ms - -[0m
+    ✓ testing loading image through /createAccount Route (122ms)
+
+  checking recent entry
+[0mPOST /login [32m200 [0m98.094 ms - -[0m
+request received
+Bob
+4
+[0mGET /home [32m200 [0m3.978 ms - 452[0m
+log out
+[0mGET /logout [32m200 [0m0.384 ms - -[0m
+    ✓ testing home page recent transactions (269ms)
+
+  testing login backend functions
+    ✓ testing that check_for_user() can check if a user is found in the database (108ms)
+    ✓ testing that check_for_user() can check if a user is NOT found in the database
+    ✓ testing check_password() returns SUCCESS when password is correct (208ms)
+    ✓ testing check_password() returns FAILED when password is incorrect (215ms)
+    ✓ testing check_password() returns FAILED when username does not exist
+[0mPOST /login [32m200 [0m97.827 ms - -[0m
+    ✓ testing /login route signs in user (201ms)
+
+  testing logout backend functions
+[0mPOST /login [32m200 [0m97.968 ms - -[0m
+log out
+[0mGET /logout [32m200 [0m0.369 ms - -[0m
+    ✓ testing /logout route signs out user and returns SUCCESS_LOGOUT (211ms)
+no session
+[0mGET /logout [32m200 [0m0.353 ms - -[0m
+    ✓ testing /logout route returns SUCCESS_NO_SESSION when user is not logged in
+
+  Testing view profile details
+[0mPOST /login [32m200 [0m97.628 ms - -[0m
+[0mGET /viewProfile [32m200 [0m1.804 ms - 443[0m
+log out
+[0mGET /logout [32m200 [0m0.337 ms - -[0m
+    ✓ Testing view profile (213ms)
+
+  testing edit profile details
+[0mPOST /login [32m200 [0m105.524 ms - -[0m
+[0mPOST /viewProfile [32m200 [0m23.083 ms - -[0m
+log out
+[0mGET /logout [32m200 [0m0.566 ms - -[0m
+    ✓ testing last name change (258ms)
+[0mPOST /login [32m200 [0m99.751 ms - -[0m
+[0mPOST /viewProfile [32m200 [0m15.947 ms - -[0m
+log out
+[0mGET /logout [32m200 [0m0.591 ms - -[0m
+    ✓ testing first name change (270ms)
+[0mPOST /login [32m200 [0m99.688 ms - -[0m
+[0mPOST /viewProfile [32m200 [0m17.434 ms - -[0m
+log out
+[0mGET /logout [32m200 [0m0.567 ms - -[0m
+    ✓ testing date of birth change (246ms)
+[0mPOST /login [32m200 [0m97.145 ms - -[0m
+[0mPOST /viewProfile [32m200 [0m18.181 ms - -[0m
+log out
+[0mGET /logout [32m200 [0m0.538 ms - -[0m
+    ✓ testing age change (264ms)
+[0mPOST /login [32m200 [0m101.283 ms - -[0m
+[0mPOST /viewProfile [32m200 [0m15.042 ms - -[0m
+log out
+[0mGET /logout [32m200 [0m0.582 ms - -[0m
+    ✓ testing sex change (269ms)
+[0mPOST /login [32m200 [0m100.636 ms - -[0m
+[0mPOST /viewProfile [32m200 [0m25.160 ms - -[0m
+log out
+[0mGET /logout [32m200 [0m0.541 ms - -[0m
+    ✓ testing income change (269ms)
+
+
+  56 passing (5s)
+
