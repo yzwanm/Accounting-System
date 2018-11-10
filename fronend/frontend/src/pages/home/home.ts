@@ -23,9 +23,11 @@ export class HomePage implements OnInit{
 
     constructor(public navCtrl: NavController,public http:HttpClient,public toastCtrl:ToastController, public modalCtrl: ModalController) {
     }
+ionViewWillEnter(){
 
+}
     /* choose date -> Sprint 3
-  
+
     dateRange: {
       from: Date;
       to: Date
@@ -40,7 +42,7 @@ export class HomePage implements OnInit{
       title: 'Calendar',
       defaultDateRange: this.dateRange,
       canBackwardsSelected: true,
-    
+
       };
 
       let myCalendar = this.modalCtrl.create(CalendarModal, {
@@ -72,23 +74,23 @@ export class HomePage implements OnInit{
       toast.present();
       return toast;
     }
- 
+
 
   getdata() {
-            
+
 	let  myheaders = new HttpHeaders({});
 
         this.http.get("http://localhost:3000/home", {headers: myheaders, withCredentials: true}).subscribe((data:any[])=>{
-         
-         
+
+
           var col = [];
-          
+
           col.push("FDATE");
           col.push("CATEGORY");
           col.push("EXPENSES");
 
 
-          
+
           //1. create dynamic table
           var table = document.createElement("table");
 

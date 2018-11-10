@@ -1,0 +1,71 @@
+page-category {
+  .icon-category {
+    font-size: 2.2em !important;
+  }
+
+  .ion-col {
+    border: 0.5px solid white;
+  }
+
+  .button {
+    height: 5.6rem !important;
+  }
+
+  label {
+    font-size: 1.4rem !important;
+    font-weight: 0 !important;
+    text-transform: lowercase !important;
+  }
+
+  .round-button-income {
+    border-radius: 64px !important;
+    border: 0.5px solid #32db64 !important;
+  }
+
+  .round-button-expense {
+    border-radius: 64px !important;
+    border: 0.5px solid #f53d3d !important;
+  }
+  h1, h2, h3, h4, h5 {
+    padding: 0;
+    margin: 0;
+  }
+
+  //.row {
+  //  overflow-x: scroll;
+  //  flex-wrap: inherit !important;
+  //}
+  //.col {
+  //  padding: 0 !important;
+  //  margin: 0 10px;
+  //}
+  //
+  //.type-row {
+  //  display: table-caption;
+  //  line-height: 35px;
+  //  margin: 15px 0;
+  //}
+
+  .iconBox{
+    text-align: center;
+    .imgBox{
+      margin-bottom: 15px;
+      .iconImg{
+        width: 50px;
+        height: 50px;
+        -webkit-border-radius: 25px;
+        -moz-border-radius: 25px;
+        border-radius: 25px;
+        background: #98bce7;
+        &::before{
+          margin-top: 4px;
+          color: white;
+          zoom: 2;
+        }
+      }
+    }
+    a {
+      color: #98bce7;
+    }
+  }
+}

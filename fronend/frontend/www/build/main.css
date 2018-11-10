@@ -5036,7 +5036,7 @@ ion-input :focus {
 * {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: transparent;
   -webkit-tap-highlight-color: transparent;
   -webkit-touch-callout: none;
 }
@@ -18857,23 +18857,23 @@ button.swiper-pagination-bullet {
 }
 
 .swiper-container-3d .swiper-slide-shadow-left {
-  background-image: -webkit-gradient(linear, right top, left top, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0)));
-  background-image: linear-gradient(to left, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+  background-image: -webkit-gradient(linear, right top, left top, from(rgba(0, 0, 0, 0.5)), to(transparent));
+  background-image: linear-gradient(to left, rgba(0, 0, 0, 0.5), transparent);
 }
 
 .swiper-container-3d .swiper-slide-shadow-right {
-  background-image: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0)));
-  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+  background-image: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, 0.5)), to(transparent));
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), transparent);
 }
 
 .swiper-container-3d .swiper-slide-shadow-top {
-  background-image: -webkit-gradient(linear, left bottom, left top, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0)));
-  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+  background-image: -webkit-gradient(linear, left bottom, left top, from(rgba(0, 0, 0, 0.5)), to(transparent));
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent);
 }
 
 .swiper-container-3d .swiper-slide-shadow-bottom {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0)));
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(transparent));
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), transparent);
 }
 
 .swiper-container-coverflow .swiper-wrapper,
@@ -25672,6 +25672,111 @@ ion-navbar.toolbar {
   padding-bottom: calc(env(safe-area-inset-bottom) + 4px);
   min-height: calc(46px + constant(safe-area-inset-bottom));
   min-height: calc(46px + env(safe-area-inset-bottom));
+}
+
+page-category .icon-category {
+  font-size: 2.2em !important;
+}
+
+page-category .ion-col {
+  border: 0.5px solid white;
+}
+
+page-category .button {
+  height: 5.6rem !important;
+}
+
+page-category label {
+  font-size: 1.4rem !important;
+  font-weight: 0 !important;
+  text-transform: lowercase !important;
+}
+
+page-category .round-button-income {
+  border-radius: 64px !important;
+  border: 0.5px solid #32db64 !important;
+}
+
+page-category .round-button-expense {
+  border-radius: 64px !important;
+  border: 0.5px solid #f53d3d !important;
+}
+
+page-category h1, page-category h2, page-category h3, page-category h4, page-category h5 {
+  padding: 0;
+  margin: 0;
+}
+
+page-category .iconBox {
+  text-align: center;
+}
+
+page-category .iconBox .imgBox {
+  margin-bottom: 15px;
+}
+
+page-category .iconBox .imgBox .iconImg {
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  background: #98bce7;
+}
+
+page-category .iconBox .imgBox .iconImg::before {
+  margin-top: 4px;
+  color: white;
+  zoom: 2;
+}
+
+page-category .iconBox a {
+  color: #98bce7;
+}
+
+page-chart .scroll-content {
+  background-color: #f4f4f4;
+}
+
+page-chart ion-card-header {
+  font-weight: bold;
+}
+
+page-item button {
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+  height: 5.6rem !important;
+}
+
+page-item h3 {
+  margin: 0 !important;
+}
+
+page-item .keyboard-col {
+  border: 0.5px solid white;
+}
+
+page-item .iconBox {
+  text-align: center;
+}
+
+page-item .iconBox .imgBox {
+  margin-bottom: 15px;
+}
+
+page-item .iconBox .imgBox .iconImg {
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  background: #98bce7;
+}
+
+page-item .iconBox .imgBox .iconImg::before {
+  margin-top: 4px;
+  color: white;
+  zoom: 2;
+}
+
+page-item .iconBox a {
+  color: #98bce7;
 }
 
 .login__submit {

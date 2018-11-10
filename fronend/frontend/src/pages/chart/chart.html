@@ -1,0 +1,61 @@
+<!--
+  Generated template for the ChartPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Chart
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-toolbar no-border-top *ngIf="demo != 'Title'">
+    <ion-segment [(ngModel)]="apps">
+      <ion-segment-button value="week">
+        Week
+      </ion-segment-button>
+      <ion-segment-button value="month">
+        Month
+      </ion-segment-button>
+      <ion-segment-button value="year">
+        Year
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+
+  <ion-item>
+    <ion-label>Total</ion-label>
+    <ion-input [(ngModel)]="total" type="text" class=""></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Average</ion-label>
+    <ion-input [(ngModel)]="average" type="text" ></ion-input>
+  </ion-item>
+
+  <ion-card>
+    <ion-card-header>
+      Weekly Chart
+    </ion-card-header>
+    <ion-card-content>
+      <canvas #lineCanvas></canvas>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      Categoires
+    </ion-card-header>
+    <ion-card-content>
+      <canvas #doughnutCanvas></canvas>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
+
+
+
+

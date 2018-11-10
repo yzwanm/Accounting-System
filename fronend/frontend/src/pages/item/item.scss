@@ -1,0 +1,36 @@
+page-item {
+  button {
+    box-shadow: none !important;
+    height: 5.6rem !important;
+  }
+
+  h3 {
+    margin: 0 !important;
+  }
+
+  .keyboard-col {
+    border: 0.5px solid white;
+  }
+  .iconBox{
+    text-align: center;
+    .imgBox{
+      margin-bottom: 15px;
+      .iconImg{
+        width: 50px;
+        height: 50px;
+        -webkit-border-radius: 25px;
+        -moz-border-radius: 25px;
+        border-radius: 25px;
+        background: #98bce7;
+        &::before{
+          margin-top: 4px;
+          color: white;
+          zoom: 2;
+        }
+      }
+    }
+    a {
+      color: #98bce7;
+    }
+  }
+}

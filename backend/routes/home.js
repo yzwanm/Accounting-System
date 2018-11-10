@@ -14,7 +14,6 @@ async function get_recent_transactions(user_name,elements,callback) {
               console.log("error ocurred", error);
             }
             jsond = JSON.parse(JSON.stringify(results));
-            console.log(jsond);
 
                         //   res.render('Home', {title:'Home', home:jsond});
             resolve(jsond);
