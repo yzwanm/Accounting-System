@@ -76,7 +76,7 @@ export class ContactPage implements OnInit{
                       // let htmldata = eval('('+jsondata+')');
                       this.firstname = jsondata['first_name'];
                       let myheaders = new HttpHeaders({ });
-                      this.http.post("http://localhost:3000/viewprofile", {key: 'FIRST_NAME',value:this.firstname},{headers: myheaders, responseType:'text'})
+                      this.http.post("http://localhost:3000/viewprofile", {key: 'FIRST_NAME',value:this.firstname},{withCredentials: true,responseType:'text'})
                           .subscribe((data)=>{
                             if (data == "SAVED") {
                               this.editCtrl.create({
@@ -116,7 +116,7 @@ export class ContactPage implements OnInit{
                       let jsondata = JSON.parse(JSON.stringify(data));
                       this.lastname = jsondata['last_name'];
                       let myheaders = new HttpHeaders({ });
-                      this.http.post("http://localhost:3000/viewprofile", {key: 'LAST_NAME',value:this.lastname},{headers: myheaders, responseType:'text'})
+                      this.http.post("http://localhost:3000/viewprofile", {key: 'LAST_NAME',value:this.lastname},{withCredentials:true, responseType:'text'})
                           .subscribe((data)=>{
                               if (data == "SAVED") {
                                   this.editCtrl.create({
@@ -175,7 +175,7 @@ export class ContactPage implements OnInit{
           handler: gender => {
               this.genderlist = gender;
               let myheaders = new HttpHeaders({ });
-              this.http.post("http://localhost:3000/viewprofile", {key: 'SEX',value:this.genderlist},{headers: myheaders, responseType:'text'})
+              this.http.post("http://localhost:3000/viewprofile", {key: 'SEX',value:this.genderlist},{withCredentials:true, responseType:'text'})
                   .subscribe((data)=>{
                       if (data == "SAVED") {
                           this.editCtrl.create({
@@ -197,7 +197,7 @@ export class ContactPage implements OnInit{
 
   dob_edit(){
       let myheaders =new HttpHeaders({});
-      this.http.post("http://localhost:3000/viewprofile",{key:'BIRTH_DAY',value:this.dob},{headers: myheaders, responseType:'text'})
+      this.http.post("http://localhost:3000/viewprofile",{key:'BIRTH_DAY',value:this.dob},{withCredentials:true, responseType:'text'})
           .subscribe((data)=>{
               if (data == "SAVED") {
                   this.editCtrl.create({
@@ -233,7 +233,7 @@ export class ContactPage implements OnInit{
                       let jsondata = JSON.parse(JSON.stringify(data));
                       this.income = jsondata['income'];
                       let myheaders = new HttpHeaders({ });
-                      this.http.post("http://localhost:3000/viewprofile", {key: 'INCOME',value:this.lastname},{headers: myheaders, responseType:'text'})
+                      this.http.post("http://localhost:3000/viewprofile", {key: 'INCOME',value:this.income},{withCredentials:true, responseType:'text'})
                           .subscribe((data)=>{
                               if (data == "SAVED") {
                                   this.editCtrl.create({
@@ -292,11 +292,11 @@ export class ContactPage implements OnInit{
   logout(){
     this.navCtrl.parent.parent.push(LoginPage);
     let myheader = new HttpHeaders();
-    this.http.get("http://localhost:3000/logout",{headers:myheader, withCredentials:true});
+    this.http.get("http://localhost:3000/logout",{ withCredentials:true});
   }
   ngOnInit(){
       let myheader = new HttpHeaders();
-      this.http.get("http://localhost:3000/viewprofile",{headers: myheader, withCredentials:true}).subscribe(data=>{
+      this.http.get("http://localhost:3000/viewprofile",{withCredentials:true}).subscribe(data=>{
           let jsond = data[0];
           this.username=jsond['USER_NAME'].toString();
           this.password=jsond['PASSWORD'].toString();
