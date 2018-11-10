@@ -8,7 +8,7 @@ function getCategoryId(category) {
     return new Promise( function (resolve,reject) {
 	dbconnection.query(sql,[category],function(err,result) {
 	    if (err) {
-		console.log(err);
+		//console.log(err);
 		reject("ERR_DB_GET_CATEGORY_TYPE")
 	    } else if (result.length == 0) {
 		reject("ERR_DB_BAD_CATEGORY_TYPE");
@@ -24,7 +24,7 @@ function getCategoryInfo (category,parentId) {
     return new Promise( function (resolve,reject) {
 	dbconnection.query(sql,[parentId,category],function(err,result) {
 	    if (err) {
-		console.log(err);
+		//console.log(err);
 		reject("ERR_DB_GET_CATEGORY")
 	    } else if (result.length == 0) {
 		reject("ERR_DB_BAD_CATEGORY");
@@ -35,13 +35,16 @@ function getCategoryInfo (category,parentId) {
     });
 }
 
-function addRecord(user_name,category,categoryId,parentId,comment,money,date) {
+function addRecord(user_name,category,categoryId,parentId,comment,money,date,type) {
+    if (type == 'cost') {
+	money = -money;
+    }   
     var sql = "INSERT INTO record(USER_NAME,CATEGORY_ID,CATEGORY,PARENT_ID,COMMENT,MONEY,DATE) VALUES (?,?,?,?,?,?,?)";
-    console.log(sql);
+    //console.log(sql);
     return new Promise( function (resolve,reject) {
 	dbconnection.query(sql,[user_name,categoryId,category,parentId,comment,money,date],function(err) {
 	    if (err) {
-		console.log(err);
+		//console.log(err);
 		reject("ERR_DB_INSERT_RECORD")
 	    } else {
 		resolve("SUCCESS");
@@ -52,7 +55,7 @@ function addRecord(user_name,category,categoryId,parentId,comment,money,date) {
 
 function addExpenditure(user_name,money,category,date) {
     var sql = "INSERT INTO expenses(USER_NAME, EXPENSES, CATEGORY, DATE) VALUES (?,?,?,?)";
-    console.log(sql);
+    //console.log(sql);
     return new Promise( function (resolve,reject) {
 	dbconnection.query(sql,[user_name,money,category,date],function(err) {
 	    if (err) {
@@ -66,11 +69,11 @@ function addExpenditure(user_name,money,category,date) {
 }
 
 router.post('/', function (req,res) {
-	console.log(req.body.date);
+    //console.log(req.body.date);
     var type = req.body.type; //can be "income" or "cost"
-	console.log(type);
+	//console.log(type);
     var category = req.body.category;
-    console.log(category);
+    //console.log(category);
     var date;
     if (req.body.date === '' || req.body.date == null) {
 	date = null
@@ -98,7 +101,7 @@ router.post('/', function (req,res) {
 	    .then( categoryInfo => {
 		categoryId = categoryInfo.CATEGORY_ID;
 		parentId = categoryInfo.PARENT_ID;
-		return addRecord(user_name,category,categoryId,parentId,comment,money,date);
+		return addRecord(user_name,category,categoryId,parentId,comment,money,date,type);
 	    })
 	    .then( status => {
 		if (status == "SUCCESS" && type == "cost") {

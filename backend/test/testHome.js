@@ -4,6 +4,7 @@ var expect = require('chai').expect;
 var server = require('../index');
 var dbconnection = require('../dbConnection');
 var createAccount = require('../routes/createAccount');
+var addRecord = require('../routes/addRecord');
 var bcrypt = require('bcrypt')
 var PassThrough = require('stream').PassThrough;
 var mime = require('mime-types');
@@ -94,9 +95,6 @@ function query_database(sql,sqlVars) {
     });
 }
 
-
-
-
 describe('checking recent entry', function () {
     //user details so that user can be created and logged on
     var userDetails = {user:'Bob',
@@ -107,25 +105,37 @@ describe('checking recent entry', function () {
 		       age:'32',
 		       sex:'M',
 		       income:322.23};
-    var sql = "INSERT INTO expenses(USER_NAME,EXPENSES,CATEGORY) VALUES (?,?,?)";
+    var sql = "INSERT INTO record(USER_NAME,MONEY,CATEGORY,CATEGORY_ID,PARENT_ID,DATE) VALUES (?,?,?,?,?,?)";
     it('testing home page recent transactions', function (done) {
-        var user1 = 'Bob'
-        var exp1  = '100'
-        var cat1  = 'food'
+	delete_user_info(userDetails.user);
+	var date1 = new Date('2015-03-04T08:00:00.000Z');
+	var fdate1 = '2015-03-04';
+        var exp1  = '100';
+        var cat1  = 'food';
+	var comment1 = 'blabla';
+	var catId1 = 7;
+	var parentId1 = 2;
+	var date2 = new Date('2013-11-04T08:00:00.000Z');
+	var fdate2 = '2013-11-04';
         var exp2  = '200'
         var cat2  = 'travel'
-        var exp3  = '300'
-        var cat3  = 'entertainment'
-	delete_user_info(userDetails.user);
-        dbconnection.query(sql, [user1,exp1,cat1], function (err, result) {
-	    if (err) throw err;
-        });
-        dbconnection.query(sql, [user1,exp2,cat2], function (err, result) {
-	    if (err) throw err;
-        });
-        dbconnection.query(sql, [user1,exp3,cat3], function (err, result) {
-	    if (err) throw err;
-        });
+	var catId2 = 9;
+	var parentId2 = 2;
+	var comment2 = 'eepprdte';
+	var date3 = new Date('2013-01-01T10:00:01.000Z');
+	var fdate3 = '2013-01-01';
+        var exp3  = '300';
+        var cat3  = 'entertainment';
+	var comment3 = 'kdkdksk'
+	var catId3 = 11;
+	var parentId3 = 2;
+	var exp4  = '400';
+        var cat4  = 'financial';
+	var comment4 = 'shouldBePositive'
+	var date4 = new Date('1999-01-01T10:00:01.000Z');
+	var fdate4 = '1999-01-01';
+	var catId4 = 5;
+	var parentId4 = 1;
 	var salt = bcrypt.genSaltSync(10);
 	var hash = bcrypt.hashSync(userDetails.password,salt);
 	var supertester = supertest(app);
@@ -143,7 +153,23 @@ describe('checking recent entry', function () {
 		return;
 	    })
 	    .then ( () => {
-		//adding record through /addRecord route
+		return addRecord.addRecord(userDetails.user,cat1,catId1,parentId1,comment1,exp1,date1,'cost');
+	    })
+	    .then ( (status) => {
+		assert(status == "SUCCESS");
+		return addRecord.addRecord(userDetails.user,cat2,catId2,parentId2,comment2,exp2,date2,'cost');
+	    })
+	    .then ( (status) => {
+		assert(status == "SUCCESS");
+		return addRecord.addRecord(userDetails.user,cat3,catId3,parentId3,comment3,exp3,date3,'cost');
+	    })
+	    .then ( (status) => {
+		assert(status == "SUCCESS");
+		return addRecord.addRecord(userDetails.user,cat4,catId4,parentId4,comment4,exp4,date4,'income');
+	    })
+	    .then ( (status) => {
+		assert(status == "SUCCESS");
+		//retrieving records
 		return new Promise( function (resolve,reject) {
 		    var json1 = {user:userDetails.user,elements:4};
 		    session
@@ -151,15 +177,22 @@ describe('checking recent entry', function () {
 			.send(json1)
 			.end(function(err,res) {
 			    result = JSON.parse(res.text);
-			    assert(result[0].USER_NAME==user1);
-			    assert(result[0].EXPENSES==exp1);
+			    assert(result[0].USER_NAME==userDetails.user);
+			    assert(result[0].EXPENSES == -exp1);
 			    assert(result[0].CATEGORY==cat1);
-			    assert(result[1].USER_NAME==user1);
-			    assert(result[1].EXPENSES==exp2);
+			    assert(result[0].FDATE == fdate1);
+			    assert(result[1].USER_NAME==userDetails.user);
+			    assert(result[1].EXPENSES==-exp2);
 			    assert(result[1].CATEGORY==cat2);
-			    assert(result[2].USER_NAME==user1);
-			    assert(result[2].EXPENSES==exp3);
+			    assert(result[1].FDATE == fdate2);
+			    assert(result[2].USER_NAME==userDetails.user);
+			    assert(result[2].EXPENSES==-exp3);
 			    assert(result[2].CATEGORY==cat3);
+			    assert(result[2].FDATE == fdate3);
+			    assert(result[3].USER_NAME==userDetails.user);			    
+			    assert(result[3].EXPENSES==exp4);
+			    assert(result[3].CATEGORY==cat4);
+			    assert(result[3].FDATE == fdate4);
 			    resolve();
 			})
 		})

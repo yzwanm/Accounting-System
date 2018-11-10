@@ -309,7 +309,7 @@ describe('testing addRecord (income and cost) backend functions', function () {
 	    .then( categoryInfo => {
 		categoryId = categoryInfo.CATEGORY_ID;
 		parentId = categoryInfo.PARENT_ID;
-		return addRecord.addRecord(user_name,category,categoryId,parentId,comment,money,date);
+		return addRecord.addRecord(user_name,category,categoryId,parentId,comment,money,date,parent_category);
 	    })
 	    .then( status => {
 		assert(status == "SUCCESS");
@@ -324,7 +324,7 @@ describe('testing addRecord (income and cost) backend functions', function () {
 		    assert(result[0].CATEGORY == category);
 		    assert(result[0].USER_NAME == user_name);
 		    assert(result[0].COMMENT == comment);
-		    assert(result[0].MONEY == money);
+		    assert(result[0].MONEY == -money);
 		    assert(result[0].DATE == date.toString());
 		    delete_user_info(user_name);
 		    done();
@@ -353,7 +353,7 @@ describe('testing addRecord (income and cost) backend functions', function () {
 	    .then( categoryInfo => {
 		categoryId = categoryInfo.CATEGORY_ID;
 		parentId = categoryInfo.PARENT_ID;
-		return addRecord.addRecord(user_name,category,categoryId,parentId,comment,money,date);
+		return addRecord.addRecord(user_name,category,categoryId,parentId,comment,money,date,parent_category);
 	    })
 	    .then( status => {
 		assert(false);
@@ -474,7 +474,7 @@ describe('testing addRecord (income and cost) backend functions', function () {
 		assert(result[0].CATEGORY_ID == category_id);
 		assert(result[0].PARENT_ID == parent_id);
 		assert(result[0].CATEGORY == category);
-		assert(result[0].MONEY == money);
+		assert(result[0].MONEY == -money);
 		assert(result[0].DATE == date.toString());
 		return;
 	    })
