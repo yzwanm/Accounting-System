@@ -1,0 +1,212 @@
+
+> accountingbackend@1.0.0 test /Users/bellji/github_test/Accounting-System5/backend
+> ./node_modules/mocha/bin/mocha --exit
+
+
+
+listening on port 3000
+  testing addRecord (income and cost) backend functions
+Connected!
+    ✓ testing getCategoryId() returns id of the parent category income
+    ✓ testing getCategoryId() returns id of the parent category cost
+    ✓ testing getCategoryId() returns ERR_DB_BAD_CATEGORY_TYPE when presented with bad input
+    ✓ testing getCategoryInfo returns correct results for salary
+    ✓ testing getCategoryInfo returns correct results for food
+    ✓ testing getCategoryInfo returns correct results for other income
+    ✓ testing getCategoryInfo returns correct results for other cost
+    ✓ testing getCategoryInfo throws ERR_DB_BAD_CATEGORY for category=salary, parentCategory=cost
+    ✓ testing getCategoryInfo throws ERR_DB_BAD_CATEGORY for category=blablabla, parentCategory=cost
+INSERT INTO record(USER_NAME,CATEGORY_ID,CATEGORY,PARENT_ID,COMMENT,MONEY,DATE) VALUES (?,?,?,?,?,?,?)
+    ✓ testing addRecord correctly adds a record into database (78ms)
+INSERT INTO record(USER_NAME,CATEGORY_ID,CATEGORY,PARENT_ID,COMMENT,MONEY,DATE) VALUES (?,?,?,?,?,?,?)
+{ Error: ER_BAD_NULL_ERROR: Column 'DATE' cannot be null
+    at Query.Sequence._packetToError (/Users/bellji/github_test/Accounting-System5/backend/node_modules/mysql/lib/protocol/sequences/Sequence.js:47:14)
+    at Query.ErrorPacket (/Users/bellji/github_test/Accounting-System5/backend/node_modules/mysql/lib/protocol/sequences/Query.js:77:18)
+    at Protocol._parsePacket (/Users/bellji/github_test/Accounting-System5/backend/node_modules/mysql/lib/protocol/Protocol.js:278:23)
+    at Parser.write (/Users/bellji/github_test/Accounting-System5/backend/node_modules/mysql/lib/protocol/Parser.js:76:12)
+    at Protocol.write (/Users/bellji/github_test/Accounting-System5/backend/node_modules/mysql/lib/protocol/Protocol.js:38:16)
+    at Socket.<anonymous> (/Users/bellji/github_test/Accounting-System5/backend/node_modules/mysql/lib/Connection.js:91:28)
+    at Socket.<anonymous> (/Users/bellji/github_test/Accounting-System5/backend/node_modules/mysql/lib/Connection.js:502:10)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at addChunk (_stream_readable.js:263:12)
+    at readableAddChunk (_stream_readable.js:250:11)
+    at Socket.Readable.push (_stream_readable.js:208:10)
+    at TCP.onread (net.js:601:20)
+    --------------------
+    at Protocol._enqueue (/Users/bellji/github_test/Accounting-System5/backend/node_modules/mysql/lib/protocol/Protocol.js:144:48)
+    at Connection.query (/Users/bellji/github_test/Accounting-System5/backend/node_modules/mysql/lib/Connection.js:200:25)
+    at /Users/bellji/github_test/Accounting-System5/backend/routes/addRecord.js:42:15
+    at new Promise (<anonymous>)
+    at Function.addRecord (/Users/bellji/github_test/Accounting-System5/backend/routes/addRecord.js:41:12)
+    at addRecord.getCategoryId.then.then.categoryInfo (/Users/bellji/github_test/Accounting-System5/backend/test/testAddRecord.js:356:20)
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:189:7)
+  code: 'ER_BAD_NULL_ERROR',
+  errno: 1048,
+  sqlMessage: 'Column \'DATE\' cannot be null',
+  sqlState: '23000',
+  index: 0,
+  sql: 'INSERT INTO record(USER_NAME,CATEGORY_ID,CATEGORY,PARENT_ID,COMMENT,MONEY,DATE) VALUES (\'DBTESTUSER\',7,\'food\',2,\'stuff\',777.78,NULL)' }
+    ✓ testing addRecord throws ERR_DB_INSERT_RECORD when date is null
+INSERT INTO expenses(USER_NAME, EXPENSES, CATEGORY, DATE) VALUES (?,?,?,?)
+    ✓ testing addExpenditure correctly adds a record into database
+INSERT INTO expenses(USER_NAME, EXPENSES, CATEGORY, DATE) VALUES (?,?,?,?)
+    ✓ testing addExpenditure throws ERR_DB_INSERT_EXPENDITURE when user_name is null
+[0mPOST /login [32m200 [0m111.505 ms - -[0m
+2015-03-04T08:00:00.000Z
+cost
+food
+INSERT INTO record(USER_NAME,CATEGORY_ID,CATEGORY,PARENT_ID,COMMENT,MONEY,DATE) VALUES (?,?,?,?,?,?,?)
+INSERT INTO expenses(USER_NAME, EXPENSES, CATEGORY, DATE) VALUES (?,?,?,?)
+[0mPOST /addRecord [32m200 [0m35.994 ms - 7[0m
+log out
+[0mGET /logout [32m200 [0m2.937 ms - -[0m
+    ✓ testing that a cost record can be added through /addRecord route (323ms)
+[0mPOST /login [32m200 [0m103.273 ms - -[0m
+2015-03-04T08:00:00.000Z
+income
+other
+INSERT INTO record(USER_NAME,CATEGORY_ID,CATEGORY,PARENT_ID,COMMENT,MONEY,DATE) VALUES (?,?,?,?,?,?,?)
+[0mPOST /addRecord [32m200 [0m12.884 ms - -[0m
+log out
+[0mGET /logout [32m200 [0m0.832 ms - -[0m
+    ✓ testing that an income record can be added through /addRecord route (273ms)
+2015-03-04T08:00:00.000Z
+income
+other
+[0mPOST /addRecord [32m200 [0m0.642 ms - -[0m
+    ✓ testing that /addRecord route returns NOT_LOGGED_IN when user is not logged in
+[0mPOST /login [32m200 [0m100.224 ms - -[0m
+2015-03-04T08:00:00.000Z
+income
+undefined
+[0mPOST /addRecord [32m200 [0m0.523 ms - -[0m
+log out
+[0mGET /logout [32m200 [0m0.410 ms - -[0m
+    ✓ testing that /addRecord route returns NO_CATEGORY when a category is not entered (242ms)
+[0mPOST /login [32m200 [0m97.104 ms - -[0m
+2015-03-04T08:00:00.000Z
+undefined
+other
+[0mPOST /addRecord [32m200 [0m0.559 ms - -[0m
+log out
+[0mGET /logout [32m200 [0m0.367 ms - -[0m
+    ✓ testing that /addRecord route returns NO_TYPE when either income or cost is not entered (223ms)
+[0mPOST /login [32m200 [0m99.704 ms - -[0m
+undefined
+income
+other
+[0mPOST /addRecord [32m200 [0m0.463 ms - -[0m
+log out
+[0mGET /logout [32m200 [0m0.367 ms - -[0m
+    ✓ testing that /addRecord route returns NO_DATE when date is not entered (225ms)
+
+  testing connectivity
+[0mGET / [32m200 [0m2.759 ms - 1917[0m
+    ✓ http://localhost:3000 should return 200
+[0mGET / [32m200 [0m0.716 ms - 1917[0m
+    ✓ http://localhost:3000/javascript/accApp.js should return 200
+[0mPOST /createAccount [32m200 [0m1.069 ms - -[0m
+    ✓ http://localhost:3000/createAccount should return 200
+[0mPOST /login [32m200 [0m1.743 ms - -[0m
+    ✓ http://localhost:3000/login should return 200
+
+  testing inputs to createAccount backend functions
+    ✓ testing if insert_user_info() adds user information to the database (122ms)
+    ✓ testing that check_for_user() can check if a user is found in the database (104ms)
+    ✓ testing that check_for_user() can check if a user is NOT found in the database
+    ✓ testing that add_user() will add a user to the database (132ms)
+    ✓ testing that add_user() will return ERR_USER_EXISTS if a that user_name is already in the database (137ms)
+[0mPOST /createAccount [32m200 [0m128.932 ms - -[0m
+    ✓ testing loading data to profile table through /createAccount Route (141ms)
+    ✓ testing bcrypt is being used to hash passwords (104ms)
+[0mPOST /createAccount [32m200 [0m0.543 ms - -[0m
+    ✓ testing /createAccount returns ERR_NO_USER if user_name is null
+[0mPOST /createAccount [32m200 [0m0.457 ms - -[0m
+    ✓ testing /createAccount returns ERR_NO_USER if user_name is empty
+[0mPOST /createAccount [32m200 [0m0.442 ms - -[0m
+    ✓ testing /createAccount returns ERR_NO_PASS if password is null
+[0mPOST /createAccount [32m200 [0m0.405 ms - -[0m
+    ✓ testing /createAccount returns ERR_NO_PASS if password is empty
+[0mPOST /createAccount [32m200 [0m0.343 ms - -[0m
+    ✓ testing /createAccount returns ERR_NO_FNAME if password is null
+[0mPOST /createAccount [32m200 [0m0.355 ms - -[0m
+    ✓ testing /createAccount returns ERR_NO_FNAME if password is empty
+[0mPOST /createAccount [32m200 [0m138.155 ms - -[0m
+    ✓ testing /createAccount returns SUCCESS with user_name,password, and first_name (144ms)
+    ✓ testing check_mime_type().
+    ✓ testing add_photo() to check that photo is added
+[0mPOST /createAccount [32m200 [0m122.684 ms - -[0m
+    ✓ testing loading image through /createAccount Route (139ms)
+
+  checking recent entry
+[0mPOST /login [32m200 [0m108.433 ms - -[0m
+request received
+Bob
+4
+[0mGET /home [32m200 [0m2.808 ms - 246[0m
+log out
+[0mGET /logout [32m200 [0m0.435 ms - -[0m
+    ✓ testing home page recent transactions (237ms)
+
+  testing login backend functions
+    ✓ testing that check_for_user() can check if a user is found in the database (128ms)
+    ✓ testing that check_for_user() can check if a user is NOT found in the database
+    ✓ testing check_password() returns SUCCESS when password is correct (230ms)
+    ✓ testing check_password() returns FAILED when password is incorrect (212ms)
+    ✓ testing check_password() returns FAILED when username does not exist
+[0mPOST /login [32m200 [0m103.815 ms - -[0m
+    ✓ testing /login route signs in user (237ms)
+
+  testing logout backend functions
+[0mPOST /login [32m200 [0m108.544 ms - -[0m
+log out
+[0mGET /logout [32m200 [0m0.373 ms - -[0m
+    ✓ testing /logout route signs out user and returns SUCCESS_LOGOUT (239ms)
+no session
+[0mGET /logout [32m200 [0m0.376 ms - -[0m
+    ✓ testing /logout route returns SUCCESS_NO_SESSION when user is not logged in
+
+  Testing view profile details
+[0mPOST /login [32m200 [0m102.168 ms - -[0m
+[0mGET /viewProfile [32m200 [0m2.016 ms - 664[0m
+log out
+[0mGET /logout [32m200 [0m0.396 ms - -[0m
+    ✓ Testing view profile (235ms)
+
+  testing edit profile details
+[0mPOST /login [32m200 [0m96.992 ms - -[0m
+[0mPOST /viewProfile [32m200 [0m29.448 ms - -[0m
+log out
+[0mGET /logout [32m200 [0m0.448 ms - -[0m
+    ✓ testing last name change (246ms)
+[0mPOST /login [32m200 [0m98.712 ms - -[0m
+[0mPOST /viewProfile [32m200 [0m30.378 ms - -[0m
+log out
+[0mGET /logout [32m200 [0m0.389 ms - -[0m
+    ✓ testing first name change (253ms)
+[0mPOST /login [32m200 [0m100.042 ms - -[0m
+[0mPOST /viewProfile [32m200 [0m31.764 ms - -[0m
+log out
+[0mGET /logout [32m200 [0m0.574 ms - -[0m
+    ✓ testing date of birth change (243ms)
+[0mPOST /login [32m200 [0m98.024 ms - -[0m
+[0mPOST /viewProfile [32m200 [0m23.948 ms - -[0m
+log out
+[0mGET /logout [32m200 [0m0.398 ms - -[0m
+    ✓ testing age change (249ms)
+[0mPOST /login [32m200 [0m99.482 ms - -[0m
+[0mPOST /viewProfile [32m200 [0m25.959 ms - -[0m
+log out
+[0mGET /logout [32m200 [0m0.561 ms - -[0m
+    ✓ testing sex change (254ms)
+[0mPOST /login [32m200 [0m98.457 ms - -[0m
+[0mPOST /viewProfile [32m200 [0m30.005 ms - -[0m
+log out
+[0mGET /logout [32m200 [0m0.439 ms - -[0m
+    ✓ testing income change (255ms)
+
+
+  56 passing (6s)
+
