@@ -37,7 +37,7 @@
     "@ionic-native/status-bar": "4.4.0",
     "@ionic/storage": "^2.1.3",
     "angular-chart.js": "^1.1.1",
-    "angularfire2": "^5.0.0-rc.4",
+    "angularfire2": "^5.1.0",
     "angularfire2-offline": "^4.3.1",
     "cordova-android": "^7.1.2",
     "cordova-plugin-camera": "^4.0.1",
@@ -50,7 +50,7 @@
     "cordova-plugin-splashscreen": "^4.1.0",
     "cordova-plugin-whitelist": "^1.3.3",
     "cordova-sqlite-storage": "^2.2.0",
-    "firebase": "^4.9.0",
+    "firebase": "^5.5.8",
     "ion2-calendar": "^2.2.0",
     "ionic-angular": "3.9.2",
     "ionic-plugin-keyboard": "^2.2.1",
@@ -82,7 +82,7 @@
     "protractor": "^5.1.1",
     "ts-loader": "^3.0.3",
     "ts-node": "^3.0.2",
-    "typescript": "2.4.2"
+    "typescript": "^2.9.2"
   },
   "description": "An Ionic project",
   "cordova": {
