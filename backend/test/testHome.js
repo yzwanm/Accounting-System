@@ -181,18 +181,22 @@ describe('checking recent entry', function () {
 			    assert(result[0].EXPENSES == -exp1);
 			    assert(result[0].CATEGORY==cat1);
 			    assert(result[0].FDATE == fdate1);
+			    assert(result[0].COMMENT == comment1);
 			    assert(result[1].USER_NAME==userDetails.user);
 			    assert(result[1].EXPENSES==-exp2);
 			    assert(result[1].CATEGORY==cat2);
 			    assert(result[1].FDATE == fdate2);
+			    assert(result[1].COMMENT == comment2);
 			    assert(result[2].USER_NAME==userDetails.user);
 			    assert(result[2].EXPENSES==-exp3);
 			    assert(result[2].CATEGORY==cat3);
 			    assert(result[2].FDATE == fdate3);
+			    assert(result[2].COMMENT == comment3);
 			    assert(result[3].USER_NAME==userDetails.user);			    
 			    assert(result[3].EXPENSES==exp4);
 			    assert(result[3].CATEGORY==cat4);
 			    assert(result[3].FDATE == fdate4);
+			    assert(result[3].COMMENT == comment4);
 			    resolve();
 			})
 		})

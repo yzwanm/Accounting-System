@@ -6,7 +6,7 @@ async function get_recent_transactions(user_name,elements,callback) {
     console.log('request received');
     console.log(user_name);
     console.log(elements);
-    var sql1 = "select USER_NAME,CATEGORY,MONEY as EXPENSES,DATE,Date_format(DATE, '%Y-%m-%d') as FDATE from record where USER_NAME= ?";
+    var sql1 = "select USER_NAME,CATEGORY,MONEY as EXPENSES,DATE,Date_format(DATE, '%Y-%m-%d') as FDATE, COMMENT from record where USER_NAME= ?";
     let promises = [];
     promises[0] = new Promise(function (resolve,reject) {
         dbconnection.query(sql1, [user_name], function (error, results) {
