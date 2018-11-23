@@ -19,6 +19,7 @@ var createAccountRouter = require('./routes/createAccount');
 var loginRouter = require('./routes/login');
 var viewProfileRouter = require('./routes/viewProfile');
 var homeRouter = require('./routes/home');
+var viewByDateRouter = require('./routes/viewByDate');
 var addRecordRouter = require('./routes/addRecord');
 
 var app = express();
@@ -55,6 +56,7 @@ app.use('/logout',logoutRouter);
 app.use('/createAccount',createAccountRouter);
 app.use('/viewProfile', viewProfileRouter);
 app.use('/home', homeRouter);
+app.use('/viewByDate', viewByDateRouter);
 app.use('/addRecord',addRecordRouter);
 
 // catch 404 and forward to error handler
