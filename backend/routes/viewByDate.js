@@ -26,7 +26,7 @@ async function get_transactions(user_name,type,category,dateStart,dateEnd,callba
     if (type == "all" && category == "all") {
 	new Promise(function (resolve,reject) {
 	    var sqlInputs = [user_name].concat(dateArr);
-	    var sql1 = "select RECORD_ID,USER_NAME,CATEGORY,MONEY,MONEY as EXPENSES,DATE,Date_format(DATE, '%Y-%m-%d') as FDATE, COMMENT from record where (USER_NAME) = (?)"
+	    var sql1 = "select *,MONEY as EXPENSES,Date_format(DATE, '%Y-%m-%d') as FDATE from record where (USER_NAME) = (?)"
 		+ dateSql;
             dbconnection.query(sql1, sqlInputs, function (error, results) {
 		if (error) {
