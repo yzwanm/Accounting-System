@@ -81,7 +81,8 @@ router.post('/', function (req,res) {
 
     check_password(user_name,password, function (result) {
 	if (result == "SUCCESS") {
-	    req.session.user = user_name;
+		req.session.user = user_name;
+		console.log (user_name)
 	    res.end(result);
 	} else {
 	    res.end("FAILED");

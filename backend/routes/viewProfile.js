@@ -1,69 +1,39 @@
 var express = require('express');
 var router = express.Router();
 var dbconnection = require('../dbConnection');
-var bcrypt = require('bcrypt')
+var bcrypt = require ('bcrypt')
 
-// router.get('/',function (req,res) {
-//     var user_name = req.body.user;
-//     dbconnection.query("select USER_NAME,FIRST_NAME,LAST_NAME,BIRTH_DAY, AGE, SEX, INCOME from profile", function (err, rows) {
-//         if(err){
-//             res.render("profile",{title:" ",datas:[]});
-//         }else {
-//             res.render("profile",{title:" ",datas:rows});
-//         }
-//     });
-// // });
-// router.get('/', function (req, res, next) {
-//     res.render('viewProfile', {title:'viewProfile'});
-// });
-// router.post('/viewProfile', function (req, res, next) {
-//     var user_name = "BobSmith";
-//     var sql1 = "select USER_NAME,FIRST_NAME,LAST_NAME,BIRTH_DAY, AGE, SEX, INCOME from profile where USER_NAME= ?";
-//     var sql2 = "select USER_NAME, PASSWORD from users where USER_NAME= ?";
-//     var str= "xxx ";
-//     dbconnection.query(sql1, [user_name], function (err, result) {
-//         if(err){
-//             throw err;
-//         }else {
-//             var first_name = result[0].FIRST_NAME;
-//             var last_name = result[0].LAST_NAME;
-//             var birth_day = result[0].BIRTH_DAY;
-//             var sex = result[0].SEX;
-//             var income = result[0].INCOME
-//             str = JSON.stringify(result);
-//             res.send('viewProfile', {firstname: first_name});
-//         }
-//     });
-// })
+var user_name;
+async function get_user_profile(user_name,callback){
+    var sql1 = "select profile.*, user.PASSWORD, Date_format(profile.BIRTH_DAY, '%y-%m-%d') as BD from profile,user where profile.USER_NAME= ?";
 
-var user_name = "BobSmith";
-var sql1 = "select USER_NAME,FIRST_NAME,LAST_NAME,BIRTH_DAY, AGE, SEX, INCOME from profile where USER_NAME= ?";
-var sql2 = "select USER_NAME, PASSWORD from users where USER_NAME= ?";
-var str= "xxx ";
+    let promises = [];
+    promises[0] = new Promise(function (resolve,reject){
+        dbconnection.query(sql1,[user_name],function(error,result){
+            if (error){
+                console.log("error message:",error);
+            }
+            jsond = JSON.stringify(result);
+            resolve(jsond);
+        });
+
+    });
+    var res = await promises[0];
+    callback(res);
+}
 
 router.get('/', function (req, res) {
-    dbconnection.query(sql1, [user_name], function (err, result) {
-        if(err) {
-            console.log("error:", err.message);
-        }
-        var first_name = result[0].FIRST_NAME;
-        var last_name = result[0].LAST_NAME;
-        var birth_day = result[0].BIRTH_DAY;
-        var sex = result[0].SEX;
-        var income = result[0].INCOME
-        str = JSON.stringify(result);
-        res.render('viewProfile', {title:'viewProfile', profile:str});
-        res.send(str);
+    if(req.session && req.session.user){
+        this.user_name = req.session.user;
+    }
+    get_user_profile(this.user_name,function (result) {
+        res.send(result);
     });
+
 });
-// router.get('/', function (req, res) {
-//     res.render('viewProfile');
-// });
-// router.post('/javascript/viewProfilefroentend', {firstname: first_name, lastname: last_name, birthday: birth_day, sex: sex, income: income});
-// router.get('/viewProfile', function (req, res) {
-//     res.send(str);
-// });
+
 router.post('/',function(req,res){
+    var user= req.body.user;
     var key = req.body.key;
     var value = req.body.value;
     var first_name = 'FIRST_NAME';
@@ -72,15 +42,15 @@ router.post('/',function(req,res){
     var sex = 'SEX';
     var income = 'INCOME';
     var dob = 'BIRTH_DAY'
-    var password = 'PASSWORD'
-    var user_name = req.body.user;
+    var password = "PASSWORD"
+
     key_list = [first_name,last_name,age,sex,income,dob,password];
     if(key_list.contains(key)==false)
     {
-        console.log('error - unknown request');
+        console.log('error');
         res.end("ERROR");
     }
-      
+
 
     if (key == dob)
     {
@@ -90,53 +60,48 @@ router.post('/',function(req,res){
             value = new Date(value);
         }
     }
-
     if (key == password)
     {
-        update_password(req.body.old_password,req.body.new_password,user_name,function (result){
+        update_password(req.body.old_password,req.body.new_password,user,function (result){
             res.end(result)
         });
     }
     else
     {
-        update_user(key,value,user_name,function (result){
+        update_user(key,value,user,function (result){
             res.end(result)
         });
     }
-
-
-
-
 })
 
-function update_password (oldPassword,newPassword,user_name,callback)
+function update_password (oldPassword,newPassword,user,callback)
 {
     var sql = "SELECT * FROM user WHERE USER_NAME = ?";
-    dbconnection.query(sql,[user_name], function (err, result) {
-	if (err) {
-	    console.log(err);
-	    callback("ERR_DB_USER_GET");
-	} else {
-	    var hash = bcrypt.hashSync(oldPassword,result[0].SALT);
-	    if (hash === result[0].PASSWORD) {
-            var salt = bcrypt.genSaltSync(10);
-            var hash = bcrypt.hashSync(newPassword,salt);
-            var sql = "UPDATE user SET PASSWORD = ?,SALT = ? WHERE USER_NAME = ?";
-            dbconnection.query(sql, [hash,salt,user_name], function (err, result) {
-                if (err) {
-                console.log(err);
-                callback("ERR_DB_PASSWORD_UPDATE");
-                } else {
-                    callback("SUCCESS");
+    dbconnection.query(sql,[user], function (err, result) {
+    if (err) {
+        console.log(err);
+        callback("ERR_DB_USER_GET");
+    } else {
+                var hash = bcrypt.hashSync(oldPassword,result[0].SALT);
+                if (hash === result[0].PASSWORD) {
+                    var salt = bcrypt.genSaltSync(10);
+                    var hash = bcrypt.hashSync(newPassword,salt);
+                    var sql = "UPDATE user SET PASSWORD = ?,SALT = ? WHERE USER_NAME = ?";
+                    dbconnection.query(sql, [hash,salt,user], function (err, result) {
+                        if (err) {
+                        console.log(err);
+                        callback("ERR_DB_PASSWORD_UPDATE");
+                        } else {
+                            callback("SUCCESS");
+                        }
+                    });
+                } else {  
+                    callback("INVALID_OLD_PASSWORD");
                 }
-            });
-	    } else {  
-		    callback("INVALID_OLD_PASSWORD");
-	    }
-	}
-    });   
-
+            } 
+        });   
 }
+
 
 function update_user (key,value,username,callback)
 {
@@ -146,7 +111,6 @@ function update_user (key,value,username,callback)
         } else {
             if (results.length > 0) {
                 sql = 'UPDATE profile SET ' +key +' = ? WHERE USER_NAME = ?';
-                console.log(sql);
                 dbconnection.query(sql, [value,username], function (error, results, fields) {
                     if (error) {
                         console.log("error", error);
