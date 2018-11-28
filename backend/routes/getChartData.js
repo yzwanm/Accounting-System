@@ -165,12 +165,14 @@ router.get('/:startDate', function(req, res) {
     } else if (req.session && req.session.user) {
 	var date = new Date(new Date(startDate).toISOString().slice(0,10));
 	endDate = new Date(date.setDate(date.getDate() + 6)).toISOString().slice(0,10);
-	get_daily_totals(user_name,startDate,endDate,function(result){
-	    var dailyExpenditures = [];
+	get_daily_totals(user_name,startDate,endDate, function(result) {
+	    //var dailyExpenditures = [];
+	    var dailyExpenditures = {};
 	    for (var i = 0 ; i < result.length; i++) {
-		dailyExpenditures[i] = {};
-		dailyExpenditures[i]['date'] = result[i]['date'];
-		dailyExpenditures[i]['total'] = result[i]['cost']['total'];
+		//dailyExpenditures[i] = {};
+		//dailyExpenditures[i]['date'] = result[i]['date'];
+		//dailyExpenditures[i]['total'] = result[i]['cost']['total'];
+		dailyExpenditures[result[i]['date']] = result[i]['cost']['total'];
 	    }
             res.send(dailyExpenditures);
 	});
@@ -189,11 +191,13 @@ router.get('/:startDate/:endDate', function(req, res) {
 	var startDate = req.params.startDate;
 	var endDate = req.params.endDate;	
 	get_daily_totals(user_name,startDate,endDate,function(result){
-	    var dailyExpenditures = [];
+	    //var dailyExpenditures = [];
+	    var dailyExpenditures = {};
 	    for (var i = 0 ; i < result.length; i++) {
-		dailyExpenditures[i] = {};
-		dailyExpenditures[i]['date'] = result[i]['date'];
-		dailyExpenditures[i]['total'] = result[i]['cost']['total'];
+		//dailyExpenditures[i] = {};
+		//dailyExpenditures[i]['date'] = result[i]['date'];
+		//dailyExpenditures[i]['total'] = result[i]['cost']['total'];
+		dailyExpenditures[result[i]['date']] = result[i]['cost']['total'];
 	    }
             res.send(dailyExpenditures);
 	});

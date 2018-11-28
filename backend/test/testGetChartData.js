@@ -134,6 +134,7 @@ function query_database(sql,sqlVars) {
 
 
 function compareExpenditures(results,sqlResults) {
+    console.log(results);
     return new Promise(function (resolve,reject) {
 	sqlExpenditures = {}
 	for (var i = 0; i < sqlResults.length; i++){
@@ -146,6 +147,14 @@ function compareExpenditures(results,sqlResults) {
 		}
 	    }
 	}
+	for (date in results) {
+	    console.log(date);
+	    if (!(sqlExpenditures[date])) {
+		sqlExpenditures[date] = 0;
+	    }
+	    assert(results[date] == sqlExpenditures[date]);
+	}
+	/*
 	for (var i = 0; i < results.length; i++) {
 	    var date = results[i]['date'];
 	    var total = results[i]['total'];
@@ -153,7 +162,7 @@ function compareExpenditures(results,sqlResults) {
 		sqlExpenditures[date] = 0;
 	    }
 	    assert(total == sqlExpenditures[date]);
-	}
+	}*/
 	resolve();
     });
 }
