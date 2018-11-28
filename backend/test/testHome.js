@@ -218,6 +218,26 @@ describe('checking recent entry', function () {
     });
 });
 
+describe('Testing delete transaction', function () { 
+
+	it('Testing delete transaction',function (done) {
+		var json2 = {
+			id : 100,
+			user : 'Smith'
+			};
+		var sql = "INSERT INTO record (RECORD_ID,USER_NAME,CATEGORY_ID,CATEGORY,PARENT_ID,DATE) VALUES (?,?,?,?,?,?)";
+        dbconnection.query(sql, [json2.id,json2.user,1,'food',2,'10.11.2018'], function (err, result) {
+			if (err) {
+				console.log("error ocurred", err);
+			  }
+			request.post('http://localhost:3000/home', {json:json2}, function (err, res, body){
+				assert(res.body=='DELETED');
+				done();     
+			});
+		});
+	});
+});
+
 
 
 

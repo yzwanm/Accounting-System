@@ -37,4 +37,19 @@ router.get('/', function(req, res) {
     });
 });
 
+
+/* deleate a transaction*/
+router.post('/', function(req, res) {
+    console.log('request recived');
+    var id = req.body.id;
+    var sql1 = 'DELETE FROM record WHERE RECORD_ID = ?'
+    console.log(id);
+    dbconnection.query(sql1, [id], function (error, results) {
+        if (error) {
+          console.log("error ocurred", error);
+          res.send('ERROR')
+        }
+        res.send('DELETED')
+      });
+});
 module.exports = router;
