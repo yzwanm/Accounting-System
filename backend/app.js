@@ -23,6 +23,7 @@ var viewByDateRouter = require('./routes/viewByDate');
 var addRecordRouter = require('./routes/addRecord');
 var getChartDataRouter = require('./routes/getChartData');
 var deleteProfileRouter = require('./routes/deleteProfile');
+var addPhotoRouter = require('./routes/addPhoto');
 
 var app = express();
 
@@ -62,6 +63,7 @@ app.use('/viewByDate', viewByDateRouter);
 app.use('/addRecord',addRecordRouter);
 app.use('/chartData',getChartDataRouter);
 app.use('/deleteProfile',deleteProfileRouter);
+app.use('/addPhoto',addPhotoRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
