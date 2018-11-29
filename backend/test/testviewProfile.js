@@ -50,7 +50,6 @@ function loginUser(session,username,password) {
 	    .post('/login')
 	    .send(loginInfo)
 	    .end(function(err, res) {
-			console.log (res.body)
 		if (err) {
 		    throw err;
 		}
@@ -118,8 +117,6 @@ describe('Testing view profile details', function(){
 			.get('/viewProfile')
 			.end(function(err,res) {
 				result = JSON.parse(res.text);
-				console.log('print')
-				console.log(result[0].USER_NAME)
 			    assert(result[0].USER_NAME == json.user);
 			    assert(result[0].FIRST_NAME == json.first_name);
 			    assert(result[0].LAST_NAME == json.last_name);
@@ -194,8 +191,6 @@ describe('testing edit profile details', function () {
 				var sql2 = "SELECT * FROM profile WHERE (USER_NAME = ?)";
 				dbconnection.query(sql2, [json1.user], function (err, result) {
 					if (err) throw err;
-					console.log (result[0].USER_NAME)
-					console.log ('last name')
 				    assert(result[0].USER_NAME === json1.user);
 				    assert(result[0].LAST_NAME === json1.value);
 				    assert(res.text=='SAVED');
@@ -533,7 +528,7 @@ describe('testing edit profile details', function () {
 	}); 
 	
 	
-	it('testing successful password change', function (done) {  
+    it('testing successful password change', function (done) {  
         var json1 = {user:'MY_DBTESTUSER',
         password:'bbb',
         };
@@ -543,56 +538,118 @@ describe('testing edit profile details', function () {
 
         var sql = "INSERT INTO user (USER_NAME,PASSWORD,SALT) VALUES (?,?,?)";
         dbconnection.query(sql, [json1.user,hash,salt], function (err, result) {
-        if (err) {
-            console.log(err);
-            callback("ERR_CREATING_DUMMY_USER");
-         } else {
-            var json2 = {user:json1.user,
-                key: 'PASSWORD',
-                old_password:'bbb',
-                new_password: 'aaa'
-                };
-            request.post('http://localhost:3000/viewProfile', {json:json2}, function (err, res, body){
-                var sql = "SELECT * FROM user WHERE USER_NAME = ?";
-                dbconnection.query(sql, [json2.user], function (err, result) {
-                if (err) throw err;
-                    var hash = bcrypt.hashSync(json2.new_password,result[0].SALT);
-                    assert(hash=== result[0].PASSWORD);
-                    assert(res.body=='SUCCESS');
-                    done();
-                    });
-                });
-            }
-            
-        });
+            if (err) {
+		console.log(err);
+		callback("ERR_CREATING_DUMMY_USER");
+            } else {
+		var json2 = {user:json1.user,
+			     key: 'PASSWORD',
+			     old_password:'bbb',
+			     new_password: 'aaa'
+			    };
+		var supertester = supertest(app);
+		let session;  //will hold the supertester with the user session
+		loginUser(supertester,json1.user,json1.password)
+		    .then( (loginSession) => {
+			//saving supertester with session
+			session = loginSession;
+			return;
+		    })
+		    .then ( () => {
+			//changing user info through /viewProfile by POST request
+			return new Promise( function (resolve,reject) {
+			 session
+				.post('/viewProfile')
+				.send(json2)
+				.end(function(err,res) {
+				    var sql = "SELECT * FROM user WHERE USER_NAME = ?";
+				    dbconnection.query(sql, [json1.user], function (err, result) {
+					if (err) throw err;
+					var hash = bcrypt.hashSync(json2.new_password,result[0].SALT);
+					assert(hash=== result[0].PASSWORD);
+					assert(res.text=='SUCCESS');
+					resolve();
+				    });
+				});
+			    
+			});
+		    })
+		    .then ( () => {
+			return logoutUser(session);
+		    })
+		    .then( result => {
+			assert(result == "SUCCESS_LOGOUT");
+			delete_user_info(json.user);
+			done();
+		    })
+		    .catch( err => {
+			delete_user_info(json.user);
+			throw err;
+			assert(false);
+			done();
+		    });
+	    }
+	});
     });
 
     it('testing unsuccessful password change', function (done) {    
         var json1 = {user:'MY_DBTESTUSER',
-        password:'bbb',
-        };
+		     password:'bbb',
+		    };
         delete_user_info (json1.user)
         var salt = bcrypt.genSaltSync(10);
         var hash = bcrypt.hashSync(json1.password,salt);
-
+	
         var sql = "INSERT INTO user (USER_NAME,PASSWORD,SALT) VALUES (?,?,?)";
         dbconnection.query(sql, [json1.user,hash,salt], function (err, result) {
-        if (err) {
-            console.log(err);
-            callback("ERR_CREATING_DUMMY_USER");
-         } else {
-            var json2 = {user:json1.user,
-                key: 'PASSWORD',
-                old_password:'incorrect_password',
-                new_password: 'aaa'
-                };
-            request.post('http://localhost:3000/viewProfile', {json:json2}, function (err, res, body){
-                    assert(res.body=='INVALID_OLD_PASSWORD');
-                    done();     
-                });
+            if (err) {
+		console.log(err);
+		callback("ERR_CREATING_DUMMY_USER");
+            } else {
+		var json2 = {user:json1.user,
+			     key: 'PASSWORD',
+			     old_password:'incorrect_password',
+			     new_password: 'aaa'
+			    };
+
+		var supertester = supertest(app);
+		let session;  //will hold the supertester with the user session
+		loginUser(supertester,json1.user,json1.password)
+		    .then( (loginSession) => {
+			//saving supertester with session
+			session = loginSession;
+			return;
+		    })
+		    .then ( () => {
+			//changing user info through /viewProfile by POST request
+			return new Promise( function (resolve,reject) {
+			    session
+				.post('/viewProfile')
+				.send(json2)
+				.end(function(err,res) {
+				    assert(res.text=='INVALID_OLD_PASSWORD');
+				    resolve();
+				});
+			    
+			});
+		    })
+		    .then ( () => {
+			return logoutUser(session);
+		    })
+		    .then( result => {
+			assert(result == "SUCCESS_LOGOUT");
+			delete_user_info(json.user);
+			done();
+		    })
+		    .catch( err => {
+			delete_user_info(json.user);
+			throw err;
+			assert(false);
+			done();
+		    });
             }
             
         });
     });
-
+    
 });

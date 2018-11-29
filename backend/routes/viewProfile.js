@@ -33,44 +33,48 @@ router.get('/', function (req, res) {
 });
 
 router.post('/',function(req,res){
-    var user= req.body.user;
-    var key = req.body.key;
-    var value = req.body.value;
-    var first_name = 'FIRST_NAME';
-    var last_name = 'LAST_NAME';
-    var age = 'AGE';
-    var sex = 'SEX';
-    var income = 'INCOME';
-    var dob = 'BIRTH_DAY'
-    var password = "PASSWORD"
-
-    key_list = [first_name,last_name,age,sex,income,dob,password];
-    if(key_list.contains(key)==false)
-    {
-        console.log('error');
-        res.end("ERROR");
-    }
-
-
-    if (key == dob)
-    {
-        if (value === '' || value == null) {
-            value = null
-        } else {
-            value = new Date(value);
-        }
-    }
-    if (key == password)
-    {
-        update_password(req.body.old_password,req.body.new_password,user,function (result){
-            res.end(result)
-        });
-    }
-    else
-    {
-        update_user(key,value,user,function (result){
-            res.end(result)
-        });
+    if (req.session && req.session.user) {
+	var user= req.session.user;  //the saved session user_name from when user logged in
+	var key = req.body.key;
+	var value = req.body.value;
+	var first_name = 'FIRST_NAME';
+	var last_name = 'LAST_NAME';
+	var age = 'AGE';
+	var sex = 'SEX';
+	var income = 'INCOME';
+	var dob = 'BIRTH_DAY'
+	var password = "PASSWORD"
+	
+	key_list = [first_name,last_name,age,sex,income,dob,password];
+	if(key_list.contains(key)==false)
+	{
+            console.log('error');
+            res.end("ERROR");
+	}
+	
+	
+	if (key == dob)
+	{
+            if (value === '' || value == null) {
+		value = null
+            } else {
+		value = new Date(value);
+            }
+	}
+	if (key == password)
+	{
+            update_password(req.body.old_password,req.body.new_password,user,function (result){
+		res.end(result)
+            });
+	}
+	else
+	{
+            update_user(key,value,user,function (result){
+		res.end(result)
+            });
+	}
+    } else {
+	res.end("NOT_LOGGED_IN");
     }
 })
 
