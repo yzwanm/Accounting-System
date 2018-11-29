@@ -375,7 +375,7 @@ describe('testing inputs to createAccount backend functions', function () {
 	});
 	request.post('/createAccount')
 	    .set('Content-Type', 'multipart/form-data')
-	    .field('user','DBTESTUSER1')
+	    .field('user',json.user)
 	    .field('password','bbb')
 	    .field('first_name','aaa')
 	    .attach('picture',  __dirname + "/testPhotos/testPhoto.png")
