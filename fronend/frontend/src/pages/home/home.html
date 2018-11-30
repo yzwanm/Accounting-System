@@ -1,8 +1,10 @@
 <ion-header>
   <ion-navbar>
     <ion-title>MUA</ion-title>
-  </ion-navbar>
-
+    <button ion-button (click)="goback()">
+      <ion-icon name="arrow-back"></ion-icon>
+    </button>
+    </ion-navbar>
 </ion-header>
 
 <ion-content padding>
@@ -22,21 +24,25 @@
   -->
  <!--
       <ion-col><ion-label style="font-weight:bold;align-content: center">DATE</ion-label></ion-col>
-      
+      <ion-col no-padding col-2><ion-label style="font-weight:bold" (click)="pickDate()">DATE</ion-label><br><ion-icon name="ios-calendar-outline"></ion-icon></ion-col>
+    
       <ion-col no-padding><button ion-button color="dark" clear (click)="pickdate">DATE</button></ion-col>
       -->
 
   <ion-grid>
-    <ion-row align-items-center>
-      <ion-col no-padding col-2><ion-label style="font-weight:bold">DATE</ion-label></ion-col>
+    <ion-row> 
+      <ion-col no-padding>
+        <button ion-button color="dark" clear  small>DATE</button>
+        <ion-datetime [(ngModel)]="date1" required name="date1" displayFormat="none" pickerFormat="YYYY-MM-DD" (ngModelChange)="viewByDate('showData')"[ngModelOptions]="{standalone:true}">
+        </ion-datetime>
+      </ion-col>
       <ion-col no-padding><ion-label style="font-weight:bold">CATEGORY</ion-label></ion-col>
       <ion-col no-padding><ion-label style="font-weight:bold">EXPENSES</ion-label></ion-col>
       <ion-col no-padding><ion-label style="font-weight:bold">DETAILS</ion-label></ion-col>
     </ion-row>
   </ion-grid>
   <p id="showData"></p>
-  
-  <!--
+   <!--
 <ion-toolbar no-border-top *ngIf="demo != 'Title'">
     <ion-segment [(ngModel)]="apps">
       <ion-segment-button value="date" (click)="">
@@ -63,3 +69,4 @@
  
 </ion-content>
   
+
