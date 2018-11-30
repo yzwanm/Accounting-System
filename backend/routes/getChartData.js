@@ -156,15 +156,15 @@ function get_daily_totals(user_name,startDate,endDate,callback) {
     });
 }
 
-/* handle GET Request for daily totals between startDate and endDate. */
-router.get('/:startDate', function(req, res) {
+/* handle GET Request for daily totals between 6 days prior to endDate and endDate. */
+router.get('/:endDate', function(req, res) {
     var user_name = req.session.user;
-    var startDate = req.params.startDate;
-    if (!(check_date_format(req.params.startDate))) {
+    var endDate = req.params.endDate;
+    if (!(check_date_format(req.params.endDate))) {
 	res.send({error: "BAD_DATE_FORMAT"});
     } else if (req.session && req.session.user) {
-	var date = new Date(new Date(startDate).toISOString().slice(0,10));
-	endDate = new Date(date.setDate(date.getDate() + 6)).toISOString().slice(0,10);
+	var date = new Date(new Date(endDate).toISOString().slice(0,10));
+	var startDate = new Date(date.setDate(date.getDate() - 6)).toISOString().slice(0,10);
 	get_daily_totals(user_name,startDate,endDate, function(result) {
 	    //var dailyExpenditures = [];
 	    var dailyExpenditures = {};

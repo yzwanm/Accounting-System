@@ -220,11 +220,11 @@ describe('testing getChartData backend functions', function() {
 	    .then ( () => {
 		return new Promise( function (resolve,reject) {
 		    session
-			.get('/chartData/2018-04-10')
+			.get('/chartData/2018-04-17')
 			.end(function(err,res) {
 			    var sql = "select *,MONEY as EXPENSES,DATE,Date_format(DATE, '%Y-%m-%d') as FDATE from record where (USER_NAME) = (?)" +
 				" and (DATE(DATE)) BETWEEN cast(? as DATE) and cast(? as DATE)";
-			    dbconnection.query(sql, [json.user,'2018-04-10','2018-04-17'], function (error, result) {
+			    dbconnection.query(sql, [json.user,'2018-04-11','2018-04-17'], function (error, result) {
 				if (error) {
 				    reject(error);
 				}
