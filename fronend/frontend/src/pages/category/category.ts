@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {
   IonicPage,
   NavController,
@@ -6,7 +6,8 @@ import {
   ModalController,
   ToastController,
   Keyboard,
-  LoadingController
+  LoadingController, Navbar, App
+
 } from 'ionic-angular';
 import { DatePickerProvider } from 'ionic2-date-picker';
 import { AngularFireAuth } from 'angularfire2/auth';
@@ -22,6 +23,12 @@ export interface Item {
   type: String;
   created_by: any;
 }
+export interface  Newcategory {
+  name: String;
+icon: String;
+type: String
+};
+
 
 
 
@@ -38,9 +45,61 @@ export interface Item {
   selector: 'page-category',
   templateUrl: 'category.html',
 })
-export class CategoryPage {
+
+export class CategoryPage implements OnInit{
+
+  public icons: any = [
+    'hammer',
+    'happy',
+    'headset',
+    'heart',
+    'build',
+    'bulb',
+    'bus',
+    'cafe',
+    'camera',
+    'car',
+    'home',
+    'ice-cream',
+    'image',
+    'key',
+    'laptop',
+    'lock',
+    'man',
+    'medkit',
+    'megaphone',
+    'musical-notes',
+    'nutrition',
+    'paper-plane',
+    'paw',
+    'people',
+    'person',
+    'phone-portrait',
+    'pizza',
+    'pricetag',
+    'pricetags',
+    'print',
+    'restaurant',
+    'rose',
+    'sad',
+    'school',
+    'shirt',
+    'star',
+    'stopwatch',
+    'subway',
+    'tennisball',
+    'train',
+    'trophy',
+    'umbrella',
+    'walk',
+    'watch',
+    'wine',
+    'woman'
+  ]
 
 
+
+  //categorysData:<Category[]>;
   item: Item = {
     entry_time: (new Date().toLocaleDateString()).toString(),
     category: '',
@@ -50,14 +109,21 @@ export class CategoryPage {
     created_by: ''
   };
 
+  newcategory: Newcategory ={
+    name: '',
+  icon: '',
+    type: '',
+};
 
-  /**
+/**
    * swich between list category and add category
    *
    * @type {Boolean}
    * @memberof CategoryPage
    */
   isNewCategory: Boolean = false;
+
+
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               private datePickerProvider: DatePickerProvider,
@@ -68,7 +134,8 @@ export class CategoryPage {
               private toastCtrl: ToastController,
               private afAuth: AngularFireAuth,
               public  http:HttpClient,
-              public loadingCtrl: LoadingController
+              public loadingCtrl: LoadingController,
+              public app:App
   ) {
     // if (navParams.get('item')) {
     //   this.item = navParams.get('item');
@@ -92,13 +159,24 @@ export class CategoryPage {
     // this.items = [];
 
 
-  //
-  //   for (let i = 0; i < 9; i += 1) {
-  //     this.items.push({
-  //       icon: this.icons[i],
-  //       tip: this.tips[i]
-  //     });
-  //   }
+    //
+    //   for (let i = 0; i < 9; i += 1) {
+    //     this.items.push({
+    //       icon: this.icons[i],
+    //       tip: this.tips[i]
+    //     });
+    //   }
+  }
+
+
+
+  newCategory() {
+    this.isNewCategory = true;
+  }
+
+  onSelectedIcon(icon: String) {
+    this.newcategory.icon = icon;
+    console.log("newcategory ");
   }
   presentToast(message: string) {
     let toast = this.toastCtrl.create({
@@ -110,6 +188,98 @@ export class CategoryPage {
     return toast;
   }
 
+  addCategory(newcategory: Newcategory) {
+    if (newcategory.name === '') {
+      let toast = this.toastCtrl.create({
+        message: 'Category name must be filled',
+        duration: 3000,
+        position: 'bottom'
+      });
+      toast.present();
+    } else if (newcategory.icon === '') {
+      let toast = this.toastCtrl.create({
+        message: 'Category icon should be selected',
+        duration: 3000,
+        position: 'bottom'
+      });
+      toast.present();
+    } else {
+      // set type catergory
+      this.newcategory.type = 'cost';
+      console.log("add newcategory ");
+      var jsonData = {
+        type: this.newcategory.type,  //type can be cost or income
+        name: this.newcategory.name,  //category is any subcategory under type
+        date: this.item.entry_time,
+        //money:this.item.amount,
+        //comment:this.item.note,
+        icon: this.newcategory.icon,
+      }
+      console.log(jsonData);
+      // this.navCtrl.push('CategoryPage')
+      //   console.log(newcategory);
+      //   this.cate.addItem(newcategory).then(
+      //     data => {
+      //       let toast = this.toastCtrl.create({
+      //         message: 'Category was added successfully',
+      //         duration: 3000,
+      //         position: 'bottom'
+      //       });
+      //       toast.present();
+      //       this.isNewCategory = false;
+      //     },
+      //     error => {
+      //       let toast = this.toastCtrl.create({
+      //         message: error,
+      //         duration: 3000,
+      //         position: 'bottom'
+      //       });
+      //       toast.present();
+      //     }
+      //   );
+      // }
+      let myheaders = new HttpHeaders({ });
+      this.http.post("http://localhost:3000/addCategory", jsonData, {headers: myheaders, withCredentials: true , responseType:'text'})
+        .subscribe((data) => {
+          if (data == "SUCCESS") {
+            console.log("data was added");
+            //stuff
+            this.presentToast("Category was added");
+
+          } else if (data == "NOT_LOGGED_IN") {
+            console.log("user not logged in");
+            //stuff
+
+
+          }
+          else if (data == "NO_TYPE") {
+            console.log("no type (income or cost) was entered");
+            //stuff
+
+          } else if (data == "NO_NAME") {
+            console.log("no date present");
+            //stuff
+
+          }else if (data == "NO_CATEGORY") {
+            console.log("no category was add");
+            //stuff
+
+
+          } else {
+            console.log(data);
+            //stuff
+
+          }
+        }, error => {
+          console.log("Error connecting to backend server");
+        });
+      setTimeout(() =>{
+        this.navCtrl.setRoot(CategoryPage);
+      },100);
+
+
+    }
+  }
   /**
    * new category
    *
@@ -129,7 +299,8 @@ export class CategoryPage {
   presentNewIncome() {
 
 
-    this.navCtrl.push('ItemPage')
+    // this.navCtrl.push('ItemPage')
+    this.navCtrl.push('ItemPage');
   }
   click(category: String) {
     this.item.category = category;
@@ -138,7 +309,9 @@ export class CategoryPage {
   handleEnter() {
     this.keyboard.close();
   }
-
+  back(){
+    this.app.getRootNav().push('CategoryPage')
+  }
   Save(type:String) {
     if (this.item.amount.length <= 0) {
       this.presentToast("Please input your expense");
@@ -191,7 +364,6 @@ export class CategoryPage {
 
 
       let myheaders = new HttpHeaders({ });
-      this.navCtrl.push('CategoryPage');
       this.http.post("http://localhost:3000/addRecord", jsonData, {headers: myheaders, withCredentials: true , responseType:'text'})
         .subscribe((data) => {
           if (data == "SUCCESS") {
@@ -239,13 +411,22 @@ export class CategoryPage {
     setTimeout(() => {
       this.navCtrl.push(HomePage);
       this.navCtrl.push(CategoryPage);
-    }, 1000);
+    }, 100);
 
     setTimeout(() => {
       loading.dismiss();
     }, 1000);
   }
+  test=[];
+  ngOnInit(){
+    let myheader = new HttpHeaders();
+    let uri = "http://localhost:3000/addCategory?type=cost";
+    this.http.get(uri,{headers:myheader,withCredentials:true})
+      .subscribe((data:any[])=>{
+        this.test=data;
+      })
 
 
+  }
 
 }
