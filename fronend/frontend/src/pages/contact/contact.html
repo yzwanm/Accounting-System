@@ -2,17 +2,54 @@
   <ion-navbar>
     <ion-title>My Profile</ion-title>
   </ion-navbar>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 </ion-header>
 
 <ion-content>
+
+  <!--<ion-item>-->
+    <!--<p>{{imageURI}}</p>-->
+    <!--<button ion-button color="secondary" (click)="getImage()">Get Image</button>-->
+  <!--</ion-item>-->
+  <!--<ion-item>-->
+    <!--<h4>Image Preview</h4>-->
+    <!--<img src="{{imageFileName}}" *ngIf="imageFileName" alt="Ionic File" width="300" />-->
+  <!--</ion-item>-->
+  <!--<ion-item>-->
+    <!--<button ion-button (click)="uploadFile()">Upload</button>-->
+  <!--</ion-item>-->
+
+
   <ion-list>
+
     <ion-list-header>
     <ion-item>
-      <div align="center">
-        <img src="https://b-ssl.duitang.com/uploads/item/201708/26/20170826051009_dFuQc.jpeg"  width="150" height="150">
+      <div class="container">
+        <div class="avatar-upload">
+          <div class="avatar-preview" align="center">
+            <img src="{{headerImage}}">
+          </div>
+          <div class="avatar-edit" (change)="fileChange($event)">
+            <!--<ion-icon name = "create"></ion-icon>-->
+
+              <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" />
+                <label for="imageUpload"></label>
+          </div>
+
+        </div>
       </div>
+      <!--<div align="center" >-->
+        <!--<img src="{{headerImage}}"  width="150" height="150"  (click)="presentActionSheet()">-->
+
+
+      <!--</div>-->
     </ion-item>
     </ion-list-header>
+
+
+
+
     <ion-list>
 
       <!--username-->
@@ -25,8 +62,8 @@
       </ion-item>
       <!--password-->
       <ion-item>
-        <ion-label>Password: </ion-label>
-        <ion-input type="password" id="password" value="{{password}}" readonly></ion-input>
+        <ion-label>Change Password</ion-label>
+        <ion-input type="text" id="password" value="" readonly></ion-input>
         <button ion-button small color="dark" clear round (click)="password_edit()" item-end>
           <ion-icon name="ios-arrow-forward"> </ion-icon>
         </button>
@@ -76,6 +113,7 @@
     </ion-list>
     <button ion-button block color="danger" round (click)="logout()">Logout </button>
   </ion-list>
+
 </ion-content>
 
 

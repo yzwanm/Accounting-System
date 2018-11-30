@@ -1,35 +1,26 @@
 <!--
   Generated template for the CategoryPage page.
-
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
 <ion-header>
 
   <ion-navbar >
-    <ion-title>
-      <!--<span *ngIf="item.key && item.type==='expense'">Edit Expense</span>-->
-      <!--<span *ngIf="!item.key && item.type==='expense'">New Expense</span>-->
-      <!--<span *ngIf="item.key && item.type==='income'">Edit Income</span>-->
-      <!--<span *ngIf="!item.key && item.type==='income'">New Income</span>-->
+    <ion-title  *ngIf="!isNewCategory">
       Add a New Expense
-      <!--<ion-buttons side="left">-->
-        <!--<button (click)="Back()">-->
-          <!--<ion-icon name="arrow-back"></ion-icon>-->
-
-        <!--</button>-->
-      <!--</ion-buttons>-->
     </ion-title>
 
-
+    <ion-title  *ngIf="isNewCategory">
+          <ion-buttons>
+            <button ion-button (click)="back()">
+              <ion-icon  name="arrow-back"></ion-icon>
+            </button>   Add a New Category
+          </ion-buttons>
+    </ion-title>
   </ion-navbar>
+  <div *ngIf="!isNewCategory" style="background-color: white">
 
-</ion-header>
-
-
-<ion-content padding>
-  <ion-toolbar>
-    <ion-grid>
+    <ion-grid >
       <ion-row text-center>
         <ion-col>
           <button ion-button outline color="danger" class="add-button" >Expense
@@ -43,10 +34,39 @@
         </ion-col>
       </ion-row>
     </ion-grid>
-  </ion-toolbar>
-  <p text-center (click)="showCalendar()"><ion-icon name="ios-calendar-outline"></ion-icon> {{ item.entry_time | date: 'EEEE, dd MM yyyy' }}</p>
+    <p text-center (click)="showCalendar()"><ion-icon name="ios-calendar-outline"></ion-icon> {{ item.entry_time | date: 'EEEE, dd-MM-yyyy' }}</p>
 
-  <ion-grid>
+  </div>
+
+<div *ngIf="isNewCategory" >
+  <ion-col text-center no-padding no-margin *ngIf="isNewCategory"  >
+    <div class="col col-25 iconBox">
+      <ion-buttons (click)="click(this.newcategory.name)">
+        <div class="imgBox">
+          <ion-icon name={{this.newcategory.icon}}  class="iconImg"></ion-icon>
+        </div>
+        <a class="iconTip">{{this.newcategory.name}}</a>
+      </ion-buttons>
+    </div>
+    <ion-list *ngIf="isNewCategory">
+      <ion-item no-padding no-margin>
+        <ion-label><ion-icon name="ios-create-outline"></ion-icon></ion-label>
+        <ion-input type="text" placeholder="Enter category name" [(ngModel)]="newcategory.name" clearInput required (keyup.enter)="handleEnter()"></ion-input>
+      </ion-item>
+    </ion-list>
+  </ion-col>
+</div>
+
+
+</ion-header>
+
+
+
+
+<ion-content padding class="content has-header ionic-pseudo">
+
+
+  <ion-grid  *ngIf="!isNewCategory" >
     <ion-row >
       <ion-col  no-padding no-margin>
         <ion-item no-padding no-margin>
@@ -67,13 +87,13 @@
       <ion-col  no-padding no-margin>
         <ion-item no-padding no-margin>
           <ion-label><ion-icon name="ios-create-outline"></ion-icon></ion-label>
-          <ion-input [(ngModel)]="item.category" placeholder="category" clearInput (keyup.enter)="this.item.category" readonly></ion-input>
+          <ion-input [(ngModel)]="item.category" placeholder="choose one category" clearInput (keyup.enter)="this.item.category" readonly></ion-input>
         </ion-item>
       </ion-col>
     </ion-row>
   </ion-grid>
-  <!--<ion-grid>
 
+  <!--<ion-grid>
     <div class="row row-wrap" >
       <div class="col col-25 iconBox" *ngFor="let item of items; let i = index">
         <button (click)="onChoiceCategory(category)">
@@ -81,131 +101,125 @@
             <ion-icon [name]="item.icon"  class="iconImg"></ion-icon>
           </div>
           <a class="iconTip">{{item.tip}}</a>
-
         </button>
-
       </div>
     </div>
   </ion-grid>
     -->
-  <ion-grid no-margin  no-padding>
-    <ion-row no-margin no-padding >
-      <ion-col text-center no-padding no-margin >
+
+
+
+
+
+
+
+  <ion-grid *ngIf="!isNewCategory">
+    <ion-row wrap text-center>
+      <ion-col col-4 *ngFor="let spend of test; let i = index;">
         <div class="col col-25 iconBox">
-          <button (click)="click('food')" >
+          <ion-buttons (click)="click(this.spend.CATEGORY)">
             <div class="imgBox">
-              <ion-icon name="pizza"  class="iconImg"></ion-icon>
+              <ion-icon class="iconImg" name="{{spend.ICON}}"></ion-icon>
             </div>
-            <a class="iconTip">Food</a>
-          </button>
+            <a class="iconTip">{{spend.CATEGORY}}</a>
+          </ion-buttons>
         </div>
 
       </ion-col>
-      <ion-col text-center no-padding no-margin >
-        <div class="col col-25 iconBox">
-          <button (click)="click('drink')">
+
+      <div class="col col-25 iconBox">
+        <ion-buttons *ngIf="!isNewCategory">
+          <ion-buttons (click)="newCategory()">
             <div class="imgBox">
-              <ion-icon name="beer"  class="iconImg"></ion-icon>
+              <ion-icon name="ios-add-outline" class="iconImg"></ion-icon>
             </div>
-            <a class="iconTip">Drink</a>
-          </button>
-        </div>
+            <a class="iconTip">New Category</a>
+          </ion-buttons>
 
-
-      </ion-col>
-      <ion-col text-center no-padding no-margin >
-        <div class="col col-25 iconBox">
-          <button (click)="click('entertainment')">
-            <div class="imgBox">
-              <ion-icon name="game-controller-a"  class="iconImg"></ion-icon>
-            </div>
-            <a class="iconTip">Entertainment</a>
-          </button>
-        </div>
-
-
-      </ion-col>
+        </ion-buttons>
+      </div>
     </ion-row>
-    <ion-row no-margin no-padding>
-      <ion-col text-center no-padding no-margin >
+
+
+  </ion-grid>
+
+
+
+
+
+  <!--<ion-col text-center no-padding no-margin *ngIf="!isNewCategory" >-->
+    <!--<div class="col col-25 iconBox">-->
+      <!--<button (click)="click(this.newcategory.name)">-->
+        <!--<div class="imgBox">-->
+          <!--<ion-icon name={{this.icon}}  class="iconImg"></ion-icon>-->
+        <!--</div>-->
+        <!--<a class="iconTip">{{this.newcategory.name}}</a>-->
+      <!--</button>-->
+    <!--</div>-->
+
+
+  <!--</ion-col>-->
+
+
+
+
+
+
+  <ion-grid *ngIf="isNewCategory">
+
+    <ion-row wrap >
+      <ion-col col-4 *ngFor="let icon of icons; let i = index;" >
         <div class="col col-25 iconBox">
-          <button (click)="click('shopping')">
+          <ion-buttons (click)="onSelectedIcon(icon)">
             <div class="imgBox">
-              <ion-icon name="pricetag"  class="iconImg"></ion-icon>
+              <ion-icon  class="iconImg" name="{{icon}}" ></ion-icon>
             </div>
-            <a class="iconTip">Shopping</a>
-          </button>
+          </ion-buttons>
         </div>
-      </ion-col>
-
-      <ion-col text-center no-padding no-margin >
-        <div class="col col-25 iconBox">
-          <button (click)="click('traffic')">
-            <div class="imgBox">
-              <ion-icon name="bus"  class="iconImg"></ion-icon>
-            </div>
-            <a class="iconTip">Traffic</a>
-          </button>
-        </div>
-
-
-      </ion-col>
-      <ion-col text-center no-padding no-margin >
-        <div class="col col-25 iconBox">
-          <button (click)="click('home')">
-            <div class="imgBox">
-              <ion-icon name="home"  class="iconImg"></ion-icon>
-            </div>
-            <a class="iconTip">Home</a>
-          </button>
-        </div>
-
-
-      </ion-col>
-    </ion-row>
-    <ion-row no-margin no-padding>
-      <ion-col text-center no-padding no-margin >
-        <div class="col col-25 iconBox">
-          <button (click)="click('electronics')">
-            <div class="imgBox">
-              <ion-icon name="phone-portrait"  class="iconImg"></ion-icon>
-            </div>
-            <a class="iconTip">Electronics</a>
-          </button>
-        </div>
-
-
-      </ion-col>
-      <ion-col text-center no-padding no-margin >
-        <div class="col col-25 iconBox">
-          <button (click)="click('medical')">
-            <div class="imgBox">
-              <ion-icon name="medical"  class="iconImg"></ion-icon>
-            </div>
-            <a class="iconTip">Medical</a>
-          </button>
-        </div>
-
-
-      </ion-col>
-      <ion-col text-center no-padding no-margin  >
-        <div class="col col-25 iconBox">
-          <button (click)="click('other')">
-            <div class="imgBox">
-              <ion-icon name="globe"  class="iconImg"></ion-icon>
-            </div>
-            <a class="iconTip">Other</a>
-          </button>
-        </div>
-
-
       </ion-col>
     </ion-row>
 
   </ion-grid>
 
-  <button ion-button block color="default" outline (click)="Save('cost')">Save</button>
+
+
+      <!--<ion-grid *ngIf="isNewCategory">-->
+        <!--<ion-row wrap >-->
+          <!--<ion-col col-4 *ngFor="let spend of spendTypes; let i = index;" >-->
+            <!--<div class="col col-25 iconBox">-->
+              <!--<button (click)="onSelectedIcon(this.spend.icon)" >-->
+                <!--<div class="imgBox">-->
+                  <!--<ion-icon class="iconImg" name="{{spend.icon}}"></ion-icon>-->
+                <!--</div>-->
+              <!--</button>-->
+
+            <!--</div>-->
+          <!--</ion-col>-->
+        <!--</ion-row>-->
+      <!--</ion-grid>-->
+
+      <!--<ion-col text-center no-padding no-margin  >-->
+        <!--<div class="col col-25 iconBox">-->
+          <!--<button (click)="click(this.newcategory.name)">-->
+            <!--<div class="imgBox">-->
+              <!--<ion-icon name={{this.newcategory.icon}}  class="iconImg"></ion-icon>-->
+            <!--</div>-->
+            <!--<a class="iconTip">{{this.newcategory.name}}</a>-->
+          <!--</button>-->
+        <!--</div>-->
+
+
+      <!--</ion-col>-->
+
 
 
 
 </ion-content>
+<ion-footer >
+  <ion-toolbar>
+    <button   *ngIf="isNewCategory"ion-button block outline (click)="addCategory('cost')">Add Category</button>
+    <button *ngIf="!isNewCategory" ion-button block color="default" outline (click)="Save('cost')">Save</button>
+
+  </ion-toolbar>
+
+</ion-footer>

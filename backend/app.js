@@ -21,6 +21,8 @@ var viewProfileRouter = require('./routes/viewProfile');
 var homeRouter = require('./routes/home');
 var viewByDateRouter = require('./routes/viewByDate');
 var addRecordRouter = require('./routes/addRecord');
+var addCategoryRouter = require('./routes/addCategory');
+
 var getChartDataRouter = require('./routes/getChartData');
 var deleteProfileRouter = require('./routes/deleteProfile');
 var addPhotoRouter = require('./routes/addPhoto');
@@ -61,6 +63,7 @@ app.use('/viewProfile', viewProfileRouter);
 app.use('/home', homeRouter);
 app.use('/viewByDate', viewByDateRouter);
 app.use('/addRecord',addRecordRouter);
+app.use('/addCategory',addCategoryRouter);
 app.use('/chartData',getChartDataRouter);
 app.use('/deleteProfile',deleteProfileRouter);
 app.use('/addPhoto',addPhotoRouter);

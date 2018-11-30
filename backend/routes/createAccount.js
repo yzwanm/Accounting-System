@@ -11,7 +11,28 @@ var upload = multer({ storage: multer.memoryStorage(), limits: {fileSize: 10 * 1
 //profile photos will be stored here
 var image_path = "public/profileImages/";
 
-
+async function default_user_category(user_name){
+	var sql = "SELECT * FROM UserCategory where USER_NAME = ?";
+	return new Promise(function (resolve, reject) {
+		dbconnection.query(sql, [user_name], function (err,result) {
+			if (err) {
+				reject("ERR_DB_GET_USER_CATEGORY");
+			} else if (result.length == 0){
+				var sql = "INSERT INTO UserCategory(USER_NAME,U_CATEGORYS) VALUES (?,'3,4,5,6,7,8,9,10,11,12,13,14')";
+					dbconnection.query(sql, [user_name], function (err) {
+                        if (err) {
+                            reject("ERR_DB_INSERT_USER_CATEGORY");
+                        } else {
+                            resolve("SUCCESS");
+                        }
+                    })
+			}
+				else {
+					reject("ERR_USER_CATEGORY_EXISTS");
+				}
+		})
+    })
+}
 async function insert_user_info (first_name,last_name,dob,age,sex,income,user_name,hash,salt,callback) {
     let promises = [];
     if (dob === "") {
@@ -66,7 +87,7 @@ async function check_for_user (user_name,callback) {
 	    }
 	});
     });
-    
+
     promises[1] = new Promise(function (resolve,reject) {
 	var sql = "SELECT count(*) AS user_exists FROM user WHERE (USER_NAME = ?)";
 	dbconnection.query(sql, [user_name], function (err, result) {
@@ -183,11 +204,12 @@ router.post('/', upload.single('picture'), (req,res) => {
     } else if (first_name === "" || first_name == null) {
 	res.end("ERR_NO_FNAME");
     } else {
-	var salt = bcrypt.genSaltSync(10);
-	var hash = bcrypt.hashSync(password,salt);
-	add_user(first_name,last_name,dob,age,sex,income,user_name,hash,salt, req.file,function (result) {
-	    res.end(result);
-	});
+        default_user_category(user_name);
+        var salt = bcrypt.genSaltSync(10);
+        var hash = bcrypt.hashSync(password,salt);
+        add_user(first_name,last_name,dob,age,sex,income,user_name,hash,salt, req.file,function (result) {
+        	res.end(result);
+        });
     }
 });
 

@@ -1,35 +1,35 @@
 page-category {
-  .icon-category {
-    font-size: 2.2em !important;
-  }
-
-  .ion-col {
-    border: 0.5px solid white;
-  }
-
-  .button {
-    height: 5.6rem !important;
-  }
+  //.icon-category {
+  //  font-size: 2.2em !important;
+  //}
+  //
+  //.ion-col {
+  //  border: 0.5px solid white;
+  //}
+  //
+  //.button {
+  //  height: 5.6rem !important;
+  //}
 
   label {
     font-size: 1.4rem !important;
-    font-weight: 0 !important;
+    font-weight: lighter !important;
     text-transform: lowercase !important;
   }
 
-  .round-button-income {
-    border-radius: 64px !important;
-    border: 0.5px solid #32db64 !important;
-  }
-
-  .round-button-expense {
-    border-radius: 64px !important;
-    border: 0.5px solid #f53d3d !important;
-  }
-  h1, h2, h3, h4, h5 {
-    padding: 0;
-    margin: 0;
-  }
+  //.round-button-income {
+  //  border-radius: 64px !important;
+  //  border: 0.5px solid #32db64 !important;
+  //}
+  //
+  //.round-button-expense {
+  //  border-radius: 64px !important;
+  //  border: 0.5px solid #f53d3d !important;
+  //}
+  //h1, h2, h3, h4, h5 {
+  //  padding: 0;
+  //  margin: 0;
+  //}
 
   //.row {
   //  overflow-x: scroll;
@@ -45,17 +45,20 @@ page-category {
   //  line-height: 35px;
   //  margin: 15px 0;
   //}
-
+  //.button{color: black;
+  //}
   .iconBox{
-    text-align: center;
-    .imgBox{
+    text-align: center;}
+  .imgBox{
       margin-bottom: 15px;
-      .iconImg{
+    }
+  .iconImg{
         width: 50px;
         height: 50px;
-        -webkit-border-radius: 25px;
-        -moz-border-radius: 25px;
-        border-radius: 25px;
+
+        //-webkit-border-radius: 25px;
+       // -moz-border-radius: 25px;
+        border-radius: 100%;
         background: #98bce7;
         &::before{
           margin-top: 4px;
@@ -63,9 +66,9 @@ page-category {
           zoom: 2;
         }
       }
-    }
+
     a {
       color: #98bce7;
     }
-  }
+
 }
