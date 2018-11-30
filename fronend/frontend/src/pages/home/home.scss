@@ -1,20 +1,27 @@
 page-home {
-    th {
-        padding: 11px;
-        align-content: center;
-      }
+    
     td {
         padding: 11px;
-
+        
     }
 
-    /*
+   
     .button{
-        font-size: 15px;
+        font-size: 14.5px;
         font-weight: bold;
-        align-content:flex-end;
-    }
-    */
+        align-content:flex-start;
 
-    
+    }
+
+    .alignme{
+        text-align:bottom;
+    }
+
+    .table{
+        align-content: center;
+    }
+
+    .showdata{
+        padding: 16px;
+    }
 }
