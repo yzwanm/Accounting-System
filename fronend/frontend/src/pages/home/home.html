@@ -6,10 +6,36 @@
 </ion-header>
 
 <ion-content padding>
-    
+  
+  <!--
+  <table>
+    <tr>
+      <button onclick="calendar()" style="background-color: Transparent;outline:none;font-size:14px"><th>DATE</th></button>
+      <th>CATEGORY</th>
+      <th>EXPENSE</th>
+      <th>DETAILS</th>
+     
+    </tr>
+  </table>
+  displayFormat="DD MMM YYYY"
+  <ion-datetime [(ngModel)]="date1" required name="date1" displayFormat="none" pickerFormat="YYYY-MM-DD" [ngModelOptions]="{standalone:true}" (click)="pickDate()"></ion-datetime>
+  -->
+ <!--
+      <ion-col><ion-label style="font-weight:bold;align-content: center">DATE</ion-label></ion-col>
+      
+      <ion-col no-padding><button ion-button color="dark" clear (click)="pickdate">DATE</button></ion-col>
+      -->
+
+  <ion-grid>
+    <ion-row align-items-center>
+      <ion-col no-padding col-2><ion-label style="font-weight:bold">DATE</ion-label></ion-col>
+      <ion-col no-padding><ion-label style="font-weight:bold">CATEGORY</ion-label></ion-col>
+      <ion-col no-padding><ion-label style="font-weight:bold">EXPENSES</ion-label></ion-col>
+      <ion-col no-padding><ion-label style="font-weight:bold">DETAILS</ion-label></ion-col>
+    </ion-row>
+  </ion-grid>
   <p id="showData"></p>
   
-
   <!--
 <ion-toolbar no-border-top *ngIf="demo != 'Title'">
     <ion-segment [(ngModel)]="apps">
