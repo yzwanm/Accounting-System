@@ -2,17 +2,13 @@
 // -> install 'npm i ion2-calendar'
 
 import {Component, OnInit} from '@angular/core';
-import {LoadingController,Keyboard,NavParams,IonicPage,AlertController, Events, List, NavController, ToastController,App} from 'ionic-angular';
+import {AlertController, Events, List, NavController, ToastController,App} from 'ionic-angular';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 //import { Certificate } from 'crypto';
-import { CalendarComponentOptions } from 'ion2-calendar';
-import { ModalController } from 'ionic-angular';
-import { CalendarModal, CalendarModalOptions, DayConfig, CalendarResult } from "ion2-calendar";
-import * as moment from 'moment';
 
-import {DatePickerProvider} from 'ionic2-date-picker';
-import { AngularFireAuth } from 'angularfire2/auth';
-import {ItemPage} from "../item/item";
+import { ModalController } from 'ionic-angular';
+
+
 
 
 @Component({
@@ -168,11 +164,7 @@ getdata() {
 
 
 viewByDate(showData) {
-  /*
-        let type = "cost";  //may be 'income' 'cost' or 'all'
-        let category = "food";  //any category or 'all' for all categories within a type
-        let date = "2018-11-09";  //date to retrieve records or 'all' to retrieve all dates
-  */
+  
       let  myheaders = new HttpHeaders({});
       let formData=new FormData();
       
@@ -246,7 +238,14 @@ viewByDate(showData) {
                
               }
               }
+
             }
+            
+            /*else{
+              alert("No expenses");
+              break;
+              //this.navCtrl.push(HomePage);
+            }*/
             }
             var divContainer = document.getElementById("showData");
 
@@ -261,35 +260,9 @@ viewByDate(showData) {
 
 
     goback(){
-      this.navCtrl.push(HomePage);
+      this.getdata();
     }
 
 
 }
-
-/*
-
-//sample code for retrieving chart data from the backend
-getChartData() {
-    
-    let startDate = "2018-11-09";
-    this.http.get("http://localhost:3000/chartData/" + startDate, {withCredentials: true}).subscribe((data:any[])=>{
-      for (var k in data) {
-                alert(k + " - " + data[k]);
-      }
-        });
-}
-
-//sample code for retrieving records by type category and date.  
-viewByDate() {
-    let type = "cost";  //may be 'income' 'cost' or 'all'
-    let category = "food";  //any category or 'all' for all categories within a type
-    let date = "2018-11-09";  //date to retrieve records or 'all' to retrieve all dates
-    this.http.get("http://localhost:3000/viewByDate/" + type + "/" + category + "/" + date, {withCredentials: true}).subscribe((data:any[]) => {
-      for (var k in data) {
-          alert(k + "   " + data[k]['RECORD_ID'] + "   " + data[k]['CATEGORY'] + "   " + data[k]['MONEY']);
-      }              
-  });    
-}
-*/
 
