@@ -13,23 +13,27 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-toolbar no-border-top *ngIf="demo != 'Title'">
-    <ion-segment [(ngModel)]="apps">
-      <ion-segment-button value="week">
-        Week
-      </ion-segment-button>
-      <ion-segment-button value="month">
-        Month
-      </ion-segment-button>
-      <ion-segment-button value="year">
-        Year
-      </ion-segment-button>
-    </ion-segment>
-  </ion-toolbar>
+  <p text-center (click)="showCalendar()">
+    <ion-icon name="ios-calendar-outline"></ion-icon> {{ chartItem.datechoose1 | date: 'EEEE, yyyy-MM-dd' }}
+  </p>
+
+  <!--<ion-toolbar no-border-top *ngIf="demo != 'Title'">-->
+    <!--<ion-segment [(ngModel)]="apps">-->
+      <!--<ion-segment-button value="week">-->
+        <!--Week-->
+      <!--</ion-segment-button>-->
+      <!--<ion-segment-button value="month">-->
+        <!--Month-->
+      <!--</ion-segment-button>-->
+      <!--<ion-segment-button value="year">-->
+        <!--Year-->
+      <!--</ion-segment-button>-->
+    <!--</ion-segment>-->
+  <!--</ion-toolbar>-->
 
   <ion-item>
     <ion-label>Total</ion-label>
-    <ion-input [(ngModel)]="total" type="text" class=""></ion-input>
+    <ion-input id="total" type="text" value="{{total}}" readonly></ion-input>
   </ion-item>
   <ion-item>
     <ion-label>Average</ion-label>
@@ -45,14 +49,14 @@
     </ion-card-content>
   </ion-card>
 
-  <ion-card>
-    <ion-card-header>
-      Categoires
-    </ion-card-header>
-    <ion-card-content>
-      <canvas #doughnutCanvas></canvas>
-    </ion-card-content>
-  </ion-card>
+  <!--<ion-card>-->
+    <!--<ion-card-header>-->
+      <!--Categoires-->
+    <!--</ion-card-header>-->
+    <!--<ion-card-content>-->
+      <!--<canvas #doughnutCanvas></canvas>-->
+    <!--</ion-card-content>-->
+  <!--</ion-card>-->
 
 </ion-content>
 
