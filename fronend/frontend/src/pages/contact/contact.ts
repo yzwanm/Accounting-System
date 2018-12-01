@@ -11,7 +11,7 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 })
 export class ContactPage implements OnInit{
 
-  headerImage: string = './assets/imgs/logo.png';
+  headerImage: string; // = './assets/imgs/logo.png';
 
   constructor(public navCtrl: NavController,
               public editCtrl: AlertController,
@@ -375,12 +375,29 @@ export class ContactPage implements OnInit{
     this.http.get("http://localhost:3000/logout",{headers:myheader, withCredentials:true});
     var nav = this.app.getRootNav();
     nav.setRoot(LoginPage);
+    window.location.reload();
+  }
+  deleteProfile(){
+    let myheader = new HttpHeaders();
+    this.http.get("http://localhost:3000/deleteProfile", {withCredentials:true,responseType:'text'})
+      .subscribe((data) => {
+        if (data == "SUCCESS") {
+          this.presentToast("Account Deleted");
+          this.navCtrl.push(LoginPage);
+        } else if (data == "FAILED") {
+          this.presentToast("Wrong data!");
+        }
+      }, error => {
+        console.log(error);
+        this.presentToast("Error connecting to backend server");
+      });
   }
   ngOnInit(){
       let myheader = new HttpHeaders();
       this.http.get("http://localhost:3000/viewprofile",{headers: myheader, withCredentials:true}).subscribe(data=>{
           let jsond = data[0];
           this.username=jsond['USER_NAME'].toString();
+	  this.headerImage = 'http://localhost:3000/profileImages/' + this.username + ".jpeg";
           this.password=jsond['PASSWORD'].toString();
           this.firstname=jsond['FIRST_NAME'].toString();
           if (jsond['LAST_NAME']){

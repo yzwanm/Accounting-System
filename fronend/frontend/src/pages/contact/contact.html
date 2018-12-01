@@ -28,7 +28,7 @@
       <div class="container">
         <div class="avatar-upload">
           <div class="avatar-preview" align="center">
-            <img src="{{headerImage}}">
+            <img src="{{headerImage}}" onError="this.src='./assets/imgs/logo.png';"  alt="...">
           </div>
           <div class="avatar-edit" (change)="fileChange($event)">
             <!--<ion-icon name = "create"></ion-icon>-->
@@ -112,6 +112,7 @@
       </ion-item>
     </ion-list>
     <button ion-button block color="danger" round (click)="logout()">Logout </button>
+    <button ion-button block color="secondary" round (click)="deleteProfile()">Detele Account</button>
   </ion-list>
 
 </ion-content>
