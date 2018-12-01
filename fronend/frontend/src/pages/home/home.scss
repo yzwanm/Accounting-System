@@ -24,4 +24,45 @@ page-home {
     .showdata{
         padding: 16px;
     }
+    .picker-columns,
+    .picker-toolbar,
+    .picker-md .picker-wrapper,
+    .picker-md .picker-toolbar
+     {
+     //background: map-get($colors,primary-dark);
+     background: url(../assets/images/background2.png);
+     background-size: cover !important;
+     background-repeat: no-repeat;
+     background-position: center;
+     background-attachment: fixed;
+   }
+   .picker-md .picker-prefix,
+   .picker-md .picker-suffix,
+   .picker-md .picker-opt.picker-opt-selected {
+     color: #fff;
+     font-family: Montserrat-Medium;
+   }
+   .picker-md .picker-opt {
+       color: map-get($colors,grisclair);
+       font-family: Montserrat-Light;
+   }
+   
+   .picker-md .picker-button,
+   .picker-md .picker-button.activated {
+     color: #fff;
+     font-family: Montserrat-Regular;
+   }
+   .ion-card {
+    padding: 0 !important;
+    ion-card-header {
+      margin-top: 1px !important;
+      margin-bottom: 1px !important;
+    }
+}
+
+    .grid-container {
+    display: grid;
+    align-content: center;
+    
+  }
 }
