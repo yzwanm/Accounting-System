@@ -143,7 +143,7 @@ getdata() {
                         rowNums[recordIdArray[i]] = i + 1;
                       }
                   }); 
-                } //button 2 ends
+                }
               }
             }
            
@@ -238,14 +238,8 @@ viewByDate(showData) {
                
               }
               }
-
             }
             
-            /*else{
-              alert("No expenses");
-              break;
-              //this.navCtrl.push(HomePage);
-            }*/
             }
             var divContainer = document.getElementById("showData");
 
@@ -259,9 +253,7 @@ viewByDate(showData) {
     }
 
 
-    goback(){
-      this.getdata();
-    }
+    
 
 
 }
